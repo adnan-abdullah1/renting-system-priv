@@ -17,6 +17,8 @@ import {MatTableModule} from '@angular/material/table';
 import { AddRentComponent } from './modules/landlord/components/add-rent/add-rent.component';
 import { EditRentComponent } from './modules/landlord/components/edit-rent/edit-rent.component';
 import{MatIconModule} from '@angular/material/icon';
+import { TopNavBarComponent } from './modules/shared/components/top-nav-bar/top-nav-bar.component';
+import{MatToolbarModule} from '@angular/material/toolbar'; 
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import{MatIconModule} from '@angular/material/icon';
     RegisterComponent,
     ListRentDetailsComponent,
     AddRentComponent,
-    EditRentComponent
+    EditRentComponent,
+    TopNavBarComponent
 
 
   ],
@@ -41,7 +44,8 @@ import{MatIconModule} from '@angular/material/icon';
     MatRadioModule,
     MatGridListModule,
     MatTableModule,
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule
     
 
   ],

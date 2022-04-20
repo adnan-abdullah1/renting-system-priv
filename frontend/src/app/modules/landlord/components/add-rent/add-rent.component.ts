@@ -8,15 +8,12 @@ import { RentService } from '../../services/rent.service';
 })
 export class AddRentComponent implements OnInit {
  AddModel:any={}
- 
   constructor(private Rentservice : RentService) { }
 
   ngOnInit(): void {
   }
   Addroom(){
-    
-    this.AddModel['landLordId'] = localStorage.getItem('userId')
-  
+    this.AddModel['landLordId']=localStorage.getItem('userId')
     this.Rentservice.Addroom(this.AddModel).subscribe((res) => {
       console.log(res)
     }, error => {

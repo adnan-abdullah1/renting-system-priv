@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
       console.log(res)
       this.userDetails=res.user
       localStorage.setItem('userId',this.userDetails._id)
+     
      if(this.userDetails?.role == 'admin')
     {
     this.router.navigate(['/admin'])

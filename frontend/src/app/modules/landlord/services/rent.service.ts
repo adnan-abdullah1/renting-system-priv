@@ -16,7 +16,6 @@ export class RentService {
   }
   getRentDetails() {
     const userId: any = localStorage.getItem('userId')
-    
     console.log("user id is",userId)
     return this.http.get(`${this.serverURL}api/landlord/get-all-rent-details/${userId}`)
   }

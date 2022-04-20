@@ -38,8 +38,9 @@ export class ListRentDetailsComponent implements OnInit {
   getRentDetails() {
     //call to backend
     this.rentService.getRentDetails().subscribe((res: any) => {
-      
+      console.log(res)
       this.dataSource = res.data;
+      console.log(this.dataSource)
     })
 
   }
