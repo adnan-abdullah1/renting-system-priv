@@ -1,0 +1,51 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LoginComponent } from './modules/auth/components/login/login.component';
+import { RegisterComponent } from './modules/auth/components/register/register.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import {MatRadioModule} from '@angular/material/radio';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ListRentDetailsComponent } from './modules/landlord/components/list-rent-details/list-rent-details.component';
+import {MatTableModule} from '@angular/material/table';
+import { AddRentComponent } from './modules/landlord/components/add-rent/add-rent.component';
+import { EditRentComponent } from './modules/landlord/components/edit-rent/edit-rent.component';
+import{MatIconModule} from '@angular/material/icon';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    RegisterComponent,
+    ListRentDetailsComponent,
+    AddRentComponent,
+    EditRentComponent
+
+
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatInputModule,
+    MatButtonModule,
+    FormsModule,
+    MatRadioModule,
+    MatGridListModule,
+    MatTableModule,
+    MatIconModule
+    
+
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

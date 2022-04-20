@@ -1,0 +1,100 @@
+<mat-card id="container">
+    <h1 text align="center">Edit Room</h1>
+
+    <mat-form-field id="txt-area" appearance="outline">
+
+        <textarea placeholder="Description" [(ngModel)]="AddModel.Description" matInput></textarea>
+    </mat-form-field>
+
+    <div class="row">
+        <div class="col">
+            <mat-form-field class="input-field" appearance="outline">
+                <input matInput placeholder="Street" [(ngModel)]="AddModel.Street" name="Streetname">
+            </mat-form-field>
+        </div>
+
+
+
+
+
+
+        <div class="col">
+            <mat-form-field class="input-field" appearance="outline">
+                <input matInput placeholder="City" [(ngModel)]="AddModel.City" name="Cityname">
+            </mat-form-field>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <mat-form-field id="select-design" placeholder="District" appearance="outline">
+                <mat-label>District</mat-label>
+                <select matNativeControl name="district" [(ngModel)]="AddModel.district">
+        <option>Srinagar</option>
+        <option>Baramulla</option>
+        <option>Ganderbal</option>
+      </select>
+            </mat-form-field>
+        </div>
+
+
+
+
+        <div class="col">
+            <mat-form-field id="select-design" placeholder="State" appearance="outline">
+                <mat-label>State</mat-label>
+                <select matNativeControl [(ngModel)]="AddModel.state" name="state">
+        <option>Jammu and kashmir</option>
+        <option>Assam</option>
+        <option>Bihar</option>
+      </select>
+            </mat-form-field>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-lg-6">
+            <mat-form-field class="input-field" appearance="outline">
+                <input matInput placeholder="Landmark" [(ngModel)]="AddModel.Landmark" name="Landmark">
+            </mat-form-field>
+        </div>
+
+
+
+        <div class="col">
+            <mat-form-field class="input-field" appearance="outline">
+                <input matInput placeholder="Pincode" [(ngModel)]="AddModel.Pincode" name="pincode">
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <mat-form-field class="input-field" appearance="outline">
+                <input matInput placeholder="Legal documents" [(ngModel)]="AddModel.Legaldocuments" name="Legaldocuments">
+            </mat-form-field>
+        </div>
+
+        <div class="col">
+            <mat-form-field class="input-field" appearance="outline">
+                <input matInput placeholder="Image" [(ngModel)]="AddModel.Image" name="Image">
+            </mat-form-field>
+        </div>
+    </div>
+
+    <mat-form-field id="select-design" appearance="outline">
+        <mat-label>Room-Type</mat-label>
+        <select matNativeControl name="RoomType" [(ngModel)]="AddModel.RoomType">
+      <option>1BHK</option>
+      <option>2BHK</option>
+      <option>3BHK</option>
+    </select>
+    </mat-form-field>
+
+    <button id="btn-design" (click)="Editroom()" mat-raised-button color="primary">Edit</button>
+
+
+
+</mat-card>

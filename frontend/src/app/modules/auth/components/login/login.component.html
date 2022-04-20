@@ -1,0 +1,41 @@
+<mat-card id="container">
+    <h1 align="center" text-color="blue">LOGIN</h1>
+
+    <form class="form">
+        <mat-form-field id="email" appearance="outline">
+
+            <input matInput placeholder="Enter Email" name="email" [(ngModel)]="authModel.email" [ngModelOptions]="{standalone: true}">
+        </mat-form-field><br><br>
+
+
+
+        <mat-form-field id="pwd" appearance="outline">
+
+            <input matInput type="Password" placeholder="Enter Password" name="password" [(ngModel)]="authModel.password" [ngModelOptions]="{standalone: true}">
+        </mat-form-field><br><br>
+
+
+
+        <mat-radio-group id="radio-design" aria-label="Select an option" name="role" [(ngModel)]="authModel.role">
+
+            <mat-radio-button value="Admin">Admin</mat-radio-button>
+
+            <mat-radio-button value="Landlord">Landlord</mat-radio-button>
+
+            <mat-radio-button value="tenant">tenant</mat-radio-button><br><br>
+
+
+        </mat-radio-group>
+
+
+
+
+
+        <button mat-raised-button id="bttn" color="primary" (click)="login()">login</button>
+        <br><br>
+        <div id="footer">
+            <label>Not having an account?</label>
+            <span><a href="#">SignUp</a></span>
+        </div>
+    </form>
+</mat-card>
