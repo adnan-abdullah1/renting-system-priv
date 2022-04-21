@@ -1,21 +1,18 @@
 const mongoose = require('mongoose')
-const { Schema } = require('mongoose')
+const {Schema} = require('mongoose')
+
+
 const bookingSchema = new Schema({
-    landLordId: {
+
+    landLordId:{
         type: mongoose.Types.ObjectId,
     },
-    tenantId: {
+    tenantId:{
         type: mongoose.Types.ObjectId,
     },
-
-
+    roomId:{
+        type: mongoose.Types.ObjectId,
+    }
 })
 
-
-const User = mongoose.model('User', userSchema)
-
-module.exports = User;
-
-
-
-module.exports = mongoose.model('bookingSchema', bookingSchema)
+module.exports = mongoose.model('bookingDetails', bookingSchema)

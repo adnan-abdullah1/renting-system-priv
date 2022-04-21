@@ -1,15 +1,17 @@
+<app-top-nav-bar>
+</app-top-nav-bar>
 <mat-card id="container">
     <h1 text align="center">Edit Room</h1>
 
     <mat-form-field id="txt-area" appearance="outline">
 
-        <textarea placeholder="Description" [(ngModel)]="AddModel.Description" matInput></textarea>
+        <textarea placeholder="Description" [(ngModel)]=" editRoomDetails.description" matInput></textarea>
     </mat-form-field>
 
     <div class="row">
         <div class="col">
             <mat-form-field class="input-field" appearance="outline">
-                <input matInput placeholder="Street" [(ngModel)]="AddModel.Street" name="Streetname">
+                <input matInput placeholder="Street" [(ngModel)]="editRoomDetails.street" name="street">
             </mat-form-field>
         </div>
 
@@ -20,7 +22,7 @@
 
         <div class="col">
             <mat-form-field class="input-field" appearance="outline">
-                <input matInput placeholder="City" [(ngModel)]="AddModel.City" name="Cityname">
+                <input matInput placeholder="City" [(ngModel)]="editRoomDetails.city" name="city">
             </mat-form-field>
         </div>
     </div>
@@ -30,7 +32,7 @@
         <div class="col-lg-6">
             <mat-form-field id="select-design" placeholder="District" appearance="outline">
                 <mat-label>District</mat-label>
-                <select matNativeControl name="district" [(ngModel)]="AddModel.district">
+                <select matNativeControl name="district" [(ngModel)]="editRoomDetails.district">
         <option>Srinagar</option>
         <option>Baramulla</option>
         <option>Ganderbal</option>
@@ -44,7 +46,7 @@
         <div class="col">
             <mat-form-field id="select-design" placeholder="State" appearance="outline">
                 <mat-label>State</mat-label>
-                <select matNativeControl [(ngModel)]="AddModel.state" name="state">
+                <select matNativeControl [(ngModel)]="editRoomDetails.state" name="state">
         <option>Jammu and kashmir</option>
         <option>Assam</option>
         <option>Bihar</option>
@@ -58,7 +60,7 @@
     <div class="row">
         <div class="col-lg-6">
             <mat-form-field class="input-field" appearance="outline">
-                <input matInput placeholder="Landmark" [(ngModel)]="AddModel.Landmark" name="Landmark">
+                <input matInput placeholder="Landmark" [(ngModel)]="editRoomDetails.landmark" name="landmark">
             </mat-form-field>
         </div>
 
@@ -66,27 +68,27 @@
 
         <div class="col">
             <mat-form-field class="input-field" appearance="outline">
-                <input matInput placeholder="Pincode" [(ngModel)]="AddModel.Pincode" name="pincode">
+                <input matInput placeholder="Pincode" [(ngModel)]="editRoomDetails.pincode" name="pincode">
             </mat-form-field>
         </div>
     </div>
     <div class="row">
         <div class="col">
             <mat-form-field class="input-field" appearance="outline">
-                <input matInput placeholder="Legal documents" [(ngModel)]="AddModel.Legaldocuments" name="Legaldocuments">
+                <input matInput placeholder="Legal documents" [(ngModel)]="editRoomDetails.legalDocuments" name="legalDocuments">
             </mat-form-field>
         </div>
 
         <div class="col">
             <mat-form-field class="input-field" appearance="outline">
-                <input matInput placeholder="Image" [(ngModel)]="AddModel.Image" name="Image">
+                <input matInput placeholder="Image" [(ngModel)]="editRoomDetails.image" name="image">
             </mat-form-field>
         </div>
     </div>
 
     <mat-form-field id="select-design" appearance="outline">
         <mat-label>Room-Type</mat-label>
-        <select matNativeControl name="RoomType" [(ngModel)]="AddModel.RoomType">
+        <select matNativeControl name="RoomType" [(ngModel)]="editRoomDetails.roomTypes">
       <option>1BHK</option>
       <option>2BHK</option>
       <option>3BHK</option>

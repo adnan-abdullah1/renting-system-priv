@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RentService } from '../../services/rent.service';
-
+ import Swal from 'sweetalert2'
 @Component({
   selector: 'app-add-rent',
   templateUrl: './add-rent.component.html',
@@ -15,10 +15,11 @@ export class AddRentComponent implements OnInit {
   Addroom(){
     this.AddModel['landLordId']=localStorage.getItem('userId')
     this.Rentservice.Addroom(this.AddModel).subscribe((res) => {
+      Swal.fire('Rent details added successfully')
       console.log(res)
     }, error => {
       console.log(error)
-      alert(error)
+      // alert(error)
     }, () => {
 
     })
@@ -27,3 +28,6 @@ export class AddRentComponent implements OnInit {
 
   }
 }
+
+
+

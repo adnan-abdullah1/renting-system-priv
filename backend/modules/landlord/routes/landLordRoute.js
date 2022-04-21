@@ -6,4 +6,4 @@ router.post('/add-rent-details', addRentDetails)
 router.delete('/delete-rent-details/:id', deleteRentDetails)
 router.get('/get-all-rent-details/:id', getallRentDetails)
 router.put('/edit-rent-details/:id', editRentDetails)
-module.exports = router
+module.exports = router 

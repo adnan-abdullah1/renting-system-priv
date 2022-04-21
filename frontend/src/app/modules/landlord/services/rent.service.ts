@@ -7,16 +7,26 @@ import { environment } from 'src/environments/environment';
 })
 export class RentService {
   serverURL = environment.serverURL
+
+
   constructor(private http: HttpClient) { }
   Addroom(AddModel:any){  
     return this.http.post(`${this.serverURL}api/landlord/add-rent-details`,AddModel)
   }
-  Editroom(AddModel:any){
-    return this.http.post(`${this.serverURL}api/landlord/edit-rent-details`,AddModel)
+  Editroom(editRoomDetails:any){
+    const {_id:userId} = editRoomDetails
+    return this.http.put(`${this.serverURL}api/landlord/edit-rent-details/${userId}`,editRoomDetails)
   }
   getRentDetails() {
     const userId: any = localStorage.getItem('userId')
     console.log("user id is",userId)
     return this.http.get(`${this.serverURL}api/landlord/get-all-rent-details/${userId}`)
+  }
+    
+  
+  deleteRentDetails(){
+   const deletedRoom = JSON.parse(localStorage.getItem('deleteRoom') || '{}')
+   const {_id:userId} = deletedRoom;
+   return this.http.delete(`${this.serverURL}api/landlord/delete-rent-details/${userId}`)
   }
 }

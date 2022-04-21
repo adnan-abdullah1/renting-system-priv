@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
+import { ActivatedRoute, Router } from '@angular/router';
+// import { AuthService } from 'src/app/modules/auth/services/auth.service';
 import { RentService } from '../../services/rent.service';
 export interface listrent {
 
@@ -24,10 +24,14 @@ export interface listrent {
 
 
 export class ListRentDetailsComponent implements OnInit {
-  constructor(private route: Router, private rentService: RentService) { }
+  constructor(private route: Router, private rentService: RentService,private router:ActivatedRoute) { }
+
+
+  
 
   ngOnInit(): void {
     this.getRentDetails();
+   
   }
 
   add_room() {
@@ -39,9 +43,28 @@ export class ListRentDetailsComponent implements OnInit {
     //call to backend
     this.rentService.getRentDetails().subscribe((res: any) => {
       console.log(res)
-      this.dataSource = res.data;
-      console.log(this.dataSource)
+      this.dataSource = res;
+      
     })
-
   }
+  
+ 
+  editDetails(row:any){
+    localStorage.setItem('editRoom',JSON.stringify(row));
+    this.route.navigate(['/editrent']);
+  }
+
+  deleteDetails(row:any){
+    localStorage.setItem('deleteRoom',JSON.stringify(row))
+    this.rentService.deleteRentDetails().subscribe((res:any)=>{
+    
+        this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+        this.route.onSameUrlNavigation = 'reload';
+        this.route.navigate(['./'], { relativeTo: this.router });
+      
+    })
+  }
+
+
+
 }

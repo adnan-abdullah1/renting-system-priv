@@ -1,4 +1,6 @@
+import { JsonpClientBackend } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { RentService } from '../../services/rent.service';
 
 
@@ -9,23 +11,31 @@ import { RentService } from '../../services/rent.service';
 })
 export class EditRentComponent implements OnInit {
 
-   AddModel:any={}
-    constructor(private RentService: RentService) { }
   
-    ngOnInit(): void {}
+   editRoomDetails:any = JSON.parse( localStorage.getItem('editRoom') || '{}')
+    
+   
+   
+    constructor(private route:Router, private RentService: RentService) { }
+  
+   
+    ngOnInit(): void {  }
       Editroom(){
-        this.RentService.Editroom(this.AddModel).subscribe((res) => {
+        
+        this.RentService.Editroom(this.editRoomDetails).subscribe((res) => {
+          
           console.log(res)
+          this.route.navigate(['/rent-details-list']);
         }, error => {
           console.log(error)
-          alert(error)
+          // alert(error)
         }, () => {
     
         })
 
   
   
-      console.log(this.AddModel)
+      console.log(this.editRoomDetails)
   
       }
   }

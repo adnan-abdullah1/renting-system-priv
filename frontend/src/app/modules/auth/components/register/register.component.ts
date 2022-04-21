@@ -12,19 +12,17 @@ export class RegisterComponent implements OnInit {
   constructor(private authService: AuthService,private router: Router) { }
   ngOnInit(): void {}
     register(){
-      let user = this.authService.register(this.UserModel).subscribe((res) => {
-        if(user){
-         Swal.fire('SUCESS');
-    
+     this.authService.register(this.UserModel).subscribe((res) => {
+      
+         Swal.fire('Registered successfully');
         this.router.navigate(['/login'])
-        }
-        else
-        {
        Swal.fire('error');
        
-     }
-     console.log('heloo',res)
-      })
+     },error=>{
+          console.log(error)
+     },()=>{
+          
+     })
     
     }
 }

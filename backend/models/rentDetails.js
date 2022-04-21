@@ -8,7 +8,7 @@ const rentSchema = new Schema({
     // images: [{
     //     image: String,
     // }],
-    room_types: {
+    roomTypes: {
         type: String,
     },
     landLordId: {
@@ -24,7 +24,7 @@ const rentSchema = new Schema({
     pincode: String,
     district: String,
     city: String,
-    Street: String,
+    street: String,
     landmark: String,
     state: String
 })

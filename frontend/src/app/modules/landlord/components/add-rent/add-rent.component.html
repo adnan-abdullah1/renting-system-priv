@@ -1,3 +1,6 @@
+<app-top-nav-bar>
+</app-top-nav-bar>
+
 <mat-card id="container">
     <h1 id="hdesign">Add New Room</h1>
     <mat-form-field id="txt-area" appearance="outline">
@@ -6,7 +9,7 @@
       <div class="row">
         <div class="col">
             <mat-form-field id="input-design" appearance="outline">
-                <input matInput placeholder="Street Name" id="input-design"  name="Street" [(ngModel)]="AddModel.Street">
+                <input matInput placeholder="Street Name" id="input-design"  name="street" [(ngModel)]="AddModel.street">
                 </mat-form-field>
                 </div>
                 <div class="col">
@@ -41,7 +44,7 @@
 <div class="row">
     <div class="col">
         <mat-form-field id="input-design" appearance="outline">
-            <input matInput placeholder="landmark"  name="landmark">
+            <input matInput placeholder="landmark" [(ngModel)]="AddModel.landmark" name="landmark">
             </mat-form-field>
             </div>
             <div class="col">
@@ -65,9 +68,9 @@
                     </div>
 </div>
 
-  <mat-form-field id="select-design" name="roomtypes" appearance="outline">
+  <mat-form-field id="select-design" name="roomTypes" appearance="outline">
   <mat-label>Enter Room type:</mat-label>
-    <select name="room_types" [(ngModel)]="AddModel.room_types" matNativeControl>
+    <select name="room_types" [(ngModel)]="AddModel.roomTypes" matNativeControl>
       <option name="1bhk">1BHK</option>
       <option name="2bhk" >2BHK</option>
       <option name="3bhk">3BHK</option>

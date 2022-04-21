@@ -6,7 +6,7 @@ const cors = require('cors')
 const port = 3000;
 const authRoutes = require('./modules/auth/routes/authRoute')
 const landLordRoutes = require('./modules/landlord/routes/landLordRoute')
-const tenantRoutes = require('./modules/tenant/routes/tenantRoute')
+const tenanatRoutes = require('./modules/tenant/routes/tenantRoute')
 
 
 mongoose.connect('mongodb://localhost:27017/Renting-system')
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 
 app.use('/api/auth', authRoutes)
 app.use('/api/landlord', landLordRoutes)
-app.use('/api/tenant', tenantRoutes)
+app.use('/api/tenant',tenanatRoutes)
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`)
