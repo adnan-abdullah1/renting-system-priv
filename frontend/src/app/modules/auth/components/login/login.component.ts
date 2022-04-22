@@ -9,7 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   authModel: any = {};
-  userDetails:any={}
+  userDetails:any={};
+  
 
   constructor(private authService: AuthService,private router:Router) { }
   ngOnInit(): void {
@@ -24,13 +25,36 @@ export class LoginComponent implements OnInit {
     {
     this.router.navigate(['/admin'])
     }
-    if(this.userDetails?.role=='tenant')
+    if(this.userDetails?.role=='Tenant')
     {
-    this.router.navigate(['/tenant'])
+      const navigationExtra={
+        queryParams:{
+          option:'Tenant'
+          
+          
+        }
+      
+      }
+      
+      this.router.navigate(['/rent-details-list'],navigationExtra)
+      
     }
     if(this.userDetails?.role=='landlord')
     {
-    this.router.navigate(['/rent-details-list'])
+      {
+        const navigationExtra={
+          queryParams:{
+            option:'landlord'
+            
+          
+          
+          }
+        }
+        
+        
+        this.router.navigate(['/rent-details-list'],navigationExtra)
+        
+      }
     }
     })
   }

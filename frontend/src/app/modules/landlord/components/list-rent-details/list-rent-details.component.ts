@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 // import { AuthService } from 'src/app/modules/auth/services/auth.service';
@@ -13,7 +14,6 @@ export interface listrent {
   action: string;
 
 }
-
  const ELEMENT_DATA: listrent[] = [];
 
 @Component({
@@ -24,16 +24,22 @@ export interface listrent {
 
 
 export class ListRentDetailsComponent implements OnInit {
-  constructor(private route: Router, private rentService: RentService,private router:ActivatedRoute) { }
-
-
+  param:any=""
+  constructor(private route: Router, private rentService: RentService,private router:ActivatedRoute) {
+    this.router.queryParams.subscribe((params=>{
+      this.param = params['option'];
+    }))
+   }
   
-
   ngOnInit(): void {
-    this.getRentDetails();
+    this.getRentDetails();   
    
+       
   }
-
+  
+  info(){
+    this.route.navigate(['viewdetails'])
+  }
   add_room() {
     this.route.navigate(['/addrent']);
   }
