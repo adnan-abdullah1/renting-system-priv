@@ -19,6 +19,7 @@ import { EditRentComponent } from './modules/landlord/components/edit-rent/edit-
 import{MatIconModule} from '@angular/material/icon';
 import { TopNavBarComponent } from './modules/shared/components/top-nav-bar/top-nav-bar.component';
 import{MatToolbarModule} from '@angular/material/toolbar';
+import { ViewDetailsComponent } from './modules/tenant/components/view-details/view-details.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import{MatToolbarModule} from '@angular/material/toolbar';
     AddRentComponent,
     EditRentComponent,
     TopNavBarComponent,
+    ViewDetailsComponent,
 
 
   ],

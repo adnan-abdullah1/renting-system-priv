@@ -5,13 +5,15 @@ import { RegisterComponent } from './modules/auth/components/register/register.c
 import { AddRentComponent } from './modules/landlord/components/add-rent/add-rent.component';
 import { EditRentComponent } from './modules/landlord/components/edit-rent/edit-rent.component';
 import { ListRentDetailsComponent } from './modules/landlord/components/list-rent-details/list-rent-details.component';
+import { ViewDetailsComponent } from './modules/tenant/components/view-details/view-details.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
   {path:'rent-details-list',component:ListRentDetailsComponent},
   {path:'addrent',component:AddRentComponent},
-  {path:'editrent',component:EditRentComponent}
+  {path:'editrent',component:EditRentComponent},
+  {path:'viewdetails',component:ViewDetailsComponent},
 ];
 
 @NgModule({

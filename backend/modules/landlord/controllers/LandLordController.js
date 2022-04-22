@@ -1,3 +1,4 @@
+const bookings = require('../../../models/bookings')
 const rentDetailsModel = require('../../../models/rentDetails')
 
 exports.addRentDetails = async(req, res) => {
@@ -34,4 +35,11 @@ exports.getallRentDetails = (req, res) => {
 exports.editRentDetails = async(req, res) => {
     await rentDetailsModel.findByIdAndUpdate(req.params.id, req.body)
     res.status(200).json({ messagae: "Updated successfully" })
+}
+
+exports.showNotification = async(req, res) => {
+
+    const bookings = await bookings.find({ landLordId: req.params.id })
+    const rentDetails = await rentDetailsModel.find({ landLordId: req.params.id })
+
 }

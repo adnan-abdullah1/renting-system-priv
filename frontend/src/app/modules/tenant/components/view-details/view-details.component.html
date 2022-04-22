@@ -1,0 +1,97 @@
+<mat-card id="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <dl>
+                <dt>Description</dt>
+                <dd>{{ViewModel.description}}</dd>
+            </dl>
+        </div>
+        </div>
+     <div class="row">
+        <div class="col-lg-6">
+            <dl>
+                <dt>Street Name</dt>
+                <dd>{{ViewModel.Street}}</dd>
+                    
+                    
+                 </dl>
+            </div>
+            <div class="col-lg-6">
+                <dl>
+                    <dt>City Name</dt>
+                    <dd>{{ViewModel.city}}</dd>
+                    
+                    
+                  </dl>
+            </div>
+
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <dl>
+                        <dt>State</dt>
+                        <dd>{{ViewModel.state}}</dd>
+                        
+                        
+                      </dl>
+                </div>
+                <div class="col-lg-6">
+                    <dl>
+                        <dt>District</dt>
+                        <dd>{{ViewModel.district}}</dd>
+                        
+                        
+                      </dl>
+                </div>
+    
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <dl>
+                            <dt>LandMark</dt>
+                            <dd>{{ViewModel.landMark}}</dd>
+                            
+                            
+                          </dl>
+                    </div>
+                    <div class="col-lg-6">
+                        <dl>
+                            <dt>pincode</dt>
+                            <dd>{{ViewModel.pincode}}</dd>
+                            
+                            
+                          </dl>
+                    </div>
+        
+                    </div>
+                   
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <dl>
+                                    <dt>image</dt>
+                                    <dd>{{ViewModel.image}}</dd>
+                                    
+                                    
+                                  </dl>
+                            </div>
+                            <div class="col-lg-6">
+                                <dl>
+                                    <dt>Roomtypes</dt>
+                                    <dd>{{ViewModel.room_types}}</dd>
+                                    
+                                    
+                                  </dl>
+                            </div>
+                
+                            </div>
+<button mat-raised-button color="primary">Add to Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+</button>
+<button mat-raised-button color="primary">Apply <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+</button>
+<button mat-raised-button (click)="back()" color="primary">Back <i class="fa  fa-arrow-left" aria-hidden="true"></i>
+</button>
+    
+
+
+
+</mat-card>

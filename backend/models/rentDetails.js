@@ -26,7 +26,8 @@ const rentSchema = new Schema({
     city: String,
     street: String,
     landmark: String,
-    state: String
+    state: String,
+    bookingStatus: Boolean,
 })
 
 

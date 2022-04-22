@@ -12,13 +12,13 @@ export class RegisterComponent implements OnInit {
   constructor(private authService: AuthService,private router: Router) { }
   ngOnInit(): void {}
     register(){
-     this.authService.register(this.UserModel).subscribe((res) => {
-      
+      this.authService.register(this.UserModel).subscribe((res) => {
          Swal.fire('Registered successfully');
         this.router.navigate(['/login'])
-       Swal.fire('error');
+      
        
      },error=>{
+          Swal.fire('error');
           console.log(error)
      },()=>{
           
