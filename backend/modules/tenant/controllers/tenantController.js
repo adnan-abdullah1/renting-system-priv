@@ -18,7 +18,7 @@ exports.viewRoomDetails = (req,res)=>{
         if(err){
             res.send(err)
         }else{
-            res.status(200).json({doc})
+            res.status(200).json(doc)
         }
     })
 }

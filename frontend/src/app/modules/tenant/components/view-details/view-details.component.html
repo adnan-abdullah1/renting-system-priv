@@ -38,8 +38,15 @@
                 <mat-card-subtitle>5000</mat-card-subtitle>
             </mat-card-subtitle>
             <mat-card-actions align="end" >
-                <button mat-raised-button color="primary">Apply</button>
+                <div *ngIf ="isBooked; else notBooked">
                 <button mat-raised-button disabled="primary">Already Booked</button>
+
+                </div>
+                <ng-template #notBooked>
+                    <button mat-raised-button color="primary" (click)="book()"  >Apply</button>
+
+
+                </ng-template>
             </mat-card-actions>
            </mat-card>
         </div>
