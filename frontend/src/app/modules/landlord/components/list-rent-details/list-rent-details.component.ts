@@ -26,7 +26,8 @@ export interface listrent {
 export class ListRentDetailsComponent implements OnInit {
   param:any=""
   userDetails:any={}
-  constructor(private route: Router, private rentService: RentService,private router:ActivatedRoute) {
+  constructor(private route: Router, private rentService: RentService,
+    private router:ActivatedRoute) {
     this.router.queryParams.subscribe((params=>{
       this.param = params['option'];
     }))
@@ -68,15 +69,17 @@ export class ListRentDetailsComponent implements OnInit {
 
   deleteDetails(row:any){
     localStorage.setItem('deleteRoom',JSON.stringify(row))
-   
-
-    this.rentService.deleteRentDetails().subscribe((res:any)=>{
-    
-     
-   
+    this.rentService.deleteRentDetails().subscribe((res:any)=>{ 
+      const navigationExtra={
+        queryParams:{
+          option:'landlord'
+        } 
+      }
+      
+      // this.router.navigate(['/'],navigationExtra)
         this.route.routeReuseStrategy.shouldReuseRoute = () => false;
         this.route.onSameUrlNavigation = 'reload';
-        this.route.navigate(['./'], { relativeTo: this.router });
+        this.route.navigate(['rent-details-list'], navigationExtra);
       
     })
   }
