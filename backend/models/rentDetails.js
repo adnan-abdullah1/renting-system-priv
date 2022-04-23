@@ -21,13 +21,16 @@ const rentSchema = new Schema({
     // legaldocuments: [{
     //     document: String,
     // }],
+    booked: {
+            type: Boolean,
+            default: false
+    } ,
     pincode: String,
     district: String,
     city: String,
     street: String,
     landmark: String,
-    state: String,
-    bookingStatus: Boolean,
+    state: String
 })
 
 

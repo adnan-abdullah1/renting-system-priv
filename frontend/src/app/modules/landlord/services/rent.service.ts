@@ -18,9 +18,19 @@ export class RentService {
     return this.http.put(`${this.serverURL}api/landlord/edit-rent-details/${userId}`,editRoomDetails)
   }
   getRentDetails() {
-    const userId: any = localStorage.getItem('userId')
-    console.log("user id is",userId)
-    return this.http.get(`${this.serverURL}api/landlord/get-all-rent-details/${userId}`)
+    // const userId: any = localStorage.getItem('userId')
+    // console.log("user id is",userId)
+// return this.http.get(`${this.serverURL}api/landlord/get-all-rent-details/${userId}`)
+  const userDetails:any = JSON.parse(localStorage.getItem('userId')|| '{}') 
+
+  if(userDetails?.role=='landlord'){
+  return this.http.get(`${this.serverURL}api/landlord/get-all-rent-details/${userDetails._id}`)
+
+  }else{
+    return this.http.get(`${this.serverURL}api/tenant/get-tenant-rent-details`)
+
+      }
+
   }
     
   
@@ -29,4 +39,6 @@ export class RentService {
    const {_id:userId} = deletedRoom;
    return this.http.delete(`${this.serverURL}api/landlord/delete-rent-details/${userId}`)
   }
+
+  
 }

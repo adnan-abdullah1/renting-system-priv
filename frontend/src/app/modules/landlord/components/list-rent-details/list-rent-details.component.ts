@@ -1,4 +1,3 @@
-import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 // import { AuthService } from 'src/app/modules/auth/services/auth.service';
@@ -14,6 +13,7 @@ export interface listrent {
   action: string;
 
 }
+
  const ELEMENT_DATA: listrent[] = [];
 
 @Component({
@@ -25,21 +25,27 @@ export interface listrent {
 
 export class ListRentDetailsComponent implements OnInit {
   param:any=""
+  userDetails:any={}
   constructor(private route: Router, private rentService: RentService,private router:ActivatedRoute) {
     this.router.queryParams.subscribe((params=>{
       this.param = params['option'];
     }))
    }
+
+
   
+
   ngOnInit(): void {
-    this.getRentDetails();   
+    this.getRentDetails();
    
-       
   }
-  
-  info(){
-    this.route.navigate(['viewdetails'])
+
+
+  info(row:any){
+    localStorage.setItem('viewRoom',JSON.stringify(row))
+    this.route.navigate(['/viewdetails'])
   }
+
   add_room() {
     this.route.navigate(['/addrent']);
   }
@@ -54,7 +60,7 @@ export class ListRentDetailsComponent implements OnInit {
     })
   }
   
- 
+  
   editDetails(row:any){
     localStorage.setItem('editRoom',JSON.stringify(row));
     this.route.navigate(['/editrent']);
@@ -62,8 +68,12 @@ export class ListRentDetailsComponent implements OnInit {
 
   deleteDetails(row:any){
     localStorage.setItem('deleteRoom',JSON.stringify(row))
+   
+
     this.rentService.deleteRentDetails().subscribe((res:any)=>{
     
+     
+   
         this.route.routeReuseStrategy.shouldReuseRoute = () => false;
         this.route.onSameUrlNavigation = 'reload';
         this.route.navigate(['./'], { relativeTo: this.router });

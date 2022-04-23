@@ -1,97 +1,61 @@
-<mat-card id="container">
+<app-top-nav-bar>
+</app-top-nav-bar>
+
+<div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12">
-            <dl>
-                <dt>Description</dt>
-                <dd>{{ViewModel.description}}</dd>
-            </dl>
+        <div class="col-xl-8 col-md-6 col-sm-12 mt-5">
+                <mat-card class=" mat-elevation-z8">
+                    <mat-card-title>
+                        image
+                    </mat-card-title>
+                </mat-card>
         </div>
+        <div class="col-xl-4 col-md-6 col-sm-12 mt-5">
+                <mat-card class=" mat-elevation-z8">
+                    
+            <mat-card-title>
+                Rent Details
+            </mat-card-title>
+            <mat-divider></mat-divider>
+            <mat-card-subtitle class="mt-3 d-flex justify-content-between">
+                <mat-card-subtitle>State</mat-card-subtitle>
+                <mat-card-subtitle>{{roomDetails.state}}</mat-card-subtitle>
+            </mat-card-subtitle>
+            <mat-card-subtitle class="d-flex justify-content-between" >
+                <mat-card-subtitle>District</mat-card-subtitle>
+                <mat-card-subtitle>{{roomDetails.district}}</mat-card-subtitle>
+            </mat-card-subtitle>
+            <mat-card-subtitle  class="d-flex justify-content-between">
+                <mat-card-subtitle>City</mat-card-subtitle>
+                <mat-card-subtitle>{{roomDetails.city}}</mat-card-subtitle>
+            </mat-card-subtitle>
+            <mat-card-subtitle class="d-flex justify-content-between" >
+                <mat-card-subtitle>Landmark</mat-card-subtitle>
+                <mat-card-subtitle>{{roomDetails.landmark}}</mat-card-subtitle>
+            </mat-card-subtitle>
+            <mat-card-subtitle  class="d-flex justify-content-between">
+                <mat-card-subtitle>Price</mat-card-subtitle>
+                <mat-card-subtitle>5000</mat-card-subtitle>
+            </mat-card-subtitle>
+            <mat-card-actions align="end" >
+                <button mat-raised-button color="primary">Apply</button>
+                <button mat-raised-button disabled="primary">Already Booked</button>
+            </mat-card-actions>
+           </mat-card>
         </div>
-     <div class="row">
-        <div class="col-lg-6">
-            <dl>
-                <dt>Street Name</dt>
-                <dd>{{ViewModel.Street}}</dd>
-                    
-                    
-                 </dl>
-            </div>
-            <div class="col-lg-6">
-                <dl>
-                    <dt>City Name</dt>
-                    <dd>{{ViewModel.city}}</dd>
-                    
-                    
-                  </dl>
-            </div>
-
-            </div>
-            <div class="row">
-                <div class="col-lg-6">
-                    <dl>
-                        <dt>State</dt>
-                        <dd>{{ViewModel.state}}</dd>
-                        
-                        
-                      </dl>
-                </div>
-                <div class="col-lg-6">
-                    <dl>
-                        <dt>District</dt>
-                        <dd>{{ViewModel.district}}</dd>
-                        
-                        
-                      </dl>
-                </div>
-    
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <dl>
-                            <dt>LandMark</dt>
-                            <dd>{{ViewModel.landMark}}</dd>
-                            
-                            
-                          </dl>
-                    </div>
-                    <div class="col-lg-6">
-                        <dl>
-                            <dt>pincode</dt>
-                            <dd>{{ViewModel.pincode}}</dd>
-                            
-                            
-                          </dl>
-                    </div>
-        
-                    </div>
-                   
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <dl>
-                                    <dt>image</dt>
-                                    <dd>{{ViewModel.image}}</dd>
-                                    
-                                    
-                                  </dl>
-                            </div>
-                            <div class="col-lg-6">
-                                <dl>
-                                    <dt>Roomtypes</dt>
-                                    <dd>{{ViewModel.room_types}}</dd>
-                                    
-                                    
-                                  </dl>
-                            </div>
-                
-                            </div>
-<button mat-raised-button color="primary">Add to Cart <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-</button>
-<button mat-raised-button color="primary">Apply <i class="fa fa-thumbs-up" aria-hidden="true"></i>
-</button>
-<button mat-raised-button (click)="back()" color="primary">Back <i class="fa  fa-arrow-left" aria-hidden="true"></i>
-</button>
-    
-
-
-
-</mat-card>
+        <div class="col-12 mt-5">
+            <mat-card  class="mat-elevation-z8">
+                <mat-card-title>
+                    Description
+                </mat-card-title>
+                    <mat-divider></mat-divider>
+                    <mat-card-content class="pt-3">
+                        <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto odit consequatur facilis. Quasi beatae recusandae ipsam consequuntur pariatur atque fuga! Incidunt sapiente, delectus doloremque, perferendis veniam dolore quia necessitatibus repellendus sint architecto illo nobis aspernatur repudiandae non et tempora enim laudantium aut autem inventore quas maiores voluptas sed libero. Ex assumenda, ratione quae cupiditate in deleniti eligendi explicabo nobis hic consectetur aliquid laboriosam facilis, distinctio libero, error consequuntur? Ratione ad, inventore vel, aliquid accusantium ut eum magni pariatur rem at aspernatur! A incidunt molestias quisquam ea inventore? Nam itaque aliquid iste aliquam explicabo maiores harum atque, quos eum, rerum suscipit.</p> -->
+                        <p>{{roomDetails.description}}</p>
+                    </mat-card-content>
+               
+            </mat-card>
+           
+        </div>
+    </div>
+</div>

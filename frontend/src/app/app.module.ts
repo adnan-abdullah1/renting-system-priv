@@ -20,6 +20,7 @@ import{MatIconModule} from '@angular/material/icon';
 import { TopNavBarComponent } from './modules/shared/components/top-nav-bar/top-nav-bar.component';
 import{MatToolbarModule} from '@angular/material/toolbar';
 import { ViewDetailsComponent } from './modules/tenant/components/view-details/view-details.component';
+import {MatDividerModule} from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -48,6 +49,7 @@ import { ViewDetailsComponent } from './modules/tenant/components/view-details/v
     MatTableModule,
     MatIconModule,
     MatToolbarModule,
+    MatDividerModule
     
 
     

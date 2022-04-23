@@ -1,7 +1,6 @@
-<app-top-nav-bar>
-</app-top-nav-bar>
-<mat-card id="container">
-    <h1 align="center" text-color="blue">LOGIN</h1>
+
+<mat-card id="container" class=" mat-elevation-z8">
+    <h1 align="center" text-color="blue">LOGIN</h1> 
 
     <form class="form">
         <mat-form-field id="email" appearance="outline">
@@ -17,27 +16,11 @@
         </mat-form-field><br><br>
 
 
-        <!-- 
-        <mat-radio-group id="radio-design" aria-label="Select an option" name="role" [(ngModel)]="authModel.role">
-
-            <mat-radio-button value="Admin">Admin</mat-radio-button>
-
-            <mat-radio-button value="Landlord">Landlord</mat-radio-button>
-
-            <mat-radio-button value="tenant">tenant</mat-radio-button><br><br>
-
-
-        </mat-radio-group> -->
-
-
-
-
-
         <button mat-raised-button id="bttn" color="primary" (click)="login()">login</button>
         <br><br>
         <div id="footer">
             <label>Not having an account?</label>
-            <span><a href="#">SignUp</a></span>
+            <span routerLink="/register"> SignUp</span>
         </div>
     </form>
 </mat-card>

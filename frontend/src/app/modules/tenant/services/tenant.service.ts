@@ -9,7 +9,11 @@ import { environment } from 'src/environments/environment';
 export class TenantService {
   serverURL = environment.serverURL
   constructor(private http: HttpClient) { }
-  getViewDetails(ViewModel:any){
-    return this.http.get(`${this.serverURL}string`,ViewModel)
+  getViewDetails(){
+
+    const roomDetails = JSON.parse(localStorage.getItem('viewRoom') || '{}')
+    const {_id:roomId} = roomDetails;
+    // return this.http.put(${this.serverURL}api/landlord/edit-rent-details/${userId},editRoomDetails)
+    return this.http.get(`${this.serverURL}api/tenant/view-room-details/${roomId}`)
   }
 }

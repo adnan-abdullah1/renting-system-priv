@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TenantService } from '../../services/tenant.service';
@@ -8,22 +9,25 @@ import { TenantService } from '../../services/tenant.service';
   styleUrls: ['./view-details.component.scss']
 })
 export class ViewDetailsComponent implements OnInit {
-  ViewModel:any={}
+   
+   roomDetails:any={}
   constructor(private tenantservice:TenantService,private route:Router) { }
 
   ngOnInit(): void { 
+    
     this.getViewDetails();
   
   }
-  back(){
-    this.route.navigate(['/rent-details-list'])
-    }
+  // back(){
+  //   this.route.navigate(['/rent-details-list'])
+  //   }
     
   getViewDetails(){
-    this.tenantservice.getViewDetails(this.ViewModel).subscribe((res) => {
+        this.tenantservice.getViewDetails().subscribe((res:any) => {
       console.log(res)
+      this.roomDetails = res.doc
       
-    }, error => {
+    },error=> {
       console.log(error)
      
     }, () => {
@@ -36,7 +40,3 @@ export class ViewDetailsComponent implements OnInit {
 
   }
 }
-
-
-
-

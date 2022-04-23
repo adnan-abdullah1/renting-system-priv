@@ -1,4 +1,4 @@
-<mat-card id="container">
+<mat-card id="container" class="mat-elevation-z8">
     <h1>REGISTER</h1>
 
     <div class="row">
@@ -46,7 +46,7 @@
         </div>
 
     </div>
-
+ 
 
     <mat-radio-group id="radio-design" name="role" [(ngModel)]="UserModel.role">
         <mat-radio-button value="landlord">Landlord</mat-radio-button>&nbsp;&nbsp;
@@ -59,8 +59,8 @@
     <button id="reg-btn" class=".btn-lg" mat-raised-button color="primary" (click)="register()">Register</button>
 
     <div id="footer">
-        <!-- <label>Already have an account?</label> -->
-        <span>Not have an Account?<a href="#">Login</a></span>
+        <label>Already have an account?</label>
+        <span routerLink="/login">Login</span>
     </div>
 
 

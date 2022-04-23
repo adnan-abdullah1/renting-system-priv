@@ -2,7 +2,8 @@
     width: 45%;
     height: 75%;
     margin: 50px auto;
-    border: double;
+    // border: 2px solid gray;
+    // box-shadow: 2px 2px rgba(0,0,0,0.4);
 }
 
 h1 {
@@ -28,4 +29,9 @@ mat-grid-tile {
 
 #radio-design {
     margin-left: 200px;
+}
+
+span{
+    color: blueviolet;
+    cursor: pointer;
 }

@@ -8,18 +8,22 @@ import { RentService } from '../../services/rent.service';
 })
 export class AddRentComponent implements OnInit {
  AddModel:any={}
+ user:any={}
   constructor(private Rentservice : RentService) { }
 
   ngOnInit(): void {
   }
   Addroom(){
-    this.AddModel['landLordId']=localStorage.getItem('userId')
+    
+    this.user = JSON.parse( localStorage.getItem('userId')||'{}') 
+    this.AddModel['landLordId']=  this.user._id 
+  
     this.Rentservice.Addroom(this.AddModel).subscribe((res) => {
       Swal.fire('Rent details added successfully')
       console.log(res)
     }, error => {
       console.log(error)
-      // alert(error)
+    
     }, () => {
 
     })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -9,8 +10,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   authModel: any = {};
-  userDetails:any={};
-  
+  userDetails:any={}
 
   constructor(private authService: AuthService,private router:Router) { }
   ngOnInit(): void {
@@ -19,8 +19,8 @@ export class LoginComponent implements OnInit {
       this.authService.login(this.authModel).subscribe((res:any) => {
       console.log(res)
       this.userDetails=res.user
-      localStorage.setItem('userId',this.userDetails._id)
-     
+      localStorage.setItem('userId', JSON.stringify(this.userDetails))
+      
      if(this.userDetails?.role == 'admin')
     {
     this.router.navigate(['/admin'])
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
           option:'Tenant'
           
           
-        }
+        } 
       
       }
       
@@ -45,8 +45,6 @@ export class LoginComponent implements OnInit {
         const navigationExtra={
           queryParams:{
             option:'landlord'
-            
-          
           
           }
         }
@@ -56,32 +54,16 @@ export class LoginComponent implements OnInit {
         
       }
     }
+    },error=>{
+      Swal.fire(error.error.message)
+    },()=>{
+      
     })
   }
 }
-  // constructor(private authService: AuthService,private) { }
-
-  // ngOnInit(): void {
-  // }
-  // login() {
-  //   this.authService.login(this.authModel).subscribe((res) => {
-  //     console.log(res)
-  //   }, error => {
-  //     console.log(error.error.message)
-  //     alert(error)
-  //   }, () => {
-
-  //   })
+ 
     
 
-  //    // console.log("this.authModel", this.authModel);
-  //     //  console.log(this.role);
-  //     if (this.authModel.email == "admin@gmail.com" && this.authModel.password == '12345' && this.authModel.role=="Admin") {
-  //       alert("success")
-  //     } else {
-  //       alert("invalid")
-  //     }
-  //   }
-  // }
+  
   
 
