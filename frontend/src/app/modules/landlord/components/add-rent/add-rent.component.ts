@@ -33,6 +33,8 @@ export class AddRentComponent implements OnInit {
 
     })
     console.log(this.AddModel)
+
+    
     const navigationExtra={
       queryParams:{
         option:'landlord'

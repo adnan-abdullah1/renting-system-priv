@@ -9,13 +9,16 @@ import { SharedserviceService } from '../../services/sharedservice.service';
 export class TopNavBarComponent implements OnInit {
 
   constructor(private  SharedServiceService: SharedserviceService) { }
-
+  userDetails:any = JSON.parse(localStorage.getItem('userId')|| '{}')
+  role=this.userDetails.role
   ngOnInit(): void {
+    this.notification()
   }
+   
   notification(){
     console.log("...........................................")
     this. SharedServiceService.notification().subscribe((res) => {
-     
+      
       console.log(res)
     }, error => {
       console.log(error)

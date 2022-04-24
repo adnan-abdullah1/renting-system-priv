@@ -10,7 +10,7 @@
     
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <!-- <mat-icon>share</mat-icon> -->
-      <i class="fa fa-bell" aria-hidden="true" (click)="notification()"></i>
+      <i class="fa fa-bell" aria-hidden="true" *ngIf="role=='landlord'" (click)="notification()"></i>
     </button>
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <!-- <mat-icon>share</mat-icon> -->
