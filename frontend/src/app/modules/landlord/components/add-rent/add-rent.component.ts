@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RentService } from '../../services/rent.service';
+
  import Swal from 'sweetalert2'
 
 import { ActivatedRoute, Router } from '@angular/router';
@@ -18,6 +19,15 @@ export class AddRentComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  
+  navigationExtra={
+    queryParams:{
+      option:'landlord'
+    } 
+  }
+  back(){
+    this.route.navigate(['/rent-details-list'], this.navigationExtra)
+  }
   Addroom(){
     
     this.user = JSON.parse( localStorage.getItem('userId')||'{}') 
@@ -35,16 +45,11 @@ export class AddRentComponent implements OnInit {
     console.log(this.AddModel)
 
     
-    const navigationExtra={
-      queryParams:{
-        option:'landlord'
-      } 
-    }
     
     // this.router.navigate(['/'],navigationExtra)
       this.route.routeReuseStrategy.shouldReuseRoute = () => false;
       this.route.onSameUrlNavigation = 'reload';
-      this.route.navigate(['rent-details-list'], navigationExtra);
+      this.route.navigate(['rent-details-list'], this.navigationExtra);
     
 
   }
