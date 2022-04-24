@@ -1,4 +1,16 @@
+const { async } = require('jshint/src/prod-params')
 const rentDetailsModel = require('../../../models/rentDetails')
+const bookings = require('../../../models/bookings')
+exports.notifiLandlord = async(req, res) => {
+    const query = { landLordChecked: false }
+    bookings.find(query, (err, doc) => {
+        if (err) {
+            res.send(err)
+        } else {
+            res.status(200).json(doc)
+        }
+    })
+}
 
 exports.addRentDetails = async(req, res) => {
     const addRoomDetails = new rentDetailsModel(req.body)
