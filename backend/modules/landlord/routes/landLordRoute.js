@@ -11,7 +11,7 @@ const {
 
 
 } = require('../controllers/LandLordController')
-router.get('/send-notification', notifiLandlord)
+router.get('/send-notification/:id', notifiLandlord)
 router.post('/add-rent-details', addRentDetails)
 router.delete('/delete-rent-details/:id', deleteRentDetails)
 router.get('/get-all-rent-details/:id', getallRentDetails)
