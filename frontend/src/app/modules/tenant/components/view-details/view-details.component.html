@@ -8,6 +8,7 @@
                     <mat-card-title>
                         image
                     </mat-card-title>
+                    <!-- <img mat-card-image src="../../../../../assets/rename.jpg" alt="Photo of a Shiba Inu"> -->
                 </mat-card>
         </div>
         <div class="col-xl-4 col-md-6 col-sm-12 mt-5">
@@ -40,10 +41,11 @@
             <mat-card-actions align="end" >
                 <div *ngIf ="isBooked; else notBooked">
                 <button mat-raised-button disabled="primary">Already Booked</button>
+                <button mat-raised-button color="primary" (click)="checkOut()">Check out</button>
 
                 </div>
                 <ng-template #notBooked>
-                    <button mat-raised-button color="primary" (click)="book()"  >Apply</button>
+                    <button mat-raised-button color="primary" (click)="book()">Book</button>
 
 
                 </ng-template>

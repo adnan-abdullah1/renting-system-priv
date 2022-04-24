@@ -24,7 +24,12 @@ const userSchema = new Schema({
     role: {
         type: String,
         default: "tenant"
-    }
+    },
+    notifications:{
+        type:String,
+    },
+    count:Number
+
 
 
 })

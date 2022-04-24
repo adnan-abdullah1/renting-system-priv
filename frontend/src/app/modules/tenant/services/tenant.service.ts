@@ -28,4 +28,10 @@ export class TenantService {
 
     return this.http.post(`${this.serverURL}api/tenant/post-tenant-booking-details/${roomId}`,bookedRoomDetails)
   }
+  checkOut(){
+    const checkOutRoom= JSON.parse(localStorage.getItem('viewRoom') || '{}')
+    const {_id:roomId}= checkOutRoom;
+    return this.http.get(`${this.serverURL}api/tenant/checkOut-tenant/${roomId}`)
+
+  }
 }

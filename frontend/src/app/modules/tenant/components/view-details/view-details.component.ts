@@ -12,6 +12,7 @@ export class ViewDetailsComponent implements OnInit {
    
    roomDetails:any={}
    isBooked:boolean=false;
+   userDetails:any={}
   constructor(private tenantservice:TenantService,private route:Router) { }
 
   ngOnInit(): void { 
@@ -46,16 +47,81 @@ export class ViewDetailsComponent implements OnInit {
 book(){
   this.tenantservice.book().subscribe((res:any)=>{
       console.log(res)
+
+      this.userDetails= JSON.parse(localStorage.getItem('userId') || '{}')
+
+      if(this.userDetails?.role=='Tenant')
+      {
+        const navigationExtra={
+          queryParams:{
+            option:'Tenant'
+            
+            
+          } 
+        
+        }
+        
+        this.route.navigate(['/rent-details-list'],navigationExtra)
+        
+      }
+      if(this.userDetails?.role=='landlord')
+      {
+        {
+          const navigationExtra={
+            queryParams:{
+              option:'landlord'
+            
+            }
+          }
+          
+          
+          this.route.navigate(['/rent-details-list'],navigationExtra)
+          
+        }
+      }
+  
+
+
+
+  })
+}
+
+checkOut(){
+  this.tenantservice.checkOut().subscribe((res:any)=>{
+    console.log(res)
+ 
+    this.userDetails= JSON.parse(localStorage.getItem('userId') || '{}')
+
+    if(this.userDetails?.role=='Tenant')
+    {
       const navigationExtra={
         queryParams:{
           option:'Tenant'
+          
+          
         } 
+      
       }
       
-      // this.router.navigate(['/'],navigationExtra)
-        this.route.routeReuseStrategy.shouldReuseRoute = () => false;
-        this.route.onSameUrlNavigation = 'reload';
-        this.route.navigate(['rent-details-list'], navigationExtra);
+      this.route.navigate(['/rent-details-list'],navigationExtra)
+      
+    }
+    if(this.userDetails?.role=='landlord')
+    {
+      {
+        const navigationExtra={
+          queryParams:{
+            option:'landlord'
+          
+          }
+        }
+        
+        
+        this.route.navigate(['/rent-details-list'],navigationExtra)
+        
+      }
+    }
+
   })
 }
 
