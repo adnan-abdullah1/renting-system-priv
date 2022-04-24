@@ -24,7 +24,7 @@ const bookingSchema = new Schema({
     landLordChecked: {
         type: Boolean,
         default: false
-    }
+    },
 
 
 })

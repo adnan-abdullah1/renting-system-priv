@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { SharedserviceService } from '../../services/sharedservice.service';
 
 
 @Component({
@@ -9,9 +9,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavBarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private  SharedServiceService: SharedserviceService) { }
 
   ngOnInit(): void {
   }
-
+  notification(){
+   
+  }
 }
