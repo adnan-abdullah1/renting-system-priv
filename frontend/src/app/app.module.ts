@@ -22,6 +22,7 @@ import{MatToolbarModule} from '@angular/material/toolbar';
 import { ViewDetailsComponent } from './modules/tenant/components/view-details/view-details.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatBadgeModule} from '@angular/material/badge';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatIconModule,
     MatToolbarModule,
     MatDividerModule,
-    MatBadgeModule
+    MatBadgeModule,
+    NgbModule
     
 
     

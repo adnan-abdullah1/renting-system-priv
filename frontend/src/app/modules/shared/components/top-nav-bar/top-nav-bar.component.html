@@ -11,13 +11,21 @@
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <!-- <mat-icon>share</mat-icon> -->
      
-        <!-- <div class="dropdown">
-        <i class="fa fa-bell dropdown-toggle" id="dropdownMenuIcon" aria-expanded="false" data-toggle="dropdown"  matBadge={{notificationCount}} matBadgeSize="small" aria-hidden="true" *ngIf="role=='landlord'" (click)="notification()"></i>
-            <div class="drapdown-menu"aria-labelledby="dropdownMenuIcon">
-                <a class="drapdown-item" href="#">Action</a>
-            </div>
-          </div> -->
+     
 
+      
+           
+          
+           
+                <div ngbDropdown class="d-inline-block">
+               <i class="fa fa-bell"  id="dropdownBasic1" ngbDropdownToggle matBadge={{notificationCount}} matBadgeSize="small" aria-hidden="true" *ngIf="role=='landlord'" (click)="notification()"></i>
+
+                  
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <button ngbDropdownItem>Notification</button>
+                  </div>
+                </div>
+              
         
           
 
