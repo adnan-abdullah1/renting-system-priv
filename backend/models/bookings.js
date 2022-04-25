@@ -19,15 +19,17 @@ const bookingSchema = new Schema({
     },
     checkOutDate: {
         type: Date,
-        default: () => new Date(+new Date() + 7 * 24 * 60 * 60 * 1000).toISOString()
+        default:Date.now
     },
     landLordChecked: {
         type: Boolean,
         default: false
     },
-    notificationMessage: {
-        type: String,
+    approvalStatus:{
+        type:String,
+        default: 'pending'
     }
+   
 
 })
 

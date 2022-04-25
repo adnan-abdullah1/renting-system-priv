@@ -21,6 +21,7 @@ import { TopNavBarComponent } from './modules/shared/components/top-nav-bar/top-
 import{MatToolbarModule} from '@angular/material/toolbar';
 import { ViewDetailsComponent } from './modules/tenant/components/view-details/view-details.component';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatTableModule,
     MatIconModule,
     MatToolbarModule,
-    MatDividerModule
+    MatDividerModule,
+    MatBadgeModule
     
 
     

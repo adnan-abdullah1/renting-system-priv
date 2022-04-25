@@ -11,6 +11,7 @@ export class TopNavBarComponent implements OnInit {
   constructor(private  SharedServiceService: SharedserviceService) { }
   userDetails:any = JSON.parse(localStorage.getItem('userId')|| '{}')
   role=this.userDetails.role
+  notificationCount:any={}
   ngOnInit(): void {
     this.notification()
   }
@@ -19,6 +20,7 @@ export class TopNavBarComponent implements OnInit {
     this. SharedServiceService.notification().subscribe((res) => {
       
       console.log(res)
+     this.notificationCount=Object.keys(res).length
     }, error => {
       console.log(error)
     

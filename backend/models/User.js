@@ -28,9 +28,10 @@ const userSchema = new Schema({
     notifications:{
         type:String,
     },
-    count:Number
-
-
+    contact:{
+        type:Number,
+    }
+    
 
 })
 

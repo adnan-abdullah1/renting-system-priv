@@ -10,7 +10,17 @@
     
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <!-- <mat-icon>share</mat-icon> -->
-      <i class="fa fa-bell" aria-hidden="true" *ngIf="role=='landlord'" (click)="notification()"></i>
+     
+        <!-- <div class="dropdown">
+        <i class="fa fa-bell dropdown-toggle" id="dropdownMenuIcon" aria-expanded="false" data-toggle="dropdown"  matBadge={{notificationCount}} matBadgeSize="small" aria-hidden="true" *ngIf="role=='landlord'" (click)="notification()"></i>
+            <div class="drapdown-menu"aria-labelledby="dropdownMenuIcon">
+                <a class="drapdown-item" href="#">Action</a>
+            </div>
+          </div> -->
+
+        
+          
+
     </button>
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
       <!-- <mat-icon>share</mat-icon> -->
@@ -18,3 +28,7 @@
       <i class="fa fa-sign-out fa-lg" routerLink="/register" aria-hidden="true"></i>
     </button>
 </mat-toolbar>
+
+
+
+ 

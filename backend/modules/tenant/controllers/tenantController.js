@@ -1,5 +1,7 @@
 const rentDetailsModel = require('../../../models/rentDetails')
 const bookingDetailsModel = require('../../../models/bookings')
+const userModel = require('../../../models/User')
+
 
 exports.getAllRentDetailsTenent= (req,res)=>{
          rentDetailsModel.find({},(err,doc)=>{
@@ -23,17 +25,22 @@ exports.viewRoomDetails = (req,res)=>{
     })
 }
 
-exports.tenantBookingDetails = async (req,res)=>{  
+exports.applyForRooom= async (req,res)=>{  
     const query= req.params.id
-     const roomDetails = await rentDetailsModel.findById(query)
-     
-     req.body.roomId = roomDetails._id;
+    const roomDetails = await rentDetailsModel.findById(query)
+    const {tenantId,landLordId}=  req.body
+     const {firstName} = await userModel.findOne({_id:tenantId})
     
-     const roomBooked = new bookingDetailsModel(req.body)
-     roomBooked.save()
-      roomDetails.booked = true
-     await rentDetailsModel.findByIdAndUpdate(query,roomDetails);
-     res.status(200).json({info:'Room booked successfully',roomBooked,roomDetails})
+     req.body.roomId = roomDetails._id;
+     const appliedRoom = new bookingDetailsModel(req.body)
+     appliedRoom.save()
+     const message=`${firstName}  is requesting for your room with ${req.params.id} to be approved `
+
+    await  userModel.findOneAndUpdate({_id:landLordId},{$set:{notifications:message}})
+
+
+     
+     res.status(200).json({info:'Your request has been sent for Approval'})
 }
 
 exports.checkOut = async(req,res)=>{
