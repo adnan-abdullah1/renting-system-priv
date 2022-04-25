@@ -1,4 +1,3 @@
-const { async } = require('jshint/src/prod-params')
 const rentDetailsModel = require('../../../models/rentDetails')
 const bookings = require('../../../models/bookings')
 
