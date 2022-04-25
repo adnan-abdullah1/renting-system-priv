@@ -17,6 +17,7 @@ export class TopNavBarComponent implements OnInit {
    
   notification(){
     this. SharedServiceService.notification().subscribe((res) => {
+      
       console.log(res)
     }, error => {
       console.log(error)

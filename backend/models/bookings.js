@@ -25,7 +25,9 @@ const bookingSchema = new Schema({
         type: Boolean,
         default: false
     },
-
+    notificationMessage: {
+        type: String,
+    }
 
 })
 
