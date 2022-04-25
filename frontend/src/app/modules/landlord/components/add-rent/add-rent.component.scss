@@ -1,6 +1,6 @@
-#container {
-    margin-left: 400px;
+mat-card {
     width: 50%;
+    margin: auto;
 }
 
 #txt-area {
@@ -15,10 +15,12 @@
     width: 100%;
 }
 
-#btn-design {
-    margin-left: 200px;
-}
-
 #input-design {
     width: 100%;
+}
+
+@media only screen and (min-width: 700px) {
+    button {
+        margin-left: 150px;
+    }
 }
