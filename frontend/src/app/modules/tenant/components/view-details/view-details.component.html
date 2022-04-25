@@ -50,6 +50,24 @@
 
                 </ng-template>
             </mat-card-actions> -->
+            <mat-card-actions align="end">
+
+                <div *ngIf="isApproved == 'pending'; else pending">
+                  
+                    <button mat-raised-button color="primary" (click)="applyBooking()">Apply</button>        
+               
+            </div>
+
+            <ng-template #pending>
+                <button mat-raised-button disabled>Approval Pending</button>
+            </ng-template>
+            </mat-card-actions>
+                
+
+
+           
+
+
            </mat-card>
         </div>
         <div class="col-12 mt-5">

@@ -39,10 +39,15 @@ exports.applyForRooom= async (req,res)=>{
     await  userModel.findOneAndUpdate({_id:landLordId},{$set:{notifications:message}})
 
 
-     
      res.status(200).json({info:'Your request has been sent for Approval'})
 }
 
+
+exports.availableForBooking=async(req,res)=>{
+   const bookingDetails=  await bookingDetailsModel.findOne({roomId:req.params.id})
+    res.status(200).json(bookingDetails)
+    
+}
 
 
 

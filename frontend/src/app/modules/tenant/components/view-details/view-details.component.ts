@@ -13,17 +13,20 @@ export class ViewDetailsComponent implements OnInit {
    roomDetails:any={}
    isBooked:boolean=false;
    userDetails:any={}
-  constructor(private tenantservice:TenantService,private route:Router) { }
+  isApproved:any={}
+   constructor(private tenantservice:TenantService,private route:Router) { }
 
   ngOnInit(): void { 
     
     this.getViewDetails();
+    this.bookingDetails();
   
   }
   // back(){
   //   this.route.navigate(['/rent-details-list'])
   //   }
     
+
   getViewDetails(){
         this.tenantservice.getViewDetails().subscribe((res:any) => {
       console.log(res)
@@ -42,6 +45,19 @@ export class ViewDetailsComponent implements OnInit {
 
   
 
+  }
+
+
+  bookingDetails(){
+    this.tenantservice.bookingDetails().subscribe((res:any)=>{
+    
+      this.isApproved = res.approvalStatus
+    
+    })
+  }
+
+  applyBooking(){
+    console.log('booking')
   }
 
 // book(){

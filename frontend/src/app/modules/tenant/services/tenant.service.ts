@@ -14,6 +14,7 @@ export class TenantService {
 
     const roomDetails = JSON.parse(localStorage.getItem('viewRoom') || '{}')
      this.isBooked= roomDetails.booked;
+     
     const {_id:roomId} = roomDetails;
     // return this.http.put(${this.serverURL}api/landlord/edit-rent-details/${userId},editRoomDetails)
     return this.http.get(`${this.serverURL}api/tenant/view-room-details/${roomId}`)
@@ -28,6 +29,15 @@ export class TenantService {
 
     return this.http.post(`${this.serverURL}api/tenant/post-tenant-booking-details/${roomId}`,bookedRoomDetails)
   }
+
+
+  bookingDetails (){
+    const bookingDetails= JSON.parse(localStorage.getItem('viewRoom') || '{}')
+    const {_id:roomId} = bookingDetails;
+    return this.http.get(`${this.serverURL}api/tenant/availabe-for-booking/${roomId}`)
+  }
+
+
   checkOut(){
     const checkOutRoom= JSON.parse(localStorage.getItem('viewRoom') || '{}')
     const {_id:roomId}= checkOutRoom;
