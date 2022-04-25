@@ -61,3 +61,9 @@ exports.approveBooking = async(req,res)=>{
     res.status(200).json('approved')
 
 }
+
+
+exports.rejectBooking=async(req,res)=>{
+    await bookings.findByIdAndDelete(req.params.id)
+    res.status(200).json('Rejected')
+}

@@ -7,7 +7,8 @@ const {
     getallRentDetails,
     editRentDetails,
     notifiLandlord,
-    approveBooking
+    approveBooking,
+    rejectBooking
 
 
 } = require('../controllers/LandLordController')
@@ -17,5 +18,5 @@ router.delete('/delete-rent-details/:id', deleteRentDetails)
 router.get('/get-all-rent-details/:id', getallRentDetails)
 router.put('/edit-rent-details/:id', editRentDetails)
 router.put('/approve-booking/:id',approveBooking)
-
+router.delete('/reject-booking/:id',rejectBooking)
 module.exports = router
