@@ -52,3 +52,12 @@ exports.editRentDetails = async(req, res) => {
     await rentDetailsModel.findByIdAndUpdate(req.params.id, req.body)
     res.status(200).json({ messagae: "Updated successfully" })
 }
+
+
+exports.approveBooking = async(req,res)=>{
+  await bookings.findByIdAndUpdate(req.params.id,{$set:{
+    approvalStatus:"approved"}})
+
+    res.status(200).json('approved')
+
+}

@@ -43,6 +43,9 @@ exports.applyForRooom= async (req,res)=>{
      res.status(200).json({info:'Your request has been sent for Approval'})
 }
 
+
+
+
 exports.checkOut = async(req,res)=>{
     
     const query = {roomId: req.params.id }
