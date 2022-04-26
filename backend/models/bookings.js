@@ -8,7 +8,7 @@ const bookingSchema = new Schema({
         type: mongoose.Types.ObjectId,
     },
     tenantId: {
-        type: mongoose.Types.ObjectId,
+        type:mongoose.Schema.Types.ObjectId, ref:'User'
     },
     roomId: {
         type: mongoose.Types.ObjectId,
@@ -33,6 +33,7 @@ const bookingSchema = new Schema({
         type: String,
         maxlength:100
     },
+   
    
 
 })

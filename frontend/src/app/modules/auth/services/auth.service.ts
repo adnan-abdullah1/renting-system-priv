@@ -12,6 +12,7 @@ export class AuthService {
     return this.http.post(`${this.serverURL}api/auth/login`, authModel)
   }
   register(UserModel:any){
+    console.log(UserModel)
     return this.http.post(`${this.serverURL}api/auth/SignUp`, UserModel)
   }
 }

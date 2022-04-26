@@ -46,7 +46,7 @@
     <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef> Action </th>
          <td mat-cell *matCellDef="let row">
-             <i class="fa fa-info-circle" aria-hidden="true"(click)="info(row)"></i>
+             <i class="fa fa-eye-slash" aria-hidden="true"(click)="info(row)"></i>
              <span *ngIf ="param=='landlord'">
             <i class="fa fa-edit" (click)= "editDetails(row)"></i>
             <i class="fa fa-trash" (click)="deleteDetails(row)"></i>

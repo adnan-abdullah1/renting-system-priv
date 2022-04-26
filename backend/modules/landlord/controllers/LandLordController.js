@@ -32,6 +32,7 @@ exports.addRentDetails = async(req, res) => {
 
 exports.deleteRentDetails = async(req, res) => {
     await rentDetailsModel.findByIdAndDelete(req.params.id)
+    await bookings.findByIdAndDelete(req.params.id)
     res.status(200).json({ messagae: "Room details deleted Successfully" })
 }
 
@@ -84,7 +85,10 @@ exports.getBookingDetails = (req,res)=>{
 exports.getTenantBookingDetails = async (req,res)=>{
     // console.log(req.params.body)
     const tenantDetails = await  bookings.find({
-        landLordId:req.params.id}).populate('tenantId', 'firstName')
+        landLordId:req.params.id}).populate({
+            path: 'tenantId',
+            select: 'firstName address'
+        });
     console.log(tenantDetails)
     res.status(200).json(tenantDetails)
 }
