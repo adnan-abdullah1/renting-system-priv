@@ -24,7 +24,7 @@ exports.viewRoomDetails = (req,res)=>{
         }
     })
 }
-
+ 
 exports.applyForRooom= async (req,res)=>{  
     const query= req.params.id
     const roomDetails = await rentDetailsModel.findById(query)
@@ -33,19 +33,27 @@ exports.applyForRooom= async (req,res)=>{
     
      req.body.roomId = roomDetails._id;
      const appliedRoom = new bookingDetailsModel(req.body)
-     appliedRoom.save()
      const message=`${firstName}  is requesting for your room with ${req.params.id} to be approved `
 
-    await  userModel.findOneAndUpdate({_id:landLordId},{$set:{notifications:message}})
+     appliedRoom.approvalStatus = 'pending'
+     appliedRoom.notification = message
+     appliedRoom.save()
+
+    // await  userModel.findOneAndUpdate({_id:landLordId},{$set:{notifications:message}})
 
 
-     res.status(200).json({info:'Your request has been sent for Approval'})
+    return res.status(200).json({info:'Your request has been sent for Approval'})
 }
 
 
 exports.availableForBooking=async(req,res)=>{
    const bookingDetails=  await bookingDetailsModel.findOne({roomId:req.params.id})
-    res.status(200).json(bookingDetails)
+   if(bookingDetails){
+    return res.status(200).json(bookingDetails.approvalStatus)
+
+   }
+
+  return res.status(200).json('notApplied')
     
 }
 

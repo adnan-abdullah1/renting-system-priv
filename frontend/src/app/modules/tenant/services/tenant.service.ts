@@ -20,16 +20,26 @@ export class TenantService {
     return this.http.get(`${this.serverURL}api/tenant/view-room-details/${roomId}`)
   }
 
-  book(){
-    const bookedRoomDetails= JSON.parse(localStorage.getItem('viewRoom') || '{}')
-     const {_id:roomId} = bookedRoomDetails;
-     const {_id:tenantId} = JSON.parse(localStorage.getItem('userId') || '{}')
-     bookedRoomDetails.tenantId = tenantId; 
-     console.log('booked details--->',bookedRoomDetails)
 
-    return this.http.post(`${this.serverURL}api/tenant/post-tenant-booking-details/${roomId}`,bookedRoomDetails)
+
+  applyBooking(){
+    const applyRoomDetails= JSON.parse(localStorage.getItem('viewRoom') || '{}')
+    const {_id:tenantId} = JSON.parse(localStorage.getItem('userId') || '{}')
+    applyRoomDetails.tenantId = tenantId
+    const{_id:roomId}= applyRoomDetails
+    return this.http.post(`${this.serverURL}api/tenant/apply-for-room/${roomId}`,applyRoomDetails)
   }
 
+  // book(){
+  //   const bookedRoomDetails= JSON.parse(localStorage.getItem('viewRoom') || '{}')
+  //    const {_id:roomId} = bookedRoomDetails;
+  //    const {_id:tenantId} = JSON.parse(localStorage.getItem('userId') || '{}')
+  //    bookedRoomDetails.tenantId = tenantId; 
+  //    console.log('booked details--->',bookedRoomDetails)
+
+  //   return this.http.post(`${this.serverURL}api/tenant/post-tenant-booking-details/${roomId}`,bookedRoomDetails)
+  // }
+ 
 
   bookingDetails (){
     const bookingDetails= JSON.parse(localStorage.getItem('viewRoom') || '{}')
@@ -38,10 +48,10 @@ export class TenantService {
   }
 
 
-  checkOut(){
-    const checkOutRoom= JSON.parse(localStorage.getItem('viewRoom') || '{}')
-    const {_id:roomId}= checkOutRoom;
-    return this.http.get(`${this.serverURL}api/tenant/checkOut-tenant/${roomId}`)
+  // checkOut(){
+  //   const checkOutRoom= JSON.parse(localStorage.getItem('viewRoom') || '{}')
+  //   const {_id:roomId}= checkOutRoom;
+  //   return this.http.get(`${this.serverURL}api/tenant/checkOut-tenant/${roomId}`)
 
-  }
+  // }
 }

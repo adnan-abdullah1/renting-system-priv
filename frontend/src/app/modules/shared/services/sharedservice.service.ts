@@ -17,8 +17,9 @@ export class SharedserviceService {
  
   notification(){  
     
-    const bookedRoomDetails= JSON.parse(localStorage.getItem('viewRoom') || '{}')
-    const {landLordId:landLordId} = bookedRoomDetails;
+    // const bookedRoomDetails= JSON.parse(localStorage.getItem('viewRoom') || '{}')
+    const {_id:landLordId}= JSON.parse(localStorage.getItem('userId') || '{}')
+    // const {landLordId:landLordId} = bookedRoomDetails;
     console.log("########### ",landLordId)
 
     //return this.http.get(`${this.serverURL}api/landlord/send-notification/6264110cfcd956fb7fdf8159`)

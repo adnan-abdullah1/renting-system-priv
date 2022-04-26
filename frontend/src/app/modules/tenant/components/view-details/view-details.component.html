@@ -52,10 +52,10 @@
             </mat-card-actions> -->
             <mat-card-actions align="end">
 
-                <div *ngIf="isApproved == 'pending'; else pending">
-                  
-                    <button mat-raised-button color="primary" (click)="applyBooking()">Apply</button>        
-               
+                <div [ngSwitch]="isApproved">
+                    <button *ngSwitchCase="'notApplied'" mat-raised-button color="primary" (click)="applyBooking()">Apply</button>        
+                    <button *ngSwitchCase="'pending'" mat-raised-button disabled>Already applied</button>        
+                    <button *ngSwitchCase="'approved'" mat-raised-button disabled>Already Booked</button>        
             </div>
 
             <ng-template #pending>
@@ -77,7 +77,7 @@
                 </mat-card-title>
                     <mat-divider></mat-divider>
                     <mat-card-content class="pt-3">
-                        <!-- <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Architecto odit consequatur facilis. Quasi beatae recusandae ipsam consequuntur pariatur atque fuga! Incidunt sapiente, delectus doloremque, perferendis veniam dolore quia necessitatibus repellendus sint architecto illo nobis aspernatur repudiandae non et tempora enim laudantium aut autem inventore quas maiores voluptas sed libero. Ex assumenda, ratione quae cupiditate in deleniti eligendi explicabo nobis hic consectetur aliquid laboriosam facilis, distinctio libero, error consequuntur? Ratione ad, inventore vel, aliquid accusantium ut eum magni pariatur rem at aspernatur! A incidunt molestias quisquam ea inventore? Nam itaque aliquid iste aliquam explicabo maiores harum atque, quos eum, rerum suscipit.</p> -->
+                     
                         <p>{{roomDetails.description}}</p>
                     </mat-card-content>
                
@@ -86,3 +86,4 @@
         </div>
     </div>
 </div>
+

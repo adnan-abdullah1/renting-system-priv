@@ -27,8 +27,12 @@ const bookingSchema = new Schema({
     },
     approvalStatus:{
         type:String,
-        default: 'pending'
-    }
+        default: 'notApplied'
+    },
+    notification:{
+        type: String,
+        maxlength:100
+    },
    
 
 })

@@ -4,15 +4,15 @@ const bookings = require('../../../models/bookings')
 
 
 
-
+ 
 exports.notifiLandlord = async(req, res) => {
     const query = { landLordId: req.params.id, landLordChecked: false }
 
     bookings.find(query, (err, doc) => {
         if (err) {
-            res.send(err)
+           return  res.send(err)
         } else {
-            res.status(200).json(doc)
+          return  res.status(200).json(doc)
         }
     })
 }

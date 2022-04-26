@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TenantService } from '../../services/tenant.service';
+import Swal from 'sweetalert2';
 
 @Component({ 
   selector: 'app-view-details',
@@ -50,14 +51,17 @@ export class ViewDetailsComponent implements OnInit {
 
   bookingDetails(){
     this.tenantservice.bookingDetails().subscribe((res:any)=>{
-    
-      this.isApproved = res.approvalStatus
+      console.log('booking details',res)
+      this.isApproved = res
     
     })
   }
 
   applyBooking(){
-    console.log('booking')
+    this.tenantservice.applyBooking().subscribe((res:any)=>{
+      console.log(res)
+      Swal.fire(res.info)
+    })
   }
 
 // book(){

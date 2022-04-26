@@ -17,10 +17,10 @@ const rentSchema = new Schema({
 
     },
    
-    booked: {
-            type: Boolean,
-            default: false
-    } ,
+    // booked: {
+    //         type: Boolean,
+    //         default: false
+    // } ,
     pincode: String,
     district: String,
     city: String,

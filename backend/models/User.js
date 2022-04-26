@@ -25,9 +25,6 @@ const userSchema = new Schema({
         type: String,
         default: "tenant"
     },
-    notifications:{
-        type:String,
-    },
     contact:{
         type:Number,
     },

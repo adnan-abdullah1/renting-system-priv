@@ -12,14 +12,19 @@ export class TopNavBarComponent implements OnInit {
   userDetails:any = JSON.parse(localStorage.getItem('userId')|| '{}')
   role=this.userDetails.role
   notificationCount:any={}
-  ngOnInit(): void {
+  notify:any=[]
+  ngOnInit(): void { 
+
+
     this.notification()
   }
    
   notification(){
     this. SharedServiceService.notification().subscribe((res) => {
       
-      console.log(res)
+      console.log('notification',res)
+      this.notify=res
+      console.log('notify',this.notify[0].notification)
      this.notificationCount=Object.keys(res).length
     }, error => {
       console.log(error)
@@ -27,5 +32,9 @@ export class TopNavBarComponent implements OnInit {
     }, () => {
 
     })
+  }
+  getDropDown(value:any){
+    console.log(value)
+    // console.log('abc')
   }
 }
