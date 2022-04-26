@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { TenantService } from '../../services/tenant.service';
 import Swal from 'sweetalert2';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({ 
   selector: 'app-view-details',
@@ -15,7 +16,8 @@ export class ViewDetailsComponent implements OnInit {
    isBooked:boolean=false;
    userDetails:any={}
   isApproved:any={}
-   constructor(private tenantservice:TenantService,private route:Router) { }
+  imagePath:any;
+   constructor(private tenantservice:TenantService,private route:Router,private _sanitizer: DomSanitizer) { }
 
   ngOnInit(): void { 
     
@@ -29,9 +31,12 @@ export class ViewDetailsComponent implements OnInit {
     
 
   getViewDetails(){
-        this.tenantservice.getViewDetails().subscribe((res:any) => {
+      this.tenantservice.getViewDetails().subscribe((res:any) => {
       console.log(res)
+      
       this.roomDetails = res
+ 
+      this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl(`${res.image}`);
       this.isBooked = res.booked;
       console.log(res.booked)
       
