@@ -40,5 +40,26 @@ export class RentService {
    return this.http.delete(`${this.serverURL}api/landlord/delete-rent-details/${userId}`)
   }
 
+
+  getTenantDetails(){
+    
+    const {tenantId:userId} = JSON.parse(localStorage.getItem('bookingInfo') || '{}')
+    // console.log('booking',userId)
+    return this.http.get(`${this.serverURL}api/tenant/get-tenant-details/${userId}`)
+  }
+
+  approveBooking()
+  {
+    const {_id:bookingId} = JSON.parse(localStorage.getItem('bookingInfo') || '{}')
+
+    return this.http.put(`${this.serverURL}api/landlord/approve-booking/${bookingId}`,{})
+    
+  }
   
+rejectBooking(){
+  const {_id:bookingId} = JSON.parse(localStorage.getItem('bookingInfo') || '{}')
+
+  return this.http.delete(`${this.serverURL}api/landlord/reject-booking/${bookingId}`)
+}
+
 }

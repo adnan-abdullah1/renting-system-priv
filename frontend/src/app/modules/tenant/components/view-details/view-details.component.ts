@@ -16,7 +16,7 @@ export class ViewDetailsComponent implements OnInit {
    isBooked:boolean=false;
    userDetails:any={}
   isApproved:any={}
-  imagePath:any=[]
+    imagePath:any=[]
    constructor(private tenantservice:TenantService,private route:Router,private _sanitizer: DomSanitizer) { }
 
   ngOnInit(): void { 
@@ -30,34 +30,49 @@ export class ViewDetailsComponent implements OnInit {
   //   }
     
 
-  getViewDetails(){
-      this.tenantservice.getViewDetails().subscribe((res:any) => {
-      console.log(res)
+  // getViewDetails(){  ME
+  //       this.tenantservice.getViewDetails().subscribe((res:any) => {
+  //     console.log(res)
+  //     this.roomDetails = res
+  //     this.isBooked = res.booked;
+  //     console.log(res.booked)
       
-      this.roomDetails = res
- 
-      
-        res.image.forEach((image:any) => {
-          this.imagePath.push(this._sanitizer.bypassSecurityTrustResourceUrl(`${image}`))
-        });
-        
-        
-       
-      this.isBooked = res.booked;
-      console.log(res.booked)
-      
-    },error=> {
-      console.log(error)
+  //   },error=> {
+  //     console.log(error)
      
-    }, () => {
+  //   }, () => {
 
-    })
+  //   })
+  // }
+
+  getViewDetails(){
+    this.tenantservice.getViewDetails().subscribe((res:any) => {
+    console.log(res)
     
+    this.roomDetails = res
+
+    
+      res.image.forEach((image:any) => {
+        this.imagePath.push(this._sanitizer.bypassSecurityTrustResourceUrl(`${image}`))
+      });
+      
+      
+     
+    this.isBooked = res.booked;
+    console.log(res.booked)
+    
+  },error=> {
+    console.log(error)
+   
+  }, () => {
+
+  })
+
+}
 
 
-  
 
-  }
+
 
 
   bookingDetails(){
@@ -71,7 +86,40 @@ export class ViewDetailsComponent implements OnInit {
   applyBooking(){
     this.tenantservice.applyBooking().subscribe((res:any)=>{
       console.log(res)
-      Swal.fire(res.info)
+      Swal.fire(res.info) 
+      
+      const userDetails = JSON.parse(localStorage.getItem('userId') || '')
+       
+      if(userDetails.role=='Tenant')
+      {
+        const navigationExtra={
+          queryParams:{
+            option:'Tenant'
+            
+            
+          } 
+        
+        }
+        
+        this.route.navigate(['/rent-details-list'],navigationExtra)
+        
+      }
+      if(userDetails.role=='landlord')
+      {
+        {
+          const navigationExtra={
+            queryParams:{
+              option:'landlord'
+            
+            }
+          }
+          
+          
+          this.route.navigate(['/rent-details-list'],navigationExtra)
+          
+        }
+      }
+      
     })
   }
 

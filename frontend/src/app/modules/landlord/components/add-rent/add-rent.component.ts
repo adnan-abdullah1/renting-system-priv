@@ -32,7 +32,7 @@ export class AddRentComponent implements OnInit {
 
     this.user = JSON.parse(localStorage.getItem('userId') || '{}')
     this.AddModel['landLordId'] = this.user._id
-    
+
     this.Rentservice.Addroom(this.AddModel).subscribe((res) => {
       Swal.fire('Rent details added successfully')
       console.log(res)
@@ -59,9 +59,10 @@ export class AddRentComponent implements OnInit {
     reader.onload = () => resolve(reader.result)
     reader.onerror = (error: any) => reject('Error:', error);
   })
+
   changeImg = (e: any) => {
     for(let image of e.target.files) {
-      // console.log(",,,,,,,,,,,,,,,,,, ",e.target.files)
+   
     const file = image
     let encoded;
     this.getBase64(file)
@@ -75,7 +76,7 @@ export class AddRentComponent implements OnInit {
 }
 changelegaldoc = (e: any) => {
     for(let image of e.target.files) {
-      // console.log(",,,,,,,,,,,,,,,,,, ",e.target.files)
+   
     const file = image
     let encoded;
     this.getBase64(file)
@@ -87,4 +88,7 @@ changelegaldoc = (e: any) => {
       .catch(e => console.log(e))
   }
 }
+
+
+  
 }
