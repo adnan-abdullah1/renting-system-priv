@@ -60,7 +60,8 @@ export class AddRentComponent implements OnInit {
     reader.onerror = (error: any) => reject('Error:', error);
   })
   changeImg = (e: any) => {
-    const file = e.target.files[0];
+    for(let image of e.target.files) {
+    const file = image
     let encoded;
     this.getBase64(file)
       .then((result) => {
@@ -70,4 +71,5 @@ export class AddRentComponent implements OnInit {
       })
       .catch(e => console.log(e))
   }
+}
 }
