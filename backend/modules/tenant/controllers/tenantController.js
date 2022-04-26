@@ -59,6 +59,19 @@ exports.availableForBooking=async(req,res)=>{
 
 
 
+exports.getTenantDetails = (req,res)=>{
+        const query ={_id:req.params.id}
+         userModel.findById(query,(err,doc)=>{
+            if(err){
+                res.status(400).json(err)
+            }else{
+                res.status(200).json(doc)
+            }
+        })
+}
+
+
+
 exports.checkOut = async(req,res)=>{
     
     const query = {roomId: req.params.id }
