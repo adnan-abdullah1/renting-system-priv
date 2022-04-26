@@ -3,9 +3,9 @@ const { Schema } = require('mongoose')
 
 
 const rentSchema = new Schema({
-    image: String,
-    legalDocuments: String,
-    
+    image: [{ type: String }],
+    legalDocuments: [{ type: String }],
+
     roomTypes: {
         type: String,
     },
@@ -16,7 +16,7 @@ const rentSchema = new Schema({
         type: String,
 
     },
-   
+
     // booked: {
     //         type: Boolean,
     //         default: false
