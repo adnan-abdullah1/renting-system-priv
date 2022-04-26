@@ -60,7 +60,40 @@ export class ViewDetailsComponent implements OnInit {
   applyBooking(){
     this.tenantservice.applyBooking().subscribe((res:any)=>{
       console.log(res)
-      Swal.fire(res.info)
+      Swal.fire(res.info) 
+      
+      const userDetails = JSON.parse(localStorage.getItem('userId') || '')
+       
+      if(userDetails.role=='Tenant')
+      {
+        const navigationExtra={
+          queryParams:{
+            option:'Tenant'
+            
+            
+          } 
+        
+        }
+        
+        this.route.navigate(['/rent-details-list'],navigationExtra)
+        
+      }
+      if(userDetails.role=='landlord')
+      {
+        {
+          const navigationExtra={
+            queryParams:{
+              option:'landlord'
+            
+            }
+          }
+          
+          
+          this.route.navigate(['/rent-details-list'],navigationExtra)
+          
+        }
+      }
+      
     })
   }
 

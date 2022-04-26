@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SharedserviceService } from '../../services/sharedservice.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-nav-bar',
@@ -8,7 +9,7 @@ import { SharedserviceService } from '../../services/sharedservice.service';
 })
 export class TopNavBarComponent implements OnInit {
 
-  constructor(private  SharedServiceService: SharedserviceService) { }
+  constructor(private  SharedServiceService: SharedserviceService,private router:Router) { }
   userDetails:any = JSON.parse(localStorage.getItem('userId')|| '{}')
   role=this.userDetails.role
   notificationCount:any={}
@@ -24,7 +25,7 @@ export class TopNavBarComponent implements OnInit {
       
       console.log('notification',res)
       this.notify=res
-      console.log('notify',this.notify[0].notification)
+      // console.log('notify',this.notify[0].notification)
      this.notificationCount=Object.keys(res).length
     }, error => {
       console.log(error)
@@ -35,6 +36,8 @@ export class TopNavBarComponent implements OnInit {
   }
   getDropDown(value:any){
     console.log(value)
+    localStorage.setItem('bookingInfo',JSON.stringify(value))
+    this.router.navigate(['/notification-dialog'])
     // console.log('abc')
   }
 }

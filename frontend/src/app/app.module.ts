@@ -23,6 +23,7 @@ import { ViewDetailsComponent } from './modules/tenant/components/view-details/v
 import {MatDividerModule} from '@angular/material/divider';
 import {MatBadgeModule} from '@angular/material/badge';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NotificationdetailsComponent } from './modules/landlord/components/notificationdetails/notificationdetails.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     EditRentComponent,
     TopNavBarComponent,
     ViewDetailsComponent,
+    NotificationdetailsComponent,
 
 
   ],
