@@ -16,7 +16,7 @@ export class ViewDetailsComponent implements OnInit {
    isBooked:boolean=false;
    userDetails:any={}
   isApproved:any={}
-  imagePath:any;
+  imagePath:any=[]
    constructor(private tenantservice:TenantService,private route:Router,private _sanitizer: DomSanitizer) { }
 
   ngOnInit(): void { 
@@ -36,7 +36,13 @@ export class ViewDetailsComponent implements OnInit {
       
       this.roomDetails = res
  
-      this.imagePath = this._sanitizer.bypassSecurityTrustResourceUrl(`${res.image}`);
+      
+        res.image.forEach((image:any) => {
+          this.imagePath.push(this._sanitizer.bypassSecurityTrustResourceUrl(`${image}`))
+        });
+        
+        
+       
       this.isBooked = res.booked;
       console.log(res.booked)
       

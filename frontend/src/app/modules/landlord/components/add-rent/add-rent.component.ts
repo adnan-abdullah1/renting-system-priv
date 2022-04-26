@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./add-rent.component.scss']
 })
 export class AddRentComponent implements OnInit {
-  AddModel: any = {}
+  AddModel: any = {legalDocuments:[],image:[]}
   user: any = {}
   constructor(private Rentservice: RentService,
     private route: Router,
@@ -32,7 +32,7 @@ export class AddRentComponent implements OnInit {
 
     this.user = JSON.parse(localStorage.getItem('userId') || '{}')
     this.AddModel['landLordId'] = this.user._id
-
+    
     this.Rentservice.Addroom(this.AddModel).subscribe((res) => {
       Swal.fire('Rent details added successfully')
       console.log(res)
@@ -61,13 +61,28 @@ export class AddRentComponent implements OnInit {
   })
   changeImg = (e: any) => {
     for(let image of e.target.files) {
+      // console.log(",,,,,,,,,,,,,,,,,, ",e.target.files)
     const file = image
     let encoded;
     this.getBase64(file)
       .then((result) => {
         encoded = result;
-        this.AddModel.image = result
-        console.log(encoded)
+        this.AddModel.image.push(result)
+       
+      })
+      .catch(e => console.log(e))
+  }
+}
+changelegaldoc = (e: any) => {
+    for(let image of e.target.files) {
+      // console.log(",,,,,,,,,,,,,,,,,, ",e.target.files)
+    const file = image
+    let encoded;
+    this.getBase64(file)
+      .then((result) => {
+        encoded = result;
+        this.AddModel.legalDocuments.push(result)
+       
       })
       .catch(e => console.log(e))
   }

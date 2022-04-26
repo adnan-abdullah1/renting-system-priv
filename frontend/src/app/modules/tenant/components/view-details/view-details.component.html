@@ -9,7 +9,27 @@
                     image
                 </mat-card-title>
                 <!-- <img mat-card-image src="../../../../../assets/rename.jpg" alt="Photo of a Shiba Inu"> -->
-                <img [src]="imagePath" alt="image err" height="350" width="860">
+                <!-- <img mat-card-image [src]="imagePath" alt="Image not found" > -->
+
+
+
+                <ngb-carousel *ngIf="imagePath">
+
+                    <ng-template ngbSlide *ngFor="let images of imagePath">
+
+                        <div class="picsum-img-wrapper">
+                            <img mat-card-image [src]="images" alt="Random first slide" height="300" width="860">
+                        </div>
+                        <!-- <div class="carousel-caption">
+                            <h3>First slide label</h3>
+                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        </div> -->
+                    </ng-template>
+
+
+
+                </ngb-carousel>
+
             </mat-card>
         </div>
         <div class="col-xl-4 col-md-6 col-sm-12 mt-5">

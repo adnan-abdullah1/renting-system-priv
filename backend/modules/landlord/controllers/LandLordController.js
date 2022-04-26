@@ -53,10 +53,10 @@ exports.editRentDetails = async(req, res) => {
     res.status(200).json({ messagae: "Updated successfully" })
 }
 
-
+ 
 exports.approveBooking = async(req,res)=>{
   await bookings.findByIdAndUpdate(req.params.id,{$set:{
-    approvalStatus:"approved"}})
+    approvalStatus:"approved",landLordChecked:'true'}})
 
     res.status(200).json('approved')
 
@@ -66,4 +66,25 @@ exports.approveBooking = async(req,res)=>{
 exports.rejectBooking=async(req,res)=>{
     await bookings.findByIdAndDelete(req.params.id)
     res.status(200).json('Rejected')
+}
+
+
+exports.getBookingDetails = (req,res)=>{
+    const query = {landLordId:req.params.id}     
+    bookings.find(query,(err,doc)=>{
+        if(err){
+            res.status(404).json(err)
+        }else{
+            res.status(200).json(doc)
+        }
+    })
+}
+
+
+exports.getTenantBookingDetails = async (req,res)=>{
+    // console.log(req.params.body)
+    const tenantDetails = await  bookings.find({
+        landLordId:req.params.id}).populate('tenantId', 'firstName')
+    console.log(tenantDetails)
+    res.status(200).json(tenantDetails)
 }
