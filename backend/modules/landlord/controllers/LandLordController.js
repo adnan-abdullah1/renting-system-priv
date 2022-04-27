@@ -85,10 +85,42 @@ exports.getBookingDetails = (req,res)=>{
 exports.getTenantBookingDetails = async (req,res)=>{
     // console.log(req.params.body)
     const tenantDetails = await  bookings.find({
-        landLordId:req.params.id}).populate({
+        landLordId:req.params.id,approvalStatus:'approved'}).populate({
             path: 'tenantId',
             select: 'firstName address'
         });
     console.log(tenantDetails)
     res.status(200).json(tenantDetails)
+}
+
+
+exports.getTotalRooms = (req,res)=>{
+          rentDetailsModel.find({landLordId:req.params.id},(err,doc)=>{
+        if(err){
+            res.status(409).json(err)
+        }else{
+            res.status(200).json(doc)
+        }
+    })
+}
+
+exports.getAllApprovedRoooms = (req,res)=>{
+            bookings.find({landLordId:req.params.id,approvalStatus:'approved'},(err,doc)=>{
+                if(err){
+                    res.status(409).json(err)
+                }else{
+                    res.status(200).json(doc)
+                }
+            })
+}
+
+
+exports.getAllPendingRooms = async(req,res)=>{
+    bookings.find({landLordId:req.params.id,approvalStatus:'pending'},(err,doc)=>{
+        if(err){
+            res.status(409).json(err)
+        }else{
+            res.status(200).json(doc)
+        }
+    })
 }

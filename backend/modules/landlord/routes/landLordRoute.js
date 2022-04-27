@@ -10,7 +10,10 @@ const {
     approveBooking,
     rejectBooking,
     getBookingDetails,
-    getTenantBookingDetails
+    getTenantBookingDetails,
+    getTotalRooms,
+    getAllApprovedRoooms,
+    getAllPendingRooms
 
 
 } = require('../controllers/LandLordController')
@@ -22,6 +25,9 @@ router.put('/edit-rent-details/:id', editRentDetails)
 router.put('/approve-booking/:id',approveBooking)
 router.get('/get-booking-details/:id',getBookingDetails)
 router.get('/get-tenant-booking-details/:id',getTenantBookingDetails )
+router.get('/get-total-rooms/:id',getTotalRooms)
+router.get('/get-all-approved-rooms/:id',getAllApprovedRoooms)
+router.get('/get-all-pending-rooms/:id',getAllPendingRooms)
 router.delete('/reject-booking/:id',rejectBooking)
 
 module.exports = router
