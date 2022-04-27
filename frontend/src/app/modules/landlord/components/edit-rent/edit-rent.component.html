@@ -72,20 +72,21 @@
             </mat-form-field>
         </div>
     </div>
+    
     <div class="row">
         <div class="col">
-            <mat-form-field class="input-field" appearance="outline">
-                <input matInput placeholder="Legal documents" [(ngModel)]="editRoomDetails.legalDocuments" name="legalDocuments">
-            </mat-form-field>
+            <!-- <mat-form-field id="input-design" appearance="outline"> -->
+                
+            <input type="file" class="input-upload" name="myfile" accept="image/*" (change)="changelegaldoc($event)" multiple/>
+            <!-- </mat-form-field> -->
         </div>
-
         <div class="col">
-            <mat-form-field class="input-field" appearance="outline">
-                <input matInput placeholder="Image" [(ngModel)]="editRoomDetails.image" name="image">
-            </mat-form-field>
+            <!-- <mat-form-field id="input-design" appearance="outline"> -->
+            <input type="file" class="input-upload" name="myfile" accept="image/*" (change)="changeImg($event)" multiple/>
+            <!-- <input matInput placeholder="images" name="images" [(ngModel)]="AddModel.images"> -->
+            <!-- </mat-form-field> -->
         </div>
     </div>
-
     <mat-form-field id="select-design" appearance="outline">
         <mat-label>Room-Type</mat-label>
         <select matNativeControl name="RoomType" [(ngModel)]="editRoomDetails.roomTypes">
