@@ -18,9 +18,7 @@ export class RentService {
     return this.http.put(`${this.serverURL}api/landlord/edit-rent-details/${userId}`,editRoomDetails)
   }
   getRentDetails() {
-    // const userId: any = localStorage.getItem('userId')
-    // console.log("user id is",userId)
-// return this.http.get(`${this.serverURL}api/landlord/get-all-rent-details/${userId}`)
+  
   const userDetails:any = JSON.parse(localStorage.getItem('userId')|| '{}') 
 
   if(userDetails?.role=='landlord'){
@@ -63,13 +61,15 @@ rejectBooking(){
 }
 
 getChart(){
-  return this.http.get(`${this.serverURL}waiting for backend`)
+  const {_id:landLordId} = JSON.parse(localStorage.getItem('userId') || '{}')
+
+  return this.http.get(`${this.serverURL}api/landlord/landLord-monthly-booking/${landLordId}`)
 }
 getallotmentdetails(){
-  return this.http.get(`${this.serverURL}waiting for backend`)
+  return this.http.get(`${this.serverURL}`)
 }
 getroomdetails(){
-  return this.http.get(`${this.serverURL}waiting for backend`)
+ return this.http.get(`${this.serverURL}`)
 }
 
 

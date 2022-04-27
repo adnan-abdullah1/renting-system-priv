@@ -44,15 +44,13 @@ export class AddRentComponent implements OnInit {
     })
     console.log(this.AddModel)
 
-
-
     // this.router.navigate(['/'],navigationExtra)
     this.route.routeReuseStrategy.shouldReuseRoute = () => false;
     this.route.onSameUrlNavigation = 'reload';
     this.route.navigate(['rent-details-list'], this.navigationExtra);
-
-
   }
+
+
   getBase64 = (file: any) => new Promise(function (resolve: any, reject: any) {
     let reader = new FileReader();
     reader.readAsDataURL(file);
@@ -88,7 +86,5 @@ changelegaldoc = (e: any) => {
       .catch(e => console.log(e))
   }
 }
-
-
   
 }

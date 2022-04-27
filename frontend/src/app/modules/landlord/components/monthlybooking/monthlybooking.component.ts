@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Chart } from 'chart.js';
+import { async } from 'rxjs';
 import { RentService } from '../../services/rent.service';
 
 
@@ -14,50 +15,82 @@ export class MonthlybookingComponent implements OnInit {
   
   title='dashboard';
   chart:any=[];
-   userData:any=[3,10,20,15,10,40,50,55,60,70,60]
-      constructor(private rentservice :RentService) { }
+  userData:any=[]
+  months:any=['jan','feb','march','april','june','july','aug','sep','oct','nov','dec']
+  monthsLabel:any=[] 
+   
+  bookingFrequency:any=[]
+    constructor(private rentservice :RentService) { }
 
   ngOnInit(): void {
     this.getChart();
+   
     
+
+
+
+ setTimeout(()=>{
   this.chart=new Chart('canvas',{
     type:'line',
     data:{
-      labels:['jan','feb','march','april','june','july','aug','sep','oct','nov','dec'],
+      labels:this.monthsLabel,
       datasets:[
         {
-          label:'Number of booking in months',
-          data:this.userData,
+          label:"no of bookings",
+          data:this.bookingFrequency,
           backgroundColor:'gray',
           borderColor:'green',
           borderWidth:2,
           fill:false,
+          
         }
       ]
     },
     options: {
+      responsive: true,
+    plugins: {
+      legend: {
+        position: 'top',
+      },
+      title: {
+        display: true,
+        text: 'No of bookings per month'
+      }
+    },
       scales: {
           y: {
               min: 0,
-              max: 100
+              max: 10
           }
       }
   }
 
-
-
-
-  })
-  
-  
- 
+  })},500)
   }
+  
   getChart(){
     this.rentservice.getChart().subscribe((res: any) => {
-      console.log(res)
-    //  this.userData=res
+    
+    this.userData=res
+    
+    this.userData.map((el:any) => {
+      this.monthsLabel.push(this.months[el._id])
+      this.bookingFrequency.push(el.count)
+    })
      
-      
+    return this.bookingFrequency
+    
+
+
+
+
+
+
+
+
+
+
+    
     })
   }
   
