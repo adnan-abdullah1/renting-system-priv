@@ -62,4 +62,15 @@ rejectBooking(){
   return this.http.delete(`${this.serverURL}api/landlord/reject-booking/${bookingId}`)
 }
 
+getChart(){
+  return this.http.get(`${this.serverURL}waiting for backend`)
+}
+getallotmentdetails(){
+  return this.http.get(`${this.serverURL}waiting for backend`)
+}
+getroomdetails(){
+  return this.http.get(`${this.serverURL}waiting for backend`)
+}
+
+
 }

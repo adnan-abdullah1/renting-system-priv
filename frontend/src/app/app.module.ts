@@ -24,6 +24,18 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatBadgeModule} from '@angular/material/badge';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NotificationdetailsComponent } from './modules/landlord/components/notificationdetails/notificationdetails.component';
+import { AllotmentdetailsComponent } from './modules/landlord/components/allotmentdetails/allotmentdetails.component';
+import { DashboardComponent } from './modules/landlord/components/dashboard/dashboard.component';
+import { MonthlybookingComponent } from './modules/landlord/components/monthlybooking/monthlybooking.component';
+import { RoomdetailsComponent } from './modules/landlord/components/roomdetails/roomdetails.component';
+import { SidenavbarComponent } from './modules/shared/components/sidenavbar/sidenavbar.component';
+import { NgChartsModule } from 'ng2-charts';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatChipsModule} from '@angular/material/chips';
+
+
+
 
 @NgModule({
   declarations: [
@@ -36,6 +48,11 @@ import { NotificationdetailsComponent } from './modules/landlord/components/noti
     TopNavBarComponent,
     ViewDetailsComponent,
     NotificationdetailsComponent,
+    AllotmentdetailsComponent,
+    DashboardComponent,
+    MonthlybookingComponent,
+    RoomdetailsComponent,
+    SidenavbarComponent,
 
 
   ],
@@ -55,7 +72,11 @@ import { NotificationdetailsComponent } from './modules/landlord/components/noti
     MatToolbarModule,
     MatDividerModule,
     MatBadgeModule,
-    NgbModule
+    NgbModule,
+    NgChartsModule,
+    MatSidenavModule ,
+    MatListModule,
+    MatChipsModule
     
 
     

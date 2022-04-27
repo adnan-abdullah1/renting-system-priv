@@ -1,5 +1,5 @@
 <mat-toolbar>
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="toggleRightSidenav()">
       <mat-icon>menu</mat-icon>
     </button>
     <span>RENTING-SYSTEM</span>
@@ -18,7 +18,7 @@
 
                   
                   <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                    <button ngbDropdownItem *ngFor="let value of notify" [value]="value" (click)="getDropDown(value)">{{value.notification}}</button>
+                    <button ngbDropdownItem *ngFor="let value of notify" [value]="value" (click)="getDropDown(value)">{{value?.notification}}</button>
                   </div>
                 </div>
               
