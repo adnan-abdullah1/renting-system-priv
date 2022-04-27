@@ -5,12 +5,8 @@
     <div class="row">
         <div class="col-xl-8 col-md-6 col-sm-12 mt-5">
             <mat-card class=" mat-elevation-z8">
-                <mat-card-title>
-                    image
-                </mat-card-title>
-                <!-- <img mat-card-image src="../../../../../assets/rename.jpg" alt="Photo of a Shiba Inu"> -->
-                <!-- <img mat-card-image [src]="imagePath" alt="Image not found" > -->
-
+               
+              
 
 
                 <ngb-carousel *ngIf="imagePath">
@@ -18,12 +14,9 @@
                     <ng-template ngbSlide *ngFor="let images of imagePath">
 
                         <div class="picsum-img-wrapper">
-                            <img mat-card-image [src]="images" alt="Random first slide" height="300" width="860">
+                            <img mat-card-image [src]="images" class="mh-100" style="width: 100%; height: 50vh" alt="Random first slide" height="300" width="860">
                         </div>
-                        <!-- <div class="carousel-caption">
-                            <h3>First slide label</h3>
-                            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                        </div> -->
+                       
                     </ng-template>
 
 
@@ -59,18 +52,7 @@
                 <mat-card-subtitle>Price</mat-card-subtitle>
                 <mat-card-subtitle>5000</mat-card-subtitle>
             </mat-card-subtitle>
-            <!-- <mat-card-actions align="end" >
-                <div *ngIf ="isBooked; else notBooked">
-                <button mat-raised-button disabled="primary">Already Booked</button>
-                <button mat-raised-button color="primary" (click)="checkOut()">Check out</button>
-
-                </div>
-                <ng-template #notBooked>
-                    <button mat-raised-button color="primary" (click)="book()">Book</button>
-
-
-                </ng-template>
-            </mat-card-actions> -->
+           
             <mat-card-actions align="end">
 
                 <div [ngSwitch]="isApproved">
@@ -92,7 +74,7 @@
            </mat-card>
         </div>
         <div class="col-12 mt-5">
-            <mat-card  class="mat-elevation-z8">
+            <mat-card  class="mat-elevation-z8 mb-10">
                 <mat-card-title>
                     Description
                 </mat-card-title>

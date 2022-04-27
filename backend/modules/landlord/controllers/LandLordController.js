@@ -1,6 +1,6 @@
 const rentDetailsModel = require('../../../models/rentDetails')
 const bookings = require('../../../models/bookings')
-
+var ObjectID = require('mongodb').ObjectID
 
 
 
@@ -43,6 +43,7 @@ exports.getallRentDetails = (req, res) => {
             res.send(err)
         } else {
             console.log(doc)
+            
             res.status(200).json(doc)
         }
     })
@@ -121,6 +122,23 @@ exports.getAllPendingRooms = async(req,res)=>{
             res.status(409).json(err)
         }else{
             res.status(200).json(doc)
+        }
+    })
+}
+
+exports.graph = (req,res)=>{
+    bookings.aggregate([
+        {$match:{landLordId:new ObjectID(req.params.id)}},
+        {$group:{_id:{$month:"$bookedAt"},count:{$count:{}}}},
+        {$sort:{_id:1}}
+        
+    
+
+    ],(err,doc)=>{
+        if(err){
+            res.send(err)
+        }else{
+            res.status(200).json({doc:doc})
         }
     })
 }

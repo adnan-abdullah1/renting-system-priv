@@ -33,8 +33,7 @@ const bookingSchema = new Schema({
         type: String,
         maxlength:100
     },
-   
-   
+
 
 })
 
