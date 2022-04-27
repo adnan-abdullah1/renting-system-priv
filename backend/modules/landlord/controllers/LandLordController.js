@@ -138,7 +138,7 @@ exports.graph = (req,res)=>{
         if(err){
             res.send(err)
         }else{
-            res.status(200).json({doc:doc})
+            res.status(200).json(doc)
         }
     })
 }
