@@ -21,6 +21,10 @@ const rentSchema = new Schema({
     //         type: Boolean,
     //         default: false
     // } ,
+    roomNo:{
+        type:Number,
+        default:0,
+    },
     pincode: String,
     district: String,
     city: String,

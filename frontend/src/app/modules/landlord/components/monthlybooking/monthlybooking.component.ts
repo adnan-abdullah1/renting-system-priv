@@ -15,9 +15,10 @@ export class MonthlybookingComponent implements OnInit {
   
   title='dashboard';
   chart:any=[];
-  userData:any=[]
-  months:any=['jan','feb','march','april','june','july','aug','sep','oct','nov','dec']
-  monthsLabel:any=[] 
+  userData:any= new Array(12)
+  months:any=['jan','feb','march','april','may','june','july','aug','sep','oct','nov','dec']
+  
+
    
   bookingFrequency:any=[]
     constructor(private rentservice :RentService) { }
@@ -33,11 +34,11 @@ export class MonthlybookingComponent implements OnInit {
   this.chart=new Chart('canvas',{
     type:'line',
     data:{
-      labels:this.monthsLabel,
+      labels:this.months,
       datasets:[
         {
           label:"no of bookings",
-          data:this.bookingFrequency,
+          data:this.userData,
           backgroundColor:'gray',
           borderColor:'green',
           borderWidth:2,
@@ -70,26 +71,13 @@ export class MonthlybookingComponent implements OnInit {
   
   getChart(){
     this.rentservice.getChart().subscribe((res: any) => {
+
+      this.userData.fill(0)
+      // res.forEach((value:any)=>console.log(value._id))
+      res.forEach((value:any)=> this.userData.splice(value._id -1,1,value.count))
+
+    console.log(this.userData)
     
-    this.userData=res
-    
-    this.userData.map((el:any) => {
-      this.monthsLabel.push(this.months[el._id])
-      this.bookingFrequency.push(el.count)
-    })
-     
-    return this.bookingFrequency
-    
-
-
-
-
-
-
-
-
-
-
     
     })
   }

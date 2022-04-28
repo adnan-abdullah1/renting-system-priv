@@ -32,7 +32,7 @@ export class AllotmentdetailsComponent implements OnInit {
   dataSource = USER_DATA;
   getallotmentdetails(){
     this.rentService.getallotmentdetails().subscribe((res: any) => {
-      console.log(res)
+      console.log('allotment',res)
       this.dataSource = res;
 
   })

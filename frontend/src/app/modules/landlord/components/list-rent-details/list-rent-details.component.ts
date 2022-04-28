@@ -56,6 +56,8 @@ export class ListRentDetailsComponent implements OnInit {
     //call to backend
     this.rentService.getRentDetails().subscribe((res: any) => {
       console.log(res)
+      res.image=[]
+      res.legaalDocuments=[]
       this.dataSource = res;
       
     })

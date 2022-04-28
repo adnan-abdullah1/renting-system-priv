@@ -65,12 +65,39 @@ getChart(){
 
   return this.http.get(`${this.serverURL}api/landlord/landLord-monthly-booking/${landLordId}`)
 }
-getallotmentdetails(){
-  return this.http.get(`${this.serverURL}`)
-}
-getroomdetails(){
- return this.http.get(`${this.serverURL}`)
+
+getTotalRooms(){
+
+  const {_id:landLordId} = JSON.parse(localStorage.getItem('userId') || '{}')
+  return this.http.get(`${this.serverURL}api/landlord/get-total-rooms/${landLordId}`)
+  
 }
 
+roomsApproved(){
+  const {_id:landLordId} = JSON.parse(localStorage.getItem('userId') || '{}')
+  return this.http.get(`${this.serverURL}api/landlord/get-all-approved-rooms/${landLordId}`)
+
+}
+
+getpendingRooms(){
+  const {_id:landLordId} = JSON.parse(localStorage.getItem('userId') || '{}')
+  return this.http.get(`${this.serverURL}api/landlord/get-all-pending-rooms/${landLordId}`)
+}
+
+
+getallotmentdetails(){
+  const {_id:landLordId} = JSON.parse(localStorage.getItem('userId') || '{}')
+  return this.http.get(`${this.serverURL}api/landlord/get-tenant-booking-details/${landLordId}`)
+
+
+}
+
+
+getBookingDetails(){
+  
+  const {_id:landLordId} = JSON.parse(localStorage.getItem('userId') || '{}')
+
+  return this.http.get(`${this.serverURL}api/landlord/get-booking-details/${landLordId}`)
+}
 
 }

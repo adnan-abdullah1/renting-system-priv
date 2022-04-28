@@ -2,20 +2,20 @@
 
 
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-        <ng-container matColumnDef="tName">
+        <ng-container matColumnDef="firstName">
             <th mat-header-cell *matHeaderCellDef> Tenant Name </th>
-            <td mat-cell *matCellDef="let element">{{element.tName}} </td>
+            <td mat-cell *matCellDef="let element">{{element.tenantId.firstName}} </td>
         </ng-container>
     
     
        <ng-container matColumnDef="roomNo">
             <th mat-header-cell *matHeaderCellDef> Room No </th>
-            <td mat-cell *matCellDef="let element"> {{element.roomNo}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.roomId.roomNo}} </td>
         </ng-container>
     
-        <ng-container matColumnDef="status">
+        <ng-container matColumnDef="approvalStatus">
             <th mat-header-cell *matHeaderCellDef> Status </th>
-            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            <td mat-cell *matCellDef="let element"> {{element.approvalStatus}} </td>
         </ng-container>
     
     

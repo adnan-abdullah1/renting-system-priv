@@ -18,22 +18,23 @@ export interface listrent {
   templateUrl: './roomdetails.component.html',
   styleUrls: ['./roomdetails.component.scss']
 })
+
 export class RoomdetailsComponent implements OnInit {
 
   constructor(private route: Router, private rentService: RentService) { }
 
   ngOnInit(): void {
-    this.getroomdetails()
+    this.getBookingDetails()
   }
 
-  displayedColumns: string[] = ['tName', 'roomNo', 'status'];
+  displayedColumns: string[] = ['firstName', 'roomNo', 'approvalStatus'];
    dataSource = ELEMENT_DATA;
-  getroomdetails() {
-    //call to backend
-    this.rentService.getRentDetails().subscribe((res: any) => {
-      console.log(res)
-      this.dataSource = res;
-      
+  
+ 
+  getBookingDetails(){
+    this.rentService.getBookingDetails().subscribe((res:any)=>{
+      this.dataSource=res
+      console.log(this.dataSource)
     })
   }
   

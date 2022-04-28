@@ -75,15 +75,21 @@ exports.rejectBooking = async(req, res) => {
 }
 
 
-exports.getBookingDetails = (req, res) => {
-    const query = { landLordId: req.params.id }
-    bookings.find(query, (err, doc) => {
-        if (err) {
-            res.status(404).json(err)
-        } else {
-            res.status(200).json(doc)
-        }
+
+
+exports.getBookingDetails = async(req,res)=>{
+    const bookingRoom = await bookings.find({
+        landLordId:req.params.id,
+
+    }).populate({
+        path:'tenantId',
+        select:'firstName'
+    }).populate({
+        path:'roomId',
+        select:'roomNo '
     })
+
+    res.status(200).json(bookingRoom)
 }
 
 
@@ -94,9 +100,12 @@ exports.getTenantBookingDetails = async(req, res) => {
         approvalStatus: 'approved'
     }).populate({
         path: 'tenantId',
-        select: 'firstName address'
-    });
-    // console.log(tenantDetails)
+        select: 'firstName lastName address contact email'
+    }).populate({
+        path:'roomId',
+        select:'roomNo'
+    })
+   
     res.status(200).json(tenantDetails)
 }
 
