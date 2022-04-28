@@ -51,7 +51,7 @@ exports.getallRentDetails = (req, res) => {
 }
 
 exports.editRentDetails = async(req, res) => {
-    await rentDetailsModel.findByIdAndUpdate(req.params.id, req.body)
+    await rentDetailsModel.findByIdAndUpdate({ _id: req.params.id }, req.body)
     res.status(200).json({ messagae: "Updated successfully" })
 }
 
@@ -77,16 +77,16 @@ exports.rejectBooking = async(req, res) => {
 
 
 
-exports.getBookingDetails = async(req,res)=>{
+exports.getBookingDetails = async(req, res) => {
     const bookingRoom = await bookings.find({
-        landLordId:req.params.id,
+        landLordId: req.params.id,
 
     }).populate({
-        path:'tenantId',
-        select:'firstName'
+        path: 'tenantId',
+        select: 'firstName'
     }).populate({
-        path:'roomId',
-        select:'roomNo '
+        path: 'roomId',
+        select: 'roomNo '
     })
 
     res.status(200).json(bookingRoom)
@@ -102,10 +102,10 @@ exports.getTenantBookingDetails = async(req, res) => {
         path: 'tenantId',
         select: 'firstName lastName address contact email'
     }).populate({
-        path:'roomId',
-        select:'roomNo'
+        path: 'roomId',
+        select: 'roomNo'
     })
-   
+
     res.status(200).json(tenantDetails)
 }
 
