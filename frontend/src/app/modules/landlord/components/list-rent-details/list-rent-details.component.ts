@@ -43,8 +43,8 @@ export class ListRentDetailsComponent implements OnInit {
 
 
   info(row:any){
-    row.image=[]
-    row.legalDocuments=[]
+    // row.image=[]
+    // row.legalDocuments=[]
     localStorage.setItem('viewRoom',JSON.stringify(row))
     this.route.navigate(['/viewdetails'])
   }
@@ -52,7 +52,8 @@ export class ListRentDetailsComponent implements OnInit {
   add_room() {
     this.route.navigate(['/addrent']);
   }
-  displayedColumns: string[] = ['streetname', 'city', 'district', 'state', 'pincode', 'roomtype', 'action'];
+  displayedColumns: string[] = ['streetname', 'city', 'district', 'state',
+                                'pincode', 'roomtype', 'action'];
    dataSource = ELEMENT_DATA;
   getRentDetails() {
     //call to backend
@@ -63,17 +64,16 @@ export class ListRentDetailsComponent implements OnInit {
     })
   }
   
-  
   editDetails(row:any){
-     row.image=[]
-    row.legalDocuments=[]
+    //  row.image=[]
+    // row.legalDocuments=[]
     localStorage.setItem('editRoom',JSON.stringify(row));
     this.route.navigate(['/editrent']);
   }
 
   deleteDetails(row:any){
-    row.image=[]
-    row.legalDocuments=[]
+    // row.image=[]
+    // row.legalDocuments=[]
     localStorage.setItem('deleteRoom',JSON.stringify(row))
     this.rentService.deleteRentDetails().subscribe((res:any)=>{ 
       const navigationExtra={
