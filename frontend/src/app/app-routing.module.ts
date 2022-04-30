@@ -12,6 +12,12 @@ import { AllotmentdetailsComponent } from './modules/landlord/components/allotme
 import { RoomdetailsComponent } from './modules/landlord/components/roomdetails/roomdetails.component';
 import { DashboardComponent } from './modules/landlord/components/dashboard/dashboard.component';
 import { SidenavbarComponent } from './modules/shared/components/sidenavbar/sidenavbar.component';
+import { LandlordlistComponent } from './modules/admin/components/landlordlist/landlordlist.component';
+import { TenantlistComponent } from './modules/admin/components/tenantlist/tenantlist.component';
+import { RentlistComponent } from './modules/admin/components/rentlist/rentlist.component';
+import { AdmindashboardComponent } from './modules/admin/components/admindashboard/admindashboard.component';
+
+
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -25,7 +31,11 @@ const routes: Routes = [
   {path:'allotmentdetails',component:AllotmentdetailsComponent},
   {path:'roomdetails',component:RoomdetailsComponent},
   {path:'dashboard',component:DashboardComponent},
-  {path:'sidenavbar',component:SidenavbarComponent}
+  {path:'sidenavbar',component:SidenavbarComponent},
+  {path:'landlordlist',component:LandlordlistComponent},
+  {path:'tenantlist',component:TenantlistComponent},
+  {path:'rentlist',component:RentlistComponent},
+  {path:'admindashboard',component:AdmindashboardComponent}
 ];
 
 @NgModule({

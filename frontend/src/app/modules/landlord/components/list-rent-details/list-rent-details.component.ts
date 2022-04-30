@@ -52,20 +52,21 @@ export class ListRentDetailsComponent implements OnInit {
   add_room() {
     this.route.navigate(['/addrent']);
   }
-  displayedColumns: string[] = ['streetname', 'city', 'district', 'state',
-                                'pincode', 'roomtype', 'action'];
+  displayedColumns: string[] = ['streetname', 'city', 'district', 'state', 'pincode', 'roomtype', 'action'];
    dataSource = ELEMENT_DATA;
   getRentDetails() {
     //call to backend
     this.rentService.getRentDetails().subscribe((res: any) => {
       console.log(res)
+
       this.dataSource = res;
       
     })
   }
   
+  
   editDetails(row:any){
-    //  row.image=[]
+    // row.image=[]
     // row.legalDocuments=[]
     localStorage.setItem('editRoom',JSON.stringify(row));
     this.route.navigate(['/editrent']);

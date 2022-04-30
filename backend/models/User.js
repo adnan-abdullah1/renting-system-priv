@@ -28,6 +28,15 @@ const userSchema = new Schema({
     contact:{
         type:Number,
     },
+    profile:String,
+   totalRooms:{
+       type:Number,
+       default:0
+    },
+    occupiedRooms:{
+        type:Number,
+        default:0,
+    }
     
 
 })

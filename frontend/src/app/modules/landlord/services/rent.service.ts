@@ -56,7 +56,7 @@ export class RentService {
   
 rejectBooking(){
   const {_id:bookingId} = JSON.parse(localStorage.getItem('bookingInfo') || '{}')
-
+  
   return this.http.delete(`${this.serverURL}api/landlord/reject-booking/${bookingId}`)
 }
 

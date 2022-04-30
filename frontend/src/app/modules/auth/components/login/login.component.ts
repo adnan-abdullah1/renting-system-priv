@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
       
      if(this.userDetails?.role == 'admin')
     {
-    this.router.navigate(['/admin'])
+    this.router.navigate(['/admindashboard'])
     }
     if(this.userDetails?.role=='Tenant')
     {

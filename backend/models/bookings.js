@@ -5,7 +5,7 @@ const { Schema } = require('mongoose')
 const bookingSchema = new Schema({
 
     landLordId: {
-        type: mongoose.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId, ref:'User',
     },
     tenantId: {
         type:mongoose.Schema.Types.ObjectId, ref:'User'
@@ -33,6 +33,7 @@ const bookingSchema = new Schema({
         type: String,
         maxlength:100
     },
+    
 
 
 })

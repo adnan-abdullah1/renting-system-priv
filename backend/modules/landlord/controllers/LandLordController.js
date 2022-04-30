@@ -1,6 +1,8 @@
 const rentDetailsModel = require('../../../models/rentDetails')
 const bookings = require('../../../models/bookings')
 var ObjectID = require('mongodb').ObjectID
+const UserModel = require('../../../models/User')
+const User = require('../../../models/User')
 
 
 
@@ -19,19 +21,38 @@ exports.notifiLandlord = async(req, res) => {
 
 exports.addRentDetails = async(req, res) => {
     const addRoomDetails = new rentDetailsModel(req.body)
-    addRoomDetails.save((err, doc) => {
-        if (err) {
-            res.json(err)
-        } else {
-            res.status(200).json({ info: 'Details Saved Successfully.' })
-        }
-    })
+    const {landLordId} = req.body 
+    // console.log(req.body)
+      UserModel.findByIdAndUpdate(landLordId,{$inc:{totalRooms:1}},{new:true},(err,doc)=>{
+          if(err){
+              res.json(err)
+          }else{
+              addRoomDetails.save((err,doc)=>{
+                  if(err){
+                      res.json(err)
+                  }else{
+                      res.status(200).json({info:'Details saved Successfully'})
+                  }
+              })
+          }
+      })
+    // addRoomDetails.save((err, doc) => {
+    //     if (err) {
+    //         res.json(err)
+    //     } else {
+
+    //         res.status(200).json({ info: 'Details Saved Successfully.' })
+    //     }
+    // })
 
 
 }
 
 exports.deleteRentDetails = async(req, res) => {
+     const {landLordId}=await rentDetailsModel.findById(req.params.id)
     await rentDetailsModel.findByIdAndDelete(req.params.id)
+   
+    await UserModel.findByIdAndUpdate(landLordId,{$inc:{totalRooms:-1,occupiedRooms:-1}})
     await bookings.findByIdAndDelete(req.params.id)
     res.status(200).json({ messagae: "Room details deleted Successfully" })
 }
@@ -51,7 +72,7 @@ exports.getallRentDetails = (req, res) => {
 }
 
 exports.editRentDetails = async(req, res) => {
-    await rentDetailsModel.findByIdAndUpdate({ _id: req.params.id }, req.body)
+    await rentDetailsModel.findByIdAndUpdate(req.params.id, req.body)
     res.status(200).json({ messagae: "Updated successfully" })
 }
 
@@ -70,23 +91,26 @@ exports.approveBooking = async(req, res) => {
 
 
 exports.rejectBooking = async(req, res) => {
+    const {landLordId} = await bookings.findById(req.params.id)
+    // console.log('rejectlandlordid-backend',landLordsetails)
     await bookings.findByIdAndDelete(req.params.id)
+    await UserModel.findByIdAndUpdate(landLordId,{$inc:{occupiedRooms:-1}}) 
     res.status(200).json('Rejected')
 }
 
 
 
 
-exports.getBookingDetails = async(req, res) => {
+exports.getBookingDetails = async(req,res)=>{
     const bookingRoom = await bookings.find({
-        landLordId: req.params.id,
+        landLordId:req.params.id,
 
     }).populate({
-        path: 'tenantId',
-        select: 'firstName'
+        path:'tenantId',
+        select:'firstName'
     }).populate({
-        path: 'roomId',
-        select: 'roomNo '
+        path:'roomId',
+        select:'roomNo '
     })
 
     res.status(200).json(bookingRoom)
@@ -102,10 +126,10 @@ exports.getTenantBookingDetails = async(req, res) => {
         path: 'tenantId',
         select: 'firstName lastName address contact email'
     }).populate({
-        path: 'roomId',
-        select: 'roomNo'
+        path:'roomId',
+        select:'roomNo'
     })
-
+   
     res.status(200).json(tenantDetails)
 }
 

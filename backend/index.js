@@ -8,7 +8,7 @@ const port = 3000;
 const authRoutes = require('./modules/auth/routes/authRoute')
 const landLordRoutes = require('./modules/landlord/routes/landLordRoute')
 const tenanatRoutes = require('./modules/tenant/routes/tenantRoute')
-const adminRoutes = require('./modules/admin/routes/admin')
+const adminRoutes = require('./modules/admin/routes/adminRoutes')
 
 mongoose.connect('mongodb://localhost:27017/Renting-system')
     .then(() => console.log('connected Db'))
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoutes)
 app.use('/api/landlord', landLordRoutes)
 app.use('/api/tenant', tenanatRoutes)
-app.use('/api/admin', adminRoutes)
+app.use('/api/admin',adminRoutes)
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`)

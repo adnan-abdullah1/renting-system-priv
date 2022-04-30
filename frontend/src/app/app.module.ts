@@ -33,6 +33,10 @@ import { NgChartsModule } from 'ng2-charts';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatChipsModule} from '@angular/material/chips';
+import { AdmindashboardComponent } from './modules/admin/components/admindashboard/admindashboard.component';
+import { LandlordlistComponent } from './modules/admin/components/landlordlist/landlordlist.component';
+import { RentlistComponent } from './modules/admin/components/rentlist/rentlist.component';
+import { TenantlistComponent } from './modules/admin/components/tenantlist/tenantlist.component';
 
 
 
@@ -53,6 +57,10 @@ import {MatChipsModule} from '@angular/material/chips';
     MonthlybookingComponent,
     RoomdetailsComponent,
     SidenavbarComponent,
+    AdmindashboardComponent,
+    LandlordlistComponent,
+    RentlistComponent,
+    TenantlistComponent,
 
 
   ],

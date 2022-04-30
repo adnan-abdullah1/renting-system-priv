@@ -38,6 +38,7 @@ exports.applyForRooom= async (req,res)=>{
      appliedRoom.approvalStatus = 'pending'
      appliedRoom.notification = message
      appliedRoom.save()
+     await userModel.findByIdAndUpdate(landLordId,{$inc:{ occupiedRooms:1}})
 
     // await  userModel.findOneAndUpdate({_id:landLordId},{$set:{notifications:message}})
 

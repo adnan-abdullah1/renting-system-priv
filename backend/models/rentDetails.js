@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 const { Schema } = require('mongoose')
-
+// var AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const rentSchema = new Schema({
     image: [{type:String}],
@@ -10,12 +10,13 @@ const rentSchema = new Schema({
         type: String,
     },
     landLordId: {
-        type: mongoose.Types.ObjectId,
+        type:  mongoose.Schema.Types.ObjectId, ref:'User',
     },
     description: {
         type: String,
 
     },
+   
    
     // booked: {
     //         type: Boolean,
@@ -30,8 +31,13 @@ const rentSchema = new Schema({
     city: String,
     street: String,
     landmark: String,
-    state: String
+    state: String,
+    // totalRooms:{
+    //     type:Number,
+    //     default:0
+    // }
 })
+
 
 
 module.exports = mongoose.model('rentDetails', rentSchema)
