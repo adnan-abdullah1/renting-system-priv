@@ -8,9 +8,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 //import { ThisReceiver } from '@angular/compiler';
 import { DataService } from 'src/app/data.service';
 
-import {EditpasswordComponent} from './editpassword/editpassword.component';
-
-
 @Component({
   selector: 'app-sidenavbar',
   templateUrl: './sidenavbar.component.html',
@@ -79,11 +76,6 @@ lastName:any;
   })
 
 }
-
-editPassword(){
-  this.dialog.open(EditpasswordComponent)
-}
-
 
  }    
   
