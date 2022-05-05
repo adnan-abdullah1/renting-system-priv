@@ -2,14 +2,13 @@ import { Component, OnInit, ViewChild ,AfterViewChecked,ElementRef} from '@angul
 import { MatSidenav } from '@angular/material/sidenav';
 import { SidenavService } from '../../services/sidenav.service';
 import {SharedserviceService } from '../../services/sharedservice.service';
-
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DomSanitizer } from '@angular/platform-browser';
 //import { ThisReceiver } from '@angular/compiler';
 import { DataService } from 'src/app/data.service';
 
-import { ListRentDetailsComponent } from 'src/app/modules/landlord/components/list-rent-details/list-rent-details.component';
-
+import {EditpasswordComponent} from './editpassword/editpassword.component';
 
 
 @Component({
@@ -33,7 +32,7 @@ lastName:any;
 
  @ViewChild('sidenav') public sidenav!: MatSidenav;
   
-  constructor(private sharedService:SharedserviceService, private sidenavService: SidenavService ,private router: Router,private data:DataService,private _sanitizer: DomSanitizer) {
+  constructor(private sharedService:SharedserviceService, private sidenavService: SidenavService ,private router: Router,private data:DataService,private _sanitizer: DomSanitizer,public dialog:MatDialog) {
     
 
   }
@@ -81,7 +80,9 @@ lastName:any;
 
 }
 
-
+editPassword(){
+  this.dialog.open(EditpasswordComponent)
+}
 
 
  }    

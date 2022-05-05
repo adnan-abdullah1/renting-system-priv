@@ -47,6 +47,7 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { EditpasswordComponent } from './modules/shared/components/sidenavbar/editpassword/editpassword.component';
 
 
 
@@ -77,6 +78,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     EditTenantComponent,
     AddTenantComponent,
     RentlistdetailsComponent,
+    EditpasswordComponent,
 
 
   ],
