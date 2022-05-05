@@ -37,6 +37,17 @@ import { AdmindashboardComponent } from './modules/admin/components/admindashboa
 import { LandlordlistComponent } from './modules/admin/components/landlordlist/landlordlist.component';
 import { RentlistComponent } from './modules/admin/components/rentlist/rentlist.component';
 import { TenantlistComponent } from './modules/admin/components/tenantlist/tenantlist.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { AddLandLordComponent } from './modules/admin/components/landlordlist/add-land-lord/add-land-lord.component';
+import { EditLandLordComponent } from './modules/admin/components/landlordlist/edit-land-lord/edit-land-lord.component';
+import { EditTenantComponent } from './modules/admin/components/tenantlist/edit-tenant/edit-tenant.component';
+import { AddTenantComponent } from './modules/admin/components/tenantlist/add-tenant/add-tenant.component';
+import { RentlistdetailsComponent } from './modules/admin/components/rentlist/rentlistdetails/rentlistdetails.component';
+import { MatOptionModule } from '@angular/material/core';
+import { MatSelectModule } from '@angular/material/select';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 
 
 
@@ -61,10 +72,23 @@ import { TenantlistComponent } from './modules/admin/components/tenantlist/tenan
     LandlordlistComponent,
     RentlistComponent,
     TenantlistComponent,
+    AddLandLordComponent,
+    EditLandLordComponent,
+    EditTenantComponent,
+    AddTenantComponent,
+    RentlistdetailsComponent,
 
 
   ],
   imports: [
+   
+  FormsModule,
+  MatButtonModule,
+  MatToolbarModule,
+  MatInputModule,
+  MatFormFieldModule,
+
+    NgxMatFileInputModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -84,13 +108,16 @@ import { TenantlistComponent } from './modules/admin/components/tenantlist/tenan
     NgChartsModule,
     MatSidenavModule ,
     MatListModule,
-    MatChipsModule
+    MatChipsModule,
+    MatDialogModule,
+    MatOptionModule,
+    MatSelectModule
     
 
     
 
   ],
-  providers: [],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

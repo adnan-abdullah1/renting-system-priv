@@ -1,6 +1,6 @@
 
 <mat-card>
-    <button mat-raised-button (click)="addTenant()"> Add Tenant </button>
+    <button mat-raised-button (click)="addTenantDialog()"> Add Tenant </button>
     
     
         <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -44,8 +44,8 @@
                  <td mat-cell *matCellDef="let row">
                      <i class="fa fa-eye-slash"></i>
                      
-                    <i class="fa fa-edit" ></i>
-                    <i class="fa fa-trash" ></i>
+                    <i class="fa fa-edit" (click)="editTenantDialog(row)" ></i>
+                    <i class="fa fa-trash" (click)="deleteTenantInfo(row)" ></i>
                 
                  </td>
             </ng-container> 

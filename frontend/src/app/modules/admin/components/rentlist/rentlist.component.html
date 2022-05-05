@@ -40,8 +40,8 @@
              <td mat-cell *matCellDef="let row">
                  <i class="fa fa-eye-slash" ></i>
                 
-                <i class="fa fa-edit"></i>
-                <i class="fa fa-trash" ></i>
+                <i class="fa fa-edit " (click)="editRentDialog(row)"></i>
+                <i class="fa fa-trash" (click)="deleteRentInfo(row)"></i>
             
              </td>
         </ng-container>

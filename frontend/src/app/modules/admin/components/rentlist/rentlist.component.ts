@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
+import { MatDialog } from '@angular/material/dialog';
+import {RentlistdetailsComponent} from './rentlistdetails/rentlistdetails.component'
 
 export interface listrent {
 
@@ -22,7 +24,7 @@ export interface listrent {
 })
 export class RentlistComponent implements OnInit {
 
-  constructor(private adminService:AdminService,private route:Router) { }
+  constructor(private adminService:AdminService,private route:Router,public dialog:MatDialog) { }
 
   ngOnInit(): void {
     this.getrentlist();
@@ -35,6 +37,21 @@ export class RentlistComponent implements OnInit {
       console.log('rentinfo',res)
   
       this.dataSource = res;
+  })
+}
+
+editRentDialog(row:any){
+this.dialog.open(RentlistdetailsComponent,{
+  data:row
+})
+}
+
+deleteRentInfo(row:any){
+  this.adminService.deleteRentInfo(row).subscribe((res:any)=>{
+    console.log(res)
+    this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.route.onSameUrlNavigation = 'reload';
+      this.route.navigate(['/admindashboard'])
   })
 }
 

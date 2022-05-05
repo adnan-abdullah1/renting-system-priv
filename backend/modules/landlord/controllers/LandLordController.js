@@ -36,14 +36,7 @@ exports.addRentDetails = async(req, res) => {
               })
           }
       })
-    // addRoomDetails.save((err, doc) => {
-    //     if (err) {
-    //         res.json(err)
-    //     } else {
-
-    //         res.status(200).json({ info: 'Details Saved Successfully.' })
-    //     }
-    // })
+    
 
 
 }
@@ -63,7 +56,6 @@ exports.getallRentDetails = (req, res) => {
         if (err) {
             res.send(err)
         } else {
-            // console.log(doc)
 
             res.status(200).json(doc)
         }
@@ -92,7 +84,7 @@ exports.approveBooking = async(req, res) => {
 
 exports.rejectBooking = async(req, res) => {
     const {landLordId} = await bookings.findById(req.params.id)
-    // console.log('rejectlandlordid-backend',landLordsetails)
+
     await bookings.findByIdAndDelete(req.params.id)
     await UserModel.findByIdAndUpdate(landLordId,{$inc:{occupiedRooms:-1}}) 
     res.status(200).json('Rejected')
@@ -118,7 +110,7 @@ exports.getBookingDetails = async(req,res)=>{
 
 
 exports.getTenantBookingDetails = async(req, res) => {
-    // console.log(req.params.body)
+    
     const tenantDetails = await bookings.find({
         landLordId: req.params.id,
         approvalStatus: 'approved'

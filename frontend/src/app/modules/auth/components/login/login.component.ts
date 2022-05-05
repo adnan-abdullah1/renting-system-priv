@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   authModel: any = {};
   userDetails:any={}
 
-  constructor(private authService: AuthService,private router:Router) { }
+  constructor(private authService: AuthService,private router:Router,private data:DataService) { }
   ngOnInit(): void {
   }
     login() {
@@ -21,6 +22,8 @@ export class LoginComponent implements OnInit {
       this.userDetails=res.user
       localStorage.setItem('userId', JSON.stringify(this.userDetails))
       
+        this.data.setUserData(this.userDetails)
+
      if(this.userDetails?.role == 'admin')
     {
     this.router.navigate(['/admindashboard'])

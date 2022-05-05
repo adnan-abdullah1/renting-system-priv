@@ -25,7 +25,10 @@ export class SharedserviceService {
     //return this.http.get(`${this.serverURL}api/landlord/send-notification/6264110cfcd956fb7fdf8159`)
     return this.http.get(`${this.serverURL}api/landlord/send-notification/${landLordId}`)
   }
- 
-  
+  getProfileDetails(){
+    
+    const {_id:id}= JSON.parse(localStorage.getItem('userId') || '{}')
+    return this.http.get(`${this.serverURL}api/admin/profile-details/${id}`)
+  }
   
 }

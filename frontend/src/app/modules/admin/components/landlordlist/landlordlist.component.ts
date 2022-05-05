@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
+import { AddLandLordComponent } from './add-land-lord/add-land-lord.component';
+import { EditLandLordComponent } from './edit-land-lord/edit-land-lord.component';
 
 export interface listrent {
 
@@ -24,7 +27,7 @@ export interface listrent {
 })
 export class LandlordlistComponent implements OnInit {
 
-  constructor(private adminService:AdminService,private route:Router) { }
+  constructor(private adminService:AdminService,private route:Router,public dialog:MatDialog) { }
 
   ngOnInit(): void {
     
@@ -32,9 +35,10 @@ export class LandlordlistComponent implements OnInit {
     this.getLandlordlist();
     
   }
-  addLandlord(){
-   this.route.navigate(['/register']);   
-  }
+
+
+ 
+  
   displayedColumns:String[]=['landlordName','address', 'phoneNo','email','totalRooms','occupied','available','action']
   dataSource=ELEMENT_DATA;
   getLandlordlist(){
@@ -57,5 +61,20 @@ deleteLandLord(row:any){
     
   })
 }
+
+
+
+addLandlordDialog(){
+  //  this.route.navigate(['/register']); 
+  this.dialog.open(AddLandLordComponent) 
+
+  }
+
+  
+   editLandLordDialog(row:any){
+    const editedData=  this.dialog.open(EditLandLordComponent,{
+      data: row
+    })
+   }
 
 }

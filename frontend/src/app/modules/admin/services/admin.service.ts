@@ -9,6 +9,8 @@ import { environment } from 'src/environments/environment';
 export class AdminService {
   serverURL = environment.serverURL
   constructor(private http:HttpClient) { }
+
+
   getLandLords(){ 
     return this.http.get(`${this.serverURL}api/admin/get-landlords`)
   }
@@ -49,10 +51,43 @@ export class AdminService {
 
   }
 
-  // editLandLord(row:any){
-  //   const{_id:landLordId} = row
-  //   return this.http.put(`${this.serverURL}api/admin/remove-landlord/${landLordId}`,{})
-    
-  // }
+  
+  addLandLord(userModel:any){
+    return this.http.post(`${this.serverURL}api/admin/add-landlord`,userModel)
 
+  }
+   
+  editLandLord(editUserModel:any){
+  
+       console.log(editUserModel)
+    return this.http.put(`${this.serverURL}api/admin/update-landlord/${editUserModel._id}`,editUserModel)
+
+  }
+
+  addTenant(userModel:any){
+    return this.http.post(`${this.serverURL}api/admin/add-tenant`,userModel)
+    
+  }
+
+  editTenant(editUserModel:any){
+    return this.http.put(`${this.serverURL}api/admin/edit-tenant/${editUserModel._id}`,editUserModel)
+      
+  }
+
+  deleteTenantInfo(row:any){
+    const {tenantId}= row
+    console.log('tenantid',tenantId)
+    return this.http.delete(`${this.serverURL}api/admin/remove-tenant/${tenantId._id}`)
+
+  }
+
+  editRentInfo(data:any){
+      const {_id:roomId}  = data
+    return this.http.put(`${this.serverURL}api/admin/edit-rent-info/${roomId}`,data)
+  }
+  
+  deleteRentInfo(row:any){
+    const {_id:roomId}= row
+    return this.http.delete(`${this.serverURL}api/admin/delete-rent-info/${roomId}`)
+  }
 }

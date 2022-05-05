@@ -1,10 +1,68 @@
-
 <mat-drawer #sidenav class="mt-6" mode="side">
-    <mat-list role="list">
-        <mat-list-item role="listitem">Item 1</mat-list-item>
-        <mat-list-item role="listitem">Item 2</mat-list-item>
-        <mat-list-item role="listitem">Item 3</mat-list-item>
-    </mat-list>
+
+    <img mat-card-avatar [src]="profilePicture" class="mh-100" alt="img err">
+    <!-- <img mat-card-avatar [src]="profilePicture" class="mh-100" style="width: 25%; height: 10vh" alt="Random first slide" height="300" width="860"> -->
+    <mat-form-field appearance="fill">
+
+
+        <mat-label>{{firstName }}&nbsp;{{lastName}}</mat-label>
+        <mat-select>
+            <mat-option>edit</mat-option>
+            <mat-option>change password</mat-option>
+
+        </mat-select>
+
+
+
+    </mat-form-field>
+
+
+    <mat-divider></mat-divider>
+    <div *ngIf="userDetails.role=='landlord' || userDetails.role=='admin'">
+        <button mat-button class="menu-button">
+       <i class="fa fa-tachometer fa-1x fa-fw" aria-hidden="true"></i>
+       <span>DASHBOARD</span>
+      </button>
+    </div>
+
+
+    <div>
+        <button mat-button class="menu-button">
+            <i class="fa fa-home fa-1x fa-fw" aria-hidden="true"></i>
+     <span>HOME</span>
+     </button>
+
+    </div>
+    <div>
+        <button mat-button class="menu-button">
+        <i class="fa fa-cog fa-1x fa-fw " aria-hidden="true"></i>
+         <span>MANAGE</span>
+         <mat-select>
+            <mat-option>Landlord</mat-option>
+            <mat-option>Tenant</mat-option>
+            
+        </mat-select>
+        </button>
+
+    </div>
+    <div>
+        <button mat-button class="menu-button">
+         <i class="fa fa-question-circle fx-1x  fa-fw" aria-hidden="true"></i>
+         <span>HELP</span>
+         </button>
+
+    </div>
+
+    <div>
+        <button mat-button class="menu-button" (click)="RentDetails()">
+            
+         <span>RentListDetails</span>
+         
+        </button>
+
+    </div>
+
+
 
 
 </mat-drawer>
