@@ -47,6 +47,8 @@ import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { UserProfileComponent } from './modules/shared/components/user-profile/user-profile.component';
+import { ViewRoomDetailsAdminComponent } from './modules/admin/components/view-room/view-room.component'
 
 
 
@@ -76,6 +78,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     EditTenantComponent,
     AddTenantComponent,
     RentlistdetailsComponent,
+    UserProfileComponent,
+  ViewRoomDetailsAdminComponent,
    
 
 

@@ -10,7 +10,9 @@ export class AdminService {
   serverURL = environment.serverURL
   constructor(private http:HttpClient) { }
 
-
+  getViewRoomDetails(id:any){
+    return this.http.get(`${this.serverURL}api/tenant/view-room-details/${id}`)
+  }
   getLandLords(){ 
     return this.http.get(`${this.serverURL}api/admin/get-landlords`)
   }

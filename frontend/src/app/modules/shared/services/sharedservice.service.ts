@@ -25,10 +25,15 @@ export class SharedserviceService {
     //return this.http.get(`${this.serverURL}api/landlord/send-notification/6264110cfcd956fb7fdf8159`)
     return this.http.get(`${this.serverURL}api/landlord/send-notification/${landLordId}`)
   }
+  //for side navbar
   getProfileDetails(){
     
     const {_id:id}= JSON.parse(localStorage.getItem('userId') || '{}')
     return this.http.get(`${this.serverURL}api/admin/profile-details/${id}`)
   }
-  
+//for profile when clicked on i button
+  userProfile(id:any){
+    
+    return this.http.get(`${this.serverURL}api/admin/profile-details/${id}`)
+  }
 }
