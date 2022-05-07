@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
 import { AddLandLordComponent } from './add-land-lord/add-land-lord.component';
 import { EditLandLordComponent } from './edit-land-lord/edit-land-lord.component';
-import { UserProfileComponent } from '../../../shared/components/user-profile/user-profile.component';
+import { UserProfileComponent } from 'src/app/modules/shared/components/user-profile/user-profile.component';
 
 export interface listrent {
 
@@ -33,7 +33,7 @@ export class LandlordlistComponent implements OnInit {
   ngOnInit(): void {
     
     
-    this.getLandlordlist();
+    this.getLandlordlist(); 
     
   }
 
@@ -59,6 +59,7 @@ landlordProfile(row:any)
       data:row 
     })
   }
+
 deleteLandLord(row:any){
   this.adminService.deleteLandLord(row).subscribe((res:any)=>{
     console.log(res)

@@ -2,7 +2,7 @@ const rentDetailsModel = require('../../../models/rentDetails')
 const bookings = require('../../../models/bookings')
 var ObjectID = require('mongodb').ObjectID
 const UserModel = require('../../../models/User')
-const User = require('../../../models/User')
+// const User = require('../../../models/User')
 
 
 

@@ -1,22 +1,16 @@
 <mat-drawer #sidenav class="mt-6" mode="side">
 
-    <img mat-card-avatar [src]="profilePicture" class="mh-100" alt="img err">
-    <!-- <img mat-card-avatar [src]="profilePicture" class="mh-100" style="width: 25%; height: 10vh" alt="Random first slide" height="300" width="860"> -->
+    <!-- <img class="image" src=""> -->
+    <img mat-card-avatar [src]="profilePicture"  alt="img err">
+
     <mat-form-field appearance="fill">
-
-
-        <mat-label>{{firstName }}&nbsp;{{lastName}}</mat-label>
+        <mat-label>{{firstName + '' + lastName}}</mat-label>
         <mat-select>
-            <mat-option >edit</mat-option>
-            <mat-option >change password</mat-option>
+            <mat-option>edit</mat-option>
+            <mat-option (click)="changePasswordDialog()" >change password </mat-option> 
 
         </mat-select>
-
-
-
     </mat-form-field>
-
-
     <mat-divider></mat-divider>
     <div *ngIf="userDetails.role=='landlord' || userDetails.role=='admin'">
         <button mat-button class="menu-button">
@@ -38,8 +32,8 @@
         <i class="fa fa-cog fa-1x fa-fw " aria-hidden="true"></i>
          <span>MANAGE</span>
          <mat-select>
-            <mat-option>Landlord</mat-option>
-            <mat-option>Tenant</mat-option>
+            <mat-option [routerLink]="['/landlordlist']">Landlord</mat-option>
+            <mat-option [routerLink]="['/list-all-tenants']">Tenant</mat-option>
             
         </mat-select>
         </button>

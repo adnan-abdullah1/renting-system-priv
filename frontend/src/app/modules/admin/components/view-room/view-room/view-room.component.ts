@@ -1,7 +1,7 @@
-
 import {Inject, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {AdminService} from '../../services/admin.service'
+// import {AdminService} from '../../services/admin.service'
+import { AdminService } from '../../../services/admin.service';
 import Swal from 'sweetalert2';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
@@ -56,8 +56,3 @@ export class ViewRoomDetailsAdminComponent implements OnInit {
   
    }
   }
-
- 
-
-
-

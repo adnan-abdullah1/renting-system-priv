@@ -3,7 +3,9 @@ import { Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
 import { MatDialog } from '@angular/material/dialog';
 import {RentlistdetailsComponent} from './rentlistdetails/rentlistdetails.component'
-import {ViewRoomDetailsAdminComponent} from '../view-room/view-room.component'
+import { ViewRoomDetailsAdminComponent } from '../view-room/view-room/view-room.component';
+
+
 export interface listrent {
 
   phoneNo: Number;
@@ -31,13 +33,15 @@ export class RentlistComponent implements OnInit {
   }
   displayedColumns:String[]=['landlordName','location','roomType','phoneNo','action']
   dataSource=ELEMENT_DATA;
-  
+
   viewRentRoomDetails(row:any){
     row.user="admin"
     this.dialog.open(ViewRoomDetailsAdminComponent,{
       data:row 
     })
   }
+
+
   getrentlist(){
     this.adminService.getrentlist().subscribe((res: any) => {
       console.log('rentinfo',res)

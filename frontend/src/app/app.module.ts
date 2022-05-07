@@ -45,11 +45,15 @@ import { AddTenantComponent } from './modules/admin/components/tenantlist/add-te
 import { RentlistdetailsComponent } from './modules/admin/components/rentlist/rentlistdetails/rentlistdetails.component';
 import { MatOptionModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
-import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { ListTenantComponent } from './modules/admin/components/tenantlist/list-tenant/list-tenant.component';
+import { ChangePasswordComponent } from './modules/shared/components/sidenavbar/change-password/change-password.component';
+import { EditAllTenantsComponent } from './modules/admin/components/tenantlist/list-tenant/edit-all-tenants/edit-all-tenants.component';
+// import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UserProfileComponent } from './modules/shared/components/user-profile/user-profile.component';
-import { ViewRoomDetailsAdminComponent } from './modules/admin/components/view-room/view-room.component'
-
+// import { ViewRoomComponent } from './modules/admin/components/view-room/view-room/view-room.component';
+import { ViewRoomDetailsAdminComponent } from './modules/admin/components/view-room/view-room/view-room.component';
+// import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 
 
@@ -78,21 +82,17 @@ import { ViewRoomDetailsAdminComponent } from './modules/admin/components/view-r
     EditTenantComponent,
     AddTenantComponent,
     RentlistdetailsComponent,
+    ListTenantComponent,
+    ChangePasswordComponent,
+    EditAllTenantsComponent,
     UserProfileComponent,
-  ViewRoomDetailsAdminComponent,
-   
+   ViewRoomDetailsAdminComponent
+    
+    
 
 
   ],
   imports: [
-   
-  FormsModule,
-  MatButtonModule,
-  MatToolbarModule,
-  MatInputModule,
-  MatFormFieldModule,
-
-    NgxMatFileInputModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
@@ -115,13 +115,11 @@ import { ViewRoomDetailsAdminComponent } from './modules/admin/components/view-r
     MatChipsModule,
     MatDialogModule,
     MatOptionModule,
-    MatSelectModule
+    MatSelectModule,
+    MatFormFieldModule,
     
-
-    
-
   ],
-  
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -13,6 +13,7 @@ export class AdminService {
   getViewRoomDetails(id:any){
     return this.http.get(`${this.serverURL}api/tenant/view-room-details/${id}`)
   }
+
   getLandLords(){ 
     return this.http.get(`${this.serverURL}api/admin/get-landlords`)
   }
@@ -20,6 +21,7 @@ export class AdminService {
   
   getTenants(){
     return this.http.get(`${this.serverURL}api/admin/get-tenants`)
+
   }
   
   
@@ -71,6 +73,8 @@ export class AdminService {
     
   }
 
+  
+
   editTenant(editUserModel:any){
     return this.http.put(`${this.serverURL}api/admin/edit-tenant/${editUserModel._id}`,editUserModel)
       
@@ -92,4 +96,23 @@ export class AdminService {
     const {_id:roomId}= row
     return this.http.delete(`${this.serverURL}api/admin/delete-rent-info/${roomId}`)
   }
+
+  getAllTenants(){
+    return this.http.get(`${this.serverURL}api/admin/get-tenants`) 
+  }
+  
+  deleteTenent(row:any){
+
+    const {_id}= row
+ 
+    return this.http.delete(`${this.serverURL}api/admin/remove-tenant/${_id}`)
+  }
+
+  editAllTenants(tenantDetails:any){
+
+    const {_id}= tenantDetails
+    return this.http.put(`${this.serverURL}api/admin/edit-all-tenant/${_id}`,tenantDetails)
+
+  }
+
 }

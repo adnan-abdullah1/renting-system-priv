@@ -9,6 +9,8 @@ const authRoutes = require('./modules/auth/routes/authRoute')
 const landLordRoutes = require('./modules/landlord/routes/landLordRoute')
 const tenanatRoutes = require('./modules/tenant/routes/tenantRoute')
 const adminRoutes = require('./modules/admin/routes/adminRoutes')
+const sharedRoutes = require('./modules/shared/routes/sharedRoute')
+
 
 mongoose.connect('mongodb://localhost:27017/Renting-system')
     .then(() => console.log('connected Db'))
@@ -29,6 +31,7 @@ app.use('/api/auth', authRoutes)
 app.use('/api/landlord', landLordRoutes)
 app.use('/api/tenant', tenanatRoutes)
 app.use('/api/admin',adminRoutes)
+app.use('/api/shared',sharedRoutes)
 
 app.listen(port, () => {
     console.log(`Server listening on port ${port}`)

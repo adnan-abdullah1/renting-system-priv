@@ -10,6 +10,7 @@ export class TenantService {
   serverURL = environment.serverURL
    isBooked:boolean =false;
   constructor(private http: HttpClient) { }
+  
   getViewDetails(){
 
     const roomDetails = JSON.parse(localStorage.getItem('viewRoom') || '{}')
@@ -19,7 +20,8 @@ export class TenantService {
     // return this.http.put(${this.serverURL}api/landlord/edit-rent-details/${userId},editRoomDetails)
     return this.http.get(`${this.serverURL}api/tenant/view-room-details/${roomId}`)
   }
-  
+
+
 
   applyBooking(){
     const applyRoomDetails= JSON.parse(localStorage.getItem('viewRoom') || '{}')

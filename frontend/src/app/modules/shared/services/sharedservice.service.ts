@@ -10,7 +10,7 @@ import { environment } from 'src/environments/environment';
 
 
 export class SharedserviceService {
-  serverURL = environment.serverURL
+  serverURL = environment.serverURL 
 
 
   constructor(private http: HttpClient) { }
@@ -25,15 +25,21 @@ export class SharedserviceService {
     //return this.http.get(`${this.serverURL}api/landlord/send-notification/6264110cfcd956fb7fdf8159`)
     return this.http.get(`${this.serverURL}api/landlord/send-notification/${landLordId}`)
   }
-  //for side navbar
+ 
+  changeOldPassword(data:any){
+      const {_id} = JSON.parse(localStorage.getItem('userId')  || '{}')
+      return this.http.patch(`${this.serverURL}api/shared/change-password/${_id}`,data)
+  }
+
   getProfileDetails(){
     
     const {_id:id}= JSON.parse(localStorage.getItem('userId') || '{}')
-    return this.http.get(`${this.serverURL}api/admin/profile-details/${id}`)
+    return this.http.get(`${this.serverURL}api/shared/profile-details/${id}`)
   }
-//for profile when clicked on i button
+
   userProfile(id:any){
     
-    return this.http.get(`${this.serverURL}api/admin/profile-details/${id}`)
+    return this.http.get(`${this.serverURL}api/shared/profile-details/${id}`)
   }
+  
 }

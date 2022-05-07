@@ -119,7 +119,18 @@ changelegaldoc = (e: any) => {
   }
 }
 
+back(){
+  const navigationExtra={
+    queryParams:{
+      option:'landlord'
+    
+    }
+  }
+  
+  
+  this.route.navigate(['/rent-details-list'],navigationExtra)
 
+}
   
   }
 

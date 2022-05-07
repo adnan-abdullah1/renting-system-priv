@@ -18,4 +18,5 @@ export class AddTenantComponent implements OnInit {
       console.log('response add tenent',res)
     })
   }
+  
 }

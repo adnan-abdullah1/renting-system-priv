@@ -25,20 +25,19 @@ const userSchema = new Schema({
         type: String,
         default: "tenant"
     },
-    contact: {
-        type: Number,
+    contact:{
+        type:Number,
     },
-    profile: String,
-    totalRooms: {
-        type: Number,
-        default: 0
+    profilePicture: { type: String },
+   totalRooms:{
+       type:Number,
+       default:0
     },
-    occupiedRooms: {
-        type: Number,
-        default: 0,
-    },
-    profilePicture: { type: String }
-
+    occupiedRooms:{
+        type:Number,
+        default:0,
+    }
+    
 
 })
 

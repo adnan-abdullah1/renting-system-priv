@@ -61,7 +61,7 @@
     <div class="row">
         <div class="col">
             <!-- <mat-form-field id="input-design" appearance="outline"> -->
-
+                
             <input type="file" class="input-upload" name="myfile" accept="image/*" (change)="changelegaldoc($event)" multiple/>
             <!-- </mat-form-field> -->
         </div>
@@ -82,8 +82,11 @@
     </select>
     </mat-form-field>
     <img width="80vh" src="{{AddModel.image}}" alt="">
-    <button (click)="Addroom()" mat-raised-button color="primary">Add Room</button>
-    <button (click)="back()" mat-raised-button color="primary">Back</button>
+    <mat-card-actions>
+        <button (click)="Addroom()" mat-raised-button color="primary">Add Room</button>
+        <button (click)="back()" mat-raised-button color="primary">Back</button>
+    </mat-card-actions>
+    
 
 
 </mat-card>

@@ -61,7 +61,6 @@ export class AddRentComponent implements OnInit {
   })
 
   changeImg = (e: any) => {
-  
     for(let image of e.target.files) {
    
     const file = image

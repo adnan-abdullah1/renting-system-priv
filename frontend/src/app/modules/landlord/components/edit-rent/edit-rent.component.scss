@@ -1,20 +1,24 @@
-#container {
+
+mat-card{
     width: 50%;
-    margin-left: 220px;
+    margin : auto;
+    
 }
-
-#txt-area {
+mat-form-field{
     width: 100%;
 }
 
-.input-field {
+#select-design{
+    width:100%;
+}
+input{
     width: 100%;
 }
 
-#select-design {
-    width: 100%;
-}
 
-#btn-design {
-    width: 20%;
-}
+
+@media only screen and (min-width: 700px) {
+    button {
+      margin-left: 150px;
+    }
+  }

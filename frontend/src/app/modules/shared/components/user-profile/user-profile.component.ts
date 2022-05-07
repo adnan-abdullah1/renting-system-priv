@@ -1,4 +1,5 @@
-import {Inject, Component, OnInit } from '@angular/core';
+
+import {Inject, Component, OnInit  } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import {SharedserviceService} from '../../services/sharedservice.service'
@@ -18,12 +19,14 @@ export class UserProfileComponent implements OnInit {
   address:any;
   id:any;
   param:any //will recive wheather landlord or tenant or admin from admin dashboard
-  constructor(@Inject(MAT_DIALOG_DATA) public data:any,private sharedService:SharedserviceService,private route:Router,
- private _sanitizer: DomSanitizer) {}
+  imageSrc = 'frontend\src\assets\profile.png'  
+  constructor(@Inject(MAT_DIALOG_DATA )  public data:any,private sharedService:SharedserviceService,private route:Router,
+  
+  private _sanitizer: DomSanitizer) {}
    
   userProfileData:any=this.data
   ngOnInit(): void {
-    console.log("]]]]] ",this.userProfileData)
+   
    
      if(this.userProfileData.user=="landlord")
      this.id=this.userProfileData._id
@@ -34,7 +37,7 @@ export class UserProfileComponent implements OnInit {
   userProfile(){
     
     this.sharedService.userProfile(this.id).subscribe((res:any)=>{
-      console.log("[[[[ ",res)
+     
       res.forEach((obj:any)=>{
         console.log("obj is ",obj)
         this.firstName=obj.firstName;
@@ -43,10 +46,13 @@ export class UserProfileComponent implements OnInit {
         this.contact=obj.contact;
         this.email=obj.email
         this.address=obj.address
+        if(obj.profilePicture)
         this.profilePicture=this._sanitizer.bypassSecurityTrustResourceUrl(`${obj.profilePicture}`)
-        
+        else
+        this.profilePicture='assets/profile.jpg' 
        
       })
     })
   }
+  
 }

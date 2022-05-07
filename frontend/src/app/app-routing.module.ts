@@ -16,7 +16,7 @@ import { LandlordlistComponent } from './modules/admin/components/landlordlist/l
 import { TenantlistComponent } from './modules/admin/components/tenantlist/tenantlist.component';
 import { RentlistComponent } from './modules/admin/components/rentlist/rentlist.component';
 import { AdmindashboardComponent } from './modules/admin/components/admindashboard/admindashboard.component';
-
+import { ListTenantComponent } from './modules/admin/components/tenantlist/list-tenant/list-tenant.component';
 
 
 const routes: Routes = [
@@ -32,10 +32,11 @@ const routes: Routes = [
   {path:'roomdetails',component:RoomdetailsComponent},
   {path:'dashboard',component:DashboardComponent},
   {path:'sidenavbar',component:SidenavbarComponent},
-  {path:'landlordlist',component:LandlordlistComponent},
+  {path:'landlordlist',component:LandlordlistComponent}, 
   {path:'tenantlist',component:TenantlistComponent},
   {path:'rentlist',component:RentlistComponent},
-  {path:'admindashboard',component:AdmindashboardComponent}
+  {path:'admindashboard',component:AdmindashboardComponent},
+  {path:'list-all-tenants',component:ListTenantComponent}
 ];
 
 @NgModule({

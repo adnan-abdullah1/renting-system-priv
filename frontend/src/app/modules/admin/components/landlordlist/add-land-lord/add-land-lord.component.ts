@@ -15,7 +15,7 @@ export class AddLandLordComponent implements OnInit {
   constructor(private adminService:AdminService,private route:Router,public dialog:MatDialog) { }
 
   ngOnInit(): void {
-    
+     
   }
 
   addLandLord(){

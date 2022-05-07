@@ -4,7 +4,7 @@ import { AdminService } from '../../services/admin.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTenantComponent } from './add-tenant/add-tenant.component';
 import { EditTenantComponent } from './edit-tenant/edit-tenant.component';
-import { UserProfileComponent } from '../../../shared/components/user-profile/user-profile.component';
+import { UserProfileComponent } from 'src/app/modules/shared/components/user-profile/user-profile.component';
 
 export interface listrent {
 
@@ -31,31 +31,31 @@ export class TenantlistComponent implements OnInit {
 
   ngOnInit(): void {
     this.getTenantInfo();
+  
   }
-
-
-
-
-
-   
 
 
   displayedColumns:String[]=['Name','LandLordId','address','phoneNo','email','roomNo','action']
   dataSource=ELEMENT_DATA;
+  
+  
   getTenantInfo(){
     this.adminService.getTenantInfo().subscribe((res: any) => {
       console.log('tenantinfo',res)
   
       this.dataSource = res;
+      
   })
 
 }
+
 
 tenantProfileDialog(row:any){
   this.dialog.open(UserProfileComponent,{
     data:row
   })
 }
+
 addTenantDialog(){
   // this.route.navigate(['/register']);
   this.dialog.open(AddTenantComponent)
