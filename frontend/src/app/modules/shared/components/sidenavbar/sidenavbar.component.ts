@@ -25,6 +25,7 @@ export class SidenavbarComponent implements OnInit {
   profilePicture:any;
 firstName:any;
 lastName:any;
+dashboard:boolean=false;
   RentDetails()
   {
     this.router.navigate(['/rentlist'])
@@ -90,6 +91,24 @@ lastName:any;
 
   })
 
+}
+
+
+getDashboardValue(){
+  const{role} = JSON.parse(localStorage.getItem('userId') || '{}')
+  if( role == 'admin'  || role == 'landlord'){
+    this.dashboard= true
+  }
+}
+
+redirectDashboard(){
+  const{role} = JSON.parse(localStorage.getItem('userId') || '{}')
+  if(role =='admin'){
+    this.router.navigate(['/admindashboard'])
+  }
+  else{
+    this.router.navigate(['/dashboard'])
+  }
 }
   
 }
