@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
 import { MatDialog } from '@angular/material/dialog';
 import {RentlistdetailsComponent} from './rentlistdetails/rentlistdetails.component'
@@ -25,8 +25,12 @@ export interface listrent {
   styleUrls: ['./rentlist.component.scss']
 })
 export class RentlistComponent implements OnInit {
-
-  constructor(private adminService:AdminService,private route:Router,public dialog:MatDialog) { }
+  setNavBar:any;
+  constructor(private adminService:AdminService,private route:Router,private router:ActivatedRoute,public dialog:MatDialog) { 
+    this.router.queryParams.subscribe((params=>{
+      this.setNavBar = params['option'];
+    }))
+  }
 
   ngOnInit(): void {
     this.getrentlist();
