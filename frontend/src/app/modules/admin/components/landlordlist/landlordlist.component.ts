@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AdminService } from '../../services/admin.service';
 import { AddLandLordComponent } from './add-land-lord/add-land-lord.component';
 import { EditLandLordComponent } from './edit-land-lord/edit-land-lord.component';
@@ -27,8 +27,13 @@ export interface listrent {
   styleUrls: ['./landlordlist.component.scss']
 })
 export class LandlordlistComponent implements OnInit {
-
-  constructor(private adminService:AdminService,private route:Router,public dialog:MatDialog) { }
+  setNavBar:Boolean=false;
+     constructor( private adminService:AdminService,private route: Router,
+      public dialog:MatDialog, private router:ActivatedRoute) {
+      this.router.queryParams.subscribe((params=>{
+        this.setNavBar = params['option'];
+      }))
+     }
 
   ngOnInit(): void {
     
@@ -87,4 +92,4 @@ addLandlordDialog(){
     })
    }
 
-}
+}   
