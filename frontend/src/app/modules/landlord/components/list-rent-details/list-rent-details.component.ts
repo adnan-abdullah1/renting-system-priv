@@ -26,7 +26,7 @@ export interface listrent {
 export class ListRentDetailsComponent implements OnInit {
   param:any=""
   userDetails:any={}
-  constructor(private route: Router, private rentService: RentService,
+  constructor( private rentService: RentService,private route: Router,
     private router:ActivatedRoute) {
     this.router.queryParams.subscribe((params=>{
       this.param = params['option'];
