@@ -25,22 +25,29 @@ export class SidenavbarComponent implements OnInit {
   profilePicture:any;
 firstName:any;
 lastName:any;
-dashboard:boolean=false;
-  RentDetails()
-  {
-    this.router.navigate(['/rentlist'])
  
-  }
-  
-
+ //query param passed in order avoid two nav bars in admin dashboard
+  navigationExtra={
+  queryParams:{
+    option:'ture'
+  } 
+}
 
  @ViewChild('sidenav') public sidenav!: MatSidenav;
   
-  constructor(private sidenavService: SidenavService ,private router: Router,private data:DataService,public dialog:MatDialog,private sharedService:SharedserviceService,private _sanitizer: DomSanitizer) {
-    
-
+  constructor(private sidenavService: SidenavService ,private router: Router,private data:DataService,public dialog:MatDialog,
+    private sharedService:SharedserviceService,private _sanitizer: DomSanitizer) {
   }
- 
+
+  RentDetails()
+  //navigation extra passed bkz other wise navbar was comming twice in admin dashboard
+  {
+    this.router.navigate(['/rentlist'],this.navigationExtra)
+  }
+  listLandlord(){ 
+     //navigation extra passed bkz other wise navbar was comming twice in admin dashboard
+    this.router.navigate(['/landlordlist'],this.navigationExtra)
+  }
   
   ngOnInit():void 
   {
@@ -92,25 +99,8 @@ dashboard:boolean=false;
   })
 
 }
-
-
-getDashboardValue(){
-  const{role} = JSON.parse(localStorage.getItem('userId') || '{}')
-  if( role == 'admin'  || role == 'landlord'){
-    this.dashboard= true
-  }
-}
-
-redirectDashboard(){
-  const{role} = JSON.parse(localStorage.getItem('userId') || '{}')
-  if(role =='admin'){
-    this.router.navigate(['/admindashboard'])
-  }
-  else{
-    this.router.navigate(['/dashboard'])
-  }
-}
   
+
 }
 
 
