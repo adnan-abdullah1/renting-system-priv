@@ -49,15 +49,19 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <label class="file">
-                <input type="file" class="input-upload" name="myfile" accept="image/*" (change)="changeProfileImg($event)" multiple/>
-               
+            <!-- <label class="file">Choose Profile Picture</label> -->
+            <input type="file" class="form-control" name="myfile" accept="image/*" (change)="changeProfileImg($event)" multiple/>
+
             <span class="file-custom"></span>
-          </label>
+
         </div>
-    </div>
-
-
+    </div><br>
+    <!-- 
+    <mat-form-field >
+        <ngx-mat-file-input accept="image/*" (change)="changeProfileImg($event)">
+        </ngx-mat-file-input>
+    </mat-form-field>
+ -->
 
 
     <div class="row">
@@ -69,7 +73,7 @@
         </div>
 
     </div>
- 
+
 
     <mat-radio-group id="radio-design" name="role" [(ngModel)]="UserModel.role">
         <mat-radio-button value="landlord">Landlord</mat-radio-button>&nbsp;&nbsp;

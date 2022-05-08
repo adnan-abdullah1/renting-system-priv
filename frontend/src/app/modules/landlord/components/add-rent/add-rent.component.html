@@ -58,20 +58,42 @@
     </div>
 
 
+    <!-- <div class="row">
+        <div class="col">
+            <mat-form-field id="input-design" appearance="outline"> -->
+
+    <!-- <input type="file" class="input-upload" name="myfile" accept="image/*" (change)="changelegaldoc($event)" multiple/>
+            </mat-form-field>
+        </div>  -->
     <div class="row">
-        <div class="col">
-            <!-- <mat-form-field id="input-design" appearance="outline"> -->
-                
-            <input type="file" class="input-upload" name="myfile" accept="image/*" (change)="changelegaldoc($event)" multiple/>
-            <!-- </mat-form-field> -->
+        <div class="col-lg-6">
+            <label class="file">Add Legal Documents</label>
+            <input type="file" class="form-control" name="myfile" accept="image/*" (change)="changelegaldoc($event)" multiple/>
+
+            <span class="file-custom"></span>
+
+
+
+
         </div>
-        <div class="col">
-            <!-- <mat-form-field id="input-design" appearance="outline"> -->
+        <div class="col-lg-6">
+            <label class="file">Add Profile Picture</label>
+            <input type="file" class="form-control" name="myfile" accept="image/*" (change)="changeImg($event)" multiple/>
+
+            <span class="file-custom"></span>
+
+        </div>
+    </div><br>
+    <!-- <div class="col">
+            <mat-form-field id="input-design" appearance="outline">
             <input type="file" class="input-upload" name="myfile" accept="image/*" (change)="changeImg($event)" multiple/>
-            <!-- <input matInput placeholder="images" name="images" [(ngModel)]="AddModel.images"> -->
-            <!-- </mat-form-field> -->
+            <input matInput placeholder="images" name="images" [(ngModel)]="AddModel.images"> -->
+    <!-- </mat-form-field>
         </div>
-    </div>
+    </div> -->
+    <div class="row">
+
+    </div><br>
 
     <mat-form-field id="select-design" name="roomtypes" appearance="outline">
         <mat-label>Enter Room type:</mat-label>
@@ -86,7 +108,7 @@
         <button (click)="Addroom()" mat-raised-button color="primary">Add Room</button>
         <button (click)="back()" mat-raised-button color="primary">Back</button>
     </mat-card-actions>
-    
+
 
 
 </mat-card>

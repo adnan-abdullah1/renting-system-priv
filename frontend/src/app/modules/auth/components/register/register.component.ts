@@ -40,10 +40,8 @@ export class RegisterComponent implements OnInit {
 
 
     changeProfileImg = (e: any) => {
-      console.log('!!!!!!!!! ',e.target.files)
-   
-    
-     const file = e.target.files[0]
+      
+     const file:any = e.target.files[0]
      let encoded;
      this.getBase64(file)
        .then((result) => {

@@ -48,15 +48,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { ListTenantComponent } from './modules/admin/components/tenantlist/list-tenant/list-tenant.component';
 import { ChangePasswordComponent } from './modules/shared/components/sidenavbar/change-password/change-password.component';
 import { EditAllTenantsComponent } from './modules/admin/components/tenantlist/list-tenant/edit-all-tenants/edit-all-tenants.component';
-// import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { UserProfileComponent } from './modules/shared/components/user-profile/user-profile.component';
 // import { ViewRoomComponent } from './modules/admin/components/view-room/view-room/view-room.component';
 import { ViewRoomDetailsAdminComponent } from './modules/admin/components/view-room/view-room/view-room.component';
-// import { NgxMatFileInputModule } from '@angular-material-components/file-input';
-
-
-
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,6 +90,8 @@ import { ViewRoomDetailsAdminComponent } from './modules/admin/components/view-r
 
   ],
   imports: [
+  
+    NgxMatFileInputModule,
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,

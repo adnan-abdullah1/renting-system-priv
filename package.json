@@ -1,0 +1,6 @@
+{
+    "dependencies": {
+        "@angular-material-components/file-input": "^7.0.1"
+
+    }
+}

@@ -20,6 +20,7 @@ export class UserProfileComponent implements OnInit {
   id:any;
   param:any //will recive wheather landlord or tenant or admin from admin dashboard
   imageSrc = 'frontend\src\assets\profile.png'  
+  
   constructor(@Inject(MAT_DIALOG_DATA )  public data:any,private sharedService:SharedserviceService,private route:Router,
   
   private _sanitizer: DomSanitizer) {}
