@@ -25,6 +25,7 @@ export class SidenavbarComponent implements OnInit {
   profilePicture:any;
 firstName:any;
 lastName:any;
+dashboard:boolean=false
  
  //query param passed in order avoid two nav bars in admin dashboard
   navigationExtra={
@@ -55,7 +56,7 @@ lastName:any;
     this.getProfileDetails()
   }  
     
-  
+   
   ngAfterViewInit(): void {
     this.sidenavService.setSidenav(this.sidenav);
     
@@ -99,8 +100,26 @@ lastName:any;
   })
 
 }
-  
 
+dashboardValue(){
+  const {role} = JSON.parse(localStorage.getItem('userId') || '{}')
+  if(role== 'admin' || role == 'landlord'){
+    this.dashboard= true
+  }
+}
+  
+redirectDashboard()
+{
+  const {role} = JSON.parse(localStorage.getItem('userId') || '{}')
+if(role == 'admin')
+{
+  this.router.navigate(['/admindashboard'])
+}
+else{
+  this.router.navigate(['/dashboard'])
+}
+
+}
 }
 
 
