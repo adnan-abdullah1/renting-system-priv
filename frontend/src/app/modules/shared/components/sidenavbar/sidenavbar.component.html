@@ -27,7 +27,7 @@
      </button>
 
     </div>
-    <div>
+    <div *ngIf="userDetails?.role=='admin'">
         <button mat-button class="menu-button">
         <i class="fa fa-cog fa-1x fa-fw " aria-hidden="true"></i>
          <span>MANAGE</span>
@@ -50,7 +50,7 @@
     <div>
         <button mat-button class="menu-button" (click)="RentDetails()">
             
-         <span *ngIf="'isAdmin'">RentListDetails</span>
+         <span *ngIf="userDetails?.role=='admin'">RentListDetails</span>
          
         </button>
 
