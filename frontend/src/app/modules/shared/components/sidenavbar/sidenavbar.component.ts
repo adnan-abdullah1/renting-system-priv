@@ -27,7 +27,7 @@ export class SidenavbarComponent implements OnInit {
 firstName:any;
 lastName:any;
 dashboard:boolean=false
-isAdmin:boolean=false
+
  
  //query param passed in order avoid two nav bars in admin dashboard
   navigationExtra={
@@ -56,7 +56,7 @@ isAdmin:boolean=false
   {
     
     this.getProfileDetails()
-    this.checkIfAdmin()
+   
   }  
     
    
@@ -123,15 +123,7 @@ else{
 }
 
 }
-checkIfAdmin(){
-  const {role} = JSON.parse(localStorage.getItem('userId') || '{}')
-  if(role == 'admin')
-  {
 
-    this.isAdmin= true
-    console.log('admin')
-  }
-}
 
 editUserDialog(){
   this.dialog.open(EditUserComponent,{
