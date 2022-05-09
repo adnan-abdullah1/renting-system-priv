@@ -62,8 +62,7 @@ export class AdminService {
   }
    
   editLandLord(editUserModel:any){
-  
-       console.log(editUserModel)
+    
     return this.http.put(`${this.serverURL}api/admin/update-landlord/${editUserModel._id}`,editUserModel)
 
   }
@@ -76,6 +75,7 @@ export class AdminService {
   
 
   editTenant(editUserModel:any){
+    
     return this.http.put(`${this.serverURL}api/admin/edit-tenant/${editUserModel._id}`,editUserModel)
       
   }

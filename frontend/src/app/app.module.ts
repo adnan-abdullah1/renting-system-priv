@@ -55,6 +55,10 @@ import { UserProfileComponent } from './modules/shared/components/user-profile/u
 import { ViewRoomDetailsAdminComponent } from './modules/admin/components/view-room/view-room/view-room.component';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { EditUserComponent } from './modules/shared/components/sidenavbar/edit-user/edit-user.component';
+import { ReactiveFormsModule} from '@angular/forms';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -118,6 +122,7 @@ import { EditUserComponent } from './modules/shared/components/sidenavbar/edit-u
     MatOptionModule,
     MatSelectModule,
     MatFormFieldModule,
+    ReactiveFormsModule
     
   ],
   providers: [],

@@ -176,9 +176,18 @@ exports.addLandLord = async(req, res) => {
 }
 
 
-exports.updateLandlord = async(req, res) => {
-    await UserModel.findOneAndUpdate({ _id: req.params.id }, req.body)
-    res.status(200).json({ info: "updated" })
+exports.updateLandlord = (req, res) => {
+     const body= req.body
+     console.log(typeof(body))
+     UserModel.findByIdAndUpdate(req.params.id,body,{new:true},(err,doc)=>{
+        if(err){
+            res.json(err)
+
+        }else{
+            res.status(200).json(doc)
+        }
+    })
+  
 
 }
 

@@ -5,13 +5,13 @@
 <mat-dialog-content>
     <mat-form-field appearance="fill">
         <mat-label>First Name </mat-label>
-        <input name="firstName" matInput [(ngModel)]="editUserModel.tenantId.firstName">
+        <input name="firstName" matInput [ngModel]="editUserModel.tenantId.firstName">
     </mat-form-field>
   
 
     <mat-form-field appearance="fill">
         <mat-label>Last Name </mat-label>
-        <input matInput name="lastName" [(ngModel)]="editUserModel.tenantId.lastName">
+        <input matInput name="lastName" [ngModel]="editUserModel.tenantId.lastName">
     </mat-form-field>
    
 </mat-dialog-content>
@@ -19,13 +19,13 @@
 <mat-dialog-content>
     <mat-form-field appearance="fill">
         <mat-label>Email </mat-label>
-        <input matInput name="email" type="email" [(ngModel)]="editUserModel.tenantId.email">
+        <input matInput name="email" type="email" [ngModel]="editUserModel.tenantId.email">
     </mat-form-field>
     
 
     <mat-form-field appearance="fill">
         <mat-label>Password </mat-label>
-        <input matInput name="password" type="password" [(ngModel)]="editUserModel.tenantId.password">
+        <input matInput name="password" type="password" [ngModel]="editUserModel.tenantId.password">
     </mat-form-field>
 </mat-dialog-content>
 
@@ -33,27 +33,27 @@
 <mat-dialog-content>
     <mat-form-field appearance="fill">
         <mat-label>Address </mat-label>
-        <input matInput name="address" [(ngModel)]="editUserModel.tenantId.address">
+        <input matInput name="address" [ngModel]="editUserModel.tenantId.address">
     </mat-form-field>
 
     <mat-form-field appearance="fill">
         <mat-label>Contact </mat-label>
-        <input matInput type="number" name="contact" [(ngModel)]="editUserModel.tenantId.contact">
+        <input matInput type="number" name="contact" [ngModel]="editUserModel.tenantId.contact">
     </mat-form-field>
 </mat-dialog-content>
 
 <mat-dialog-content>
     <mat-form-field appearance="fill">
     <mat-label>Room No </mat-label>
-    <input matInput type="number" name="roomNo" [(ngModel)]="editUserModel.roomId.roomNo">
+    <input matInput type="number" name="roomNo" [ngModel]="editUserModel.roomId.roomNo">
 </mat-form-field>
 </mat-dialog-content>
 
-<mat-dialog-content>
-    <mat-radio-group name="role" [(ngModel)]="editUserModel.role" aria-label="Select as landlord">
+<!-- <mat-dialog-content>
+    <mat-radio-group name="role" [ngModel]="editUserModel.role" aria-label="Select as landlord">
         <mat-radio-button value="Tenant">Tenant</mat-radio-button>
       </mat-radio-group>
-</mat-dialog-content>
+</mat-dialog-content> -->
 
 
 
