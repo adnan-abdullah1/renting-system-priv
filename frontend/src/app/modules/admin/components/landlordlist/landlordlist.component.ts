@@ -31,7 +31,7 @@ export class LandlordlistComponent implements OnInit {
      constructor( private adminService:AdminService,private route: Router,
       public dialog:MatDialog, private router:ActivatedRoute) {
       this.router.queryParams.subscribe((params=>{
-        this.setNavBar = params['option'];
+        this.setNavBar = params['setNavBar'];
       }))
      }
 

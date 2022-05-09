@@ -25,10 +25,10 @@ export interface listrent {
   styleUrls: ['./rentlist.component.scss']
 })
 export class RentlistComponent implements OnInit {
-  setNavBar:any;
+  setNavBar:Boolean=false;
   constructor(private adminService:AdminService,private route:Router,private router:ActivatedRoute,public dialog:MatDialog) { 
     this.router.queryParams.subscribe((params=>{
-      this.setNavBar = params['option'];
+      this.setNavBar = params['setNavBar'];
     }))
   }
 

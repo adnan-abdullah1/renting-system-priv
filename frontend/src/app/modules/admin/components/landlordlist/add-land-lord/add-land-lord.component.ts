@@ -22,6 +22,9 @@ export class AddLandLordComponent implements OnInit {
     // console.log(this.userModel)
     this.adminService. addLandLord(this.userModel).subscribe((res:any)=>{
       console.log('response add landlord',res)
+      this.route.routeReuseStrategy.shouldReuseRoute = () => false;
+      this.route.onSameUrlNavigation = 'reload';
+      this.route.navigate(['/admindashboard'])
       
       
     })

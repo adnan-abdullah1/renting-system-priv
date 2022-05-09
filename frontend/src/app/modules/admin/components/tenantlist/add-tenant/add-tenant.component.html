@@ -49,7 +49,7 @@
 
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button mat-raised-button color="primary" (click)="addTenant()" cdkFocusInitial>Add Tenant</button>
+    <button mat-button mat-raised-button color="primary" (click)="addTenant()" [mat-dialog-close]="userModel" cdkFocusInitial>Add Tenant</button>
   </mat-dialog-actions>
 
     

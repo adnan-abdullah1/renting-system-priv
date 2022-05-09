@@ -32,7 +32,7 @@ isAdmin:boolean=false
  //query param passed in order avoid two nav bars in admin dashboard
   navigationExtra={
   queryParams:{
-    option:'ture'
+    setNavBar:true
   } 
 }
 
