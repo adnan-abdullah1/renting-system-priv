@@ -14,7 +14,12 @@ export class SharedserviceService {
 
 
   constructor(private http: HttpClient) { }
- 
+  getMyBookings(){
+    const {_id:tenantId}= JSON.parse(localStorage.getItem('userId') || '{}')
+    return this.http.get(`${this.serverURL}api/shared/my-bookings/${tenantId}`)
+    
+
+  }
   notification(){  
     
     // const bookedRoomDetails= JSON.parse(localStorage.getItem('viewRoom') || '{}')

@@ -14,6 +14,7 @@ import {SharedserviceService } from '../../services/sharedservice.service';
 
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
+import { MyBookingsComponent } from '../my-bookings/my-bookings.component';
 
 
 @Component({
@@ -22,8 +23,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
   styleUrls: ['./sidenavbar.component.scss']
 })
 export class SidenavbarComponent implements OnInit {
-  userDetails:any={};
-  profilePicture:any;
+userDetails:any={};
+profilePicture:any;
 firstName:any;
 lastName:any;
 dashboard:boolean=false
@@ -40,8 +41,14 @@ isAdmin:boolean=false
   
   constructor(private sidenavService: SidenavService ,private router: Router,private data:DataService,public dialog:MatDialog,
     private sharedService:SharedserviceService,private _sanitizer: DomSanitizer) {
+      console.log("login cred!!!!!! ",this.userDetails)
   }
 
+  myBookings(){
+    console.log("booking called")
+    //this.router.navigate(['/my-bookings'])
+    this.dialog.open(MyBookingsComponent)
+  }
   RentDetails()
   //navigation extra passed bkz other wise navbar was comming twice in admin dashboard
   {

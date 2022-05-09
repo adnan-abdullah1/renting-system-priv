@@ -12,7 +12,7 @@
         </mat-select>
     </mat-form-field>
     <mat-divider></mat-divider>
-    <div *ngIf="'dashboard'">
+    <div *ngIf="userDetails?.role=='admin' || userDetails?.role=='landlord'" >
         <button mat-button class="menu-button">
        <i class="fa fa-tachometer fa-1x fa-fw" aria-hidden="true"></i>
        <span (click)="redirectDashboard()">DASHBOARD</span>
@@ -24,6 +24,13 @@
         <button mat-button class="menu-button">
             <i class="fa fa-home fa-1x fa-fw" aria-hidden="true"></i>
      <span>HOME</span>
+     </button>
+
+    </div>
+    <div>
+        <button mat-button class="menu-button">
+            <i class="fa fa-book fa-1x fa-fw" aria-hidden="true"></i>
+     <span (click)="myBookings()">My Bookings</span>
      </button>
 
     </div>

@@ -36,14 +36,14 @@ exports.getAvailableRooms = (req, res) => {
         } else {
 
             var pendingAndApproveRooms = doc.length
-            // console.log('doc1length',pendingAndApproveRooms)
-            rentDetails.find({ }, (err, doc) => {
+                // console.log('doc1length',pendingAndApproveRooms)
+            rentDetails.find({}, (err, doc) => {
                 if (err) {
                     res.status(409).json(error)
                 } else {
                     //totalRooms means total rooms of particular landlord
                     const totalRooms = doc.length
-                    // console.log('doc2length',totalRooms)
+                        // console.log('doc2length',totalRooms)
                     const availableRooms = totalRooms - pendingAndApproveRooms
                     res.status(200).json(availableRooms)
                 }
@@ -64,15 +64,15 @@ exports.getOccupiedRooms = async(req, res) => {
     })
 }
 
-exports.getTenantInfo= async(req,res)=>{
-    const tenantInfo = await bookings.find({role:'Tenant'}).populate({
-        path:'tenantId',
-        select: 'firstName lastName address contact email password'
-    }
-        
+exports.getTenantInfo = async(req, res) => {
+    const tenantInfo = await bookings.find({ role: 'Tenant' }).populate({
+            path: 'tenantId',
+            select: 'firstName lastName address contact email password'
+        }
+
     ).populate({
-        path:'roomId',
-        select:'roomNo'
+        path: 'roomId',
+        select: 'roomNo'
     })
 
     res.status(200).json(tenantInfo)
@@ -80,29 +80,28 @@ exports.getTenantInfo= async(req,res)=>{
 }
 
 
-exports.getLandLordInfo=(req,res)=>{
-    UserModel.find({role:'landlord'},(err,doc)=>{
-        if(err){
+exports.getLandLordInfo = (req, res) => {
+    UserModel.find({ role: 'landlord' }, (err, doc) => {
+        if (err) {
             res.json(err)
-        }else{
+        } else {
             res.status(200).json(doc)
         }
     })
 
 }
 
-exports.getRentInfo = (req,res)=>{
-         rentDetails.find({},(err,doc)=>{
-             if(err)
-             {
-                 res.status(409).json(err)
-             }else{
-                 res.status(200).json(doc)
-             }
-         }).populate({
-             path:'landLordId',
-             select:'firstName lastName contact'
-         })
+exports.getRentInfo = (req, res) => {
+    rentDetails.find({}, (err, doc) => {
+        if (err) {
+            res.status(409).json(err)
+        } else {
+            res.status(200).json(doc)
+        }
+    }).populate({
+        path: 'landLordId',
+        select: 'firstName lastName contact'
+    })
 
 }
 
@@ -113,21 +112,21 @@ exports.getRentInfo = (req,res)=>{
 
 
 
-exports.deleteRentInfo = (req,res)=>{
-    bookings.findOneAndDelete({roomId:req.params.id},(err,doc)=>{
-        if(err){
+exports.deleteRentInfo = (req, res) => {
+    bookings.findOneAndDelete({ roomId: req.params.id }, (err, doc) => {
+        if (err) {
             res.json(err)
-        }else{
-            rentDetails.findByIdAndDelete(req.params.id,(err,doc)=>{
-                const {landLordId} = doc
-                UserModel.findOneAndUpdate({_id:landLordId},{$inc:{totalRooms:-1,occupiedRooms:-1}},{new:true},(err,doc)=>{
-                    if(err){
+        } else {
+            rentDetails.findByIdAndDelete(req.params.id, (err, doc) => {
+                const { landLordId } = doc
+                UserModel.findOneAndUpdate({ _id: landLordId }, { $inc: { totalRooms: -1, occupiedRooms: -1 } }, { new: true }, (err, doc) => {
+                    if (err) {
                         res.json(err)
-                    }else{
-                        console.log('document---->',doc)
-                        if(doc.occupiedRooms == -1){
+                    } else {
+                        console.log('document---->', doc)
+                        if (doc.occupiedRooms == -1) {
                             doc.occupiedRooms = 0
-                           const user = new  UserModel(doc)
+                            const user = new UserModel(doc)
                             user.save()
                         }
                         res.status(200).json(doc)
@@ -138,15 +137,15 @@ exports.deleteRentInfo = (req,res)=>{
     })
 }
 
-exports.editRentInfo = (req,res)=>{
+exports.editRentInfo = (req, res) => {
     // const body = req.body
     //  const {landLordId} = body
     //  console.log('landlord------->',landLordId)
     // res.status(200).json(body)
-    rentDetails.findByIdAndUpdate(req.params.id,req.body,(err,doc)=>{
-        if(err){
+    rentDetails.findByIdAndUpdate(req.params.id, req.body, (err, doc) => {
+        if (err) {
             res.json(err)
-        }else{
+        } else {
             res.status(200).json(doc)
         }
     })
@@ -177,17 +176,17 @@ exports.addLandLord = async(req, res) => {
 
 
 exports.updateLandlord = (req, res) => {
-     const body= req.body
-     console.log(typeof(body))
-     UserModel.findByIdAndUpdate(req.params.id,body,{new:true},(err,doc)=>{
-        if(err){
+    const body = req.body
+    console.log(typeof(body))
+    UserModel.findByIdAndUpdate(req.params.id, body, { new: true }, (err, doc) => {
+        if (err) {
             res.json(err)
 
-        }else{
+        } else {
             res.status(200).json(doc)
         }
     })
-  
+
 
 }
 
@@ -242,61 +241,58 @@ exports.addTenant = async(req, res) => {
 
 
 
-exports.editTenat =async (req,res)=>{
-        await UserModel.findOneAndUpdate({ _id: req.params.id }, req.body)
-        res.status(200).json({ info: "updated" })
+exports.editTenat = async(req, res) => {
+    await UserModel.findOneAndUpdate({ _id: req.params.id }, req.body)
+    res.status(200).json({ info: "updated" })
 }
 
-exports.removeTenant = async(req,res)=>{
-       
-bookings.find({tenantId:req.params.id},(err,doc)=>{
-    if(err){
-       return res.json(err)
-    }else{
-        doc.forEach((element)=>{
-            landLordId = element.landLordId
-            UserModel.findOneAndUpdate({_id:landLordId},{$inc:{occupiedRooms:-1}},(err,doc)=>{
-                if(err){
-                  return  res.json(err)
-                }else{
-                    console.log('deleted landlord')
+exports.removeTenant = async(req, res) => {
+
+    bookings.find({ tenantId: req.params.id }, (err, doc) => {
+        if (err) {
+            return res.json(err)
+        } else {
+            doc.forEach((element) => {
+                landLordId = element.landLordId
+                UserModel.findOneAndUpdate({ _id: landLordId }, { $inc: { occupiedRooms: -1 } }, (err, doc) => {
+                    if (err) {
+                        return res.json(err)
+                    } else {
+                        console.log('deleted landlord')
+                    }
+                })
+            })
+
+
+        }
+    })
+
+
+    bookings.deleteMany({ tenantId: req.params.id }, (err, doc) => {
+        if (err) {
+            return res.json(err)
+        } else {
+            UserModel.findByIdAndDelete(req.params.id, (err, doc) => {
+                if (err) {
+                    return res.json(err)
+                } else {
+                    return res.status(200).json('user deleted')
                 }
-            }) 
-        })
-        
-        
-    }
-})
+
+            })
+        }
+    })
 
 
-bookings.deleteMany({tenantId:req.params.id},(err,doc)=>{
-    if(err){
-      return  res.json(err)
-    }else{
-        UserModel.findByIdAndDelete(req.params.id,(err,doc)=>{
-            if(err){
-             return   res.json(err)
-            }else{
-             return  res.status(200).json('user deleted')
-            }
-
-        })
-    }
-})
-
-                         
 }
 
 
-exports.editAllTenant = (req,res)=>{
-    UserModel.findByIdAndUpdate(req.params.id,req.body,{new:true},(err,doc)=>{
-        if(err)
-        {
+exports.editAllTenant = (req, res) => {
+    UserModel.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, doc) => {
+        if (err) {
             res.json(err)
-        }else{
+        } else {
             res.status(200).json(doc)
         }
     })
 }
-
-

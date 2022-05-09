@@ -17,7 +17,7 @@ import { TenantlistComponent } from './modules/admin/components/tenantlist/tenan
 import { RentlistComponent } from './modules/admin/components/rentlist/rentlist.component';
 import { AdmindashboardComponent } from './modules/admin/components/admindashboard/admindashboard.component';
 import { ListTenantComponent } from './modules/admin/components/tenantlist/list-tenant/list-tenant.component';
-
+import {MyBookingsComponent} from './modules/shared/components/my-bookings/my-bookings.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -36,7 +36,8 @@ const routes: Routes = [
   {path:'tenantlist',component:TenantlistComponent},
   {path:'rentlist',component:RentlistComponent},
   {path:'admindashboard',component:AdmindashboardComponent},
-  {path:'list-all-tenants',component:ListTenantComponent}
+  {path:'list-all-tenants',component:ListTenantComponent},
+  {path:'my-bookings',component:MyBookingsComponent}
 ];
 
 @NgModule({

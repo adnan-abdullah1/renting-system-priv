@@ -56,6 +56,7 @@ import { ViewRoomDetailsAdminComponent } from './modules/admin/components/view-r
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { EditUserComponent } from './modules/shared/components/sidenavbar/edit-user/edit-user.component';
 import { ReactiveFormsModule} from '@angular/forms';
+import { MyBookingsComponent } from './modules/shared/components/my-bookings/my-bookings.component';
 
 
 
@@ -89,7 +90,8 @@ import { ReactiveFormsModule} from '@angular/forms';
     EditAllTenantsComponent,
     UserProfileComponent,
    ViewRoomDetailsAdminComponent,
-   EditUserComponent
+   EditUserComponent,
+   MyBookingsComponent
     
     
 

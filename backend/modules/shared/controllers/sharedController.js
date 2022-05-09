@@ -1,10 +1,25 @@
 const UserModel = require('../../../models/User')
+const BookingModel = require('../../../models/bookings')
 
-exports.changePassword =(req,res)=>{
-    UserModel.findByIdAndUpdate(req.params.id,req.body,{new:true},(err,doc)=>{
-        if(err){
+
+exports.myBookings = async(req, res) => {
+    const mineBookings = await BookingModel.find({ tenantId: req.params.id, approvalStatus: 'approved' }).populate({
+        path: 'landLordId',
+        select: 'firstName lastName address contact email password'
+    }).populate({
+        path: 'roomId',
+        select: 'roomTypes description roomNo pincode district city street state'
+    })
+
+    res.status(200).json(mineBookings)
+
+}
+
+exports.changePassword = (req, res) => {
+    UserModel.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, doc) => {
+        if (err) {
             res.json(err)
-        }else{
+        } else {
             res.status(200).json(doc)
         }
     })
@@ -24,11 +39,11 @@ exports.getProfileDetails = (req, res) => {
 
 }
 
-exports.editUser = (req,res)=> {
-    UserModel.findByIdAndUpdate(req.params.id,req.body,{new:true},(err,doc)=>{
-        if(err){
+exports.editUser = (req, res) => {
+    UserModel.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, doc) => {
+        if (err) {
             res.json(err)
-        }else{
+        } else {
             res.status(200).json(doc)
         }
     })
