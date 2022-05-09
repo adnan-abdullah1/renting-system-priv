@@ -31,10 +31,12 @@ export class UserProfileComponent implements OnInit {
    
      if(this.userProfileData.user=="landlord")
      this.id=this.userProfileData._id
-     else
-     this.id=this.userProfileData.tenantId._id
+     else{
+      this.id=this.userProfileData.tenantId._id
+     }
     this.userProfile()
   }
+  
   userProfile(){
     
     this.sharedService.userProfile(this.id).subscribe((res:any)=>{

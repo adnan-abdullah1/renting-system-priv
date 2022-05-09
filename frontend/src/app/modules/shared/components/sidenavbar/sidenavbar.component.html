@@ -6,7 +6,7 @@
     <mat-form-field appearance="fill">
         <mat-label>{{firstName + '' + lastName}}</mat-label>
         <mat-select>
-            <mat-option>edit</mat-option>
+            <mat-option (click)="editUserDialog()">edit</mat-option>
             <mat-option (click)="changePasswordDialog()">change password </mat-option>
 
         </mat-select>
@@ -50,7 +50,7 @@
     <div>
         <button mat-button class="menu-button" (click)="RentDetails()">
             
-         <span>RentListDetails</span>
+         <span *ngIf="'isAdmin'">RentListDetails</span>
          
         </button>
 

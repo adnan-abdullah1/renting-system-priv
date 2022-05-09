@@ -4,7 +4,7 @@ import { AdminService } from '../../services/admin.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTenantComponent } from './add-tenant/add-tenant.component';
 import { EditTenantComponent } from './edit-tenant/edit-tenant.component';
-import { UserProfileComponent } from 'src/app/modules/shared/components/user-profile/user-profile.component';
+import { UserProfileComponent } from '../../../shared/components/user-profile/user-profile.component'
 
 export interface listrent {
 

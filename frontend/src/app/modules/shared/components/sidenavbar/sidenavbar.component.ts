@@ -13,6 +13,7 @@ import {SharedserviceService } from '../../services/sharedservice.service';
 
 
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
 
 
 @Component({
@@ -26,6 +27,7 @@ export class SidenavbarComponent implements OnInit {
 firstName:any;
 lastName:any;
 dashboard:boolean=false
+isAdmin:boolean=false
  
  //query param passed in order avoid two nav bars in admin dashboard
   navigationExtra={
@@ -54,6 +56,7 @@ dashboard:boolean=false
   {
     
     this.getProfileDetails()
+    this.checkIfAdmin()
   }  
     
    
@@ -118,6 +121,22 @@ if(role == 'admin')
 else{
   this.router.navigate(['/dashboard'])
 }
+
+}
+checkIfAdmin(){
+  const {role} = JSON.parse(localStorage.getItem('userId') || '{}')
+  if(role == 'admin')
+  {
+
+    this.isAdmin= true
+    console.log('admin')
+  }
+}
+
+editUserDialog(){
+  this.dialog.open(EditUserComponent,{
+    data: JSON.parse(localStorage.getItem('userId') || '{}')
+  })
 
 }
 }

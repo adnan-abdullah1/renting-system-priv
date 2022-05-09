@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTenantComponent } from '../add-tenant/add-tenant.component';
 import { EditAllTenantsComponent } from './edit-all-tenants/edit-all-tenants.component';
+import { UserProfileComponent } from 'src/app/modules/shared/components/user-profile/user-profile.component';
 
 
 export interface listTenant {
@@ -67,5 +68,12 @@ this.dialog.open(EditAllTenantsComponent,{
   data:row
 })
 }
+
+tenantProfileDialog(row:any){
+  console.log('tenent row',row)
+     this.dialog.open(UserProfileComponent,{
+       data:row
+     })
+   }
 
 }

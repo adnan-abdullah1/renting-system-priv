@@ -41,5 +41,10 @@ export class SharedserviceService {
     
     return this.http.get(`${this.serverURL}api/shared/profile-details/${id}`)
   }
+  editUserDetails(data:any){
+    const {_id:userId}= data
+      return this.http.put(`${this.serverURL}api/shared/edit-user/${userId}`,data)
+  }
   
+
 }

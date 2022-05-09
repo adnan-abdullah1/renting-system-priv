@@ -54,6 +54,7 @@ import { UserProfileComponent } from './modules/shared/components/user-profile/u
 // import { ViewRoomComponent } from './modules/admin/components/view-room/view-room/view-room.component';
 import { ViewRoomDetailsAdminComponent } from './modules/admin/components/view-room/view-room/view-room.component';
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { EditUserComponent } from './modules/shared/components/sidenavbar/edit-user/edit-user.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -83,7 +84,8 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
     ChangePasswordComponent,
     EditAllTenantsComponent,
     UserProfileComponent,
-   ViewRoomDetailsAdminComponent
+   ViewRoomDetailsAdminComponent,
+   EditUserComponent
     
     
 
