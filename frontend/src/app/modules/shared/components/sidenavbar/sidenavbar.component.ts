@@ -56,6 +56,7 @@ dashboard:boolean=false
   {
     
     this.getProfileDetails()
+    this.dashboardValue()
    
   }  
     
@@ -106,8 +107,12 @@ dashboard:boolean=false
 
 dashboardValue(){
   const {role} = JSON.parse(localStorage.getItem('userId') || '{}')
-  if(role== 'admin' || role == 'landlord'){
+  console.log('role-->',role)
+  if(role == 'admin' || role == 'landlord'){
     this.dashboard= true
+  }
+  else{
+    this.dashboard= false
   }
 }
   
