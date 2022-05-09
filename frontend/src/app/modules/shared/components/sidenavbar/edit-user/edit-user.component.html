@@ -42,7 +42,7 @@
 
 <mat-dialog-actions align="end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button mat-raised-button color="primary"  (click)="editUserDetails()" cdkFocusInitial>Edit User</button>
+    <button mat-button mat-raised-button color="primary"  (click)="editUserDetails()" [mat-dialog-close]="editUser" cdkFocusInitial>Edit User</button>
   </mat-dialog-actions>
 
     
