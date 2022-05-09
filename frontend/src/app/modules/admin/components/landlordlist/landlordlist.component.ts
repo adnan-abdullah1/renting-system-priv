@@ -59,7 +59,7 @@ export class LandlordlistComponent implements OnInit {
 landlordProfile(row:any)
 
   {
-    row.user='landlord'
+    // row.user='landlord'
     this.dialog.open(UserProfileComponent,{
       data:row 
     })

@@ -28,9 +28,14 @@ export class UserProfileComponent implements OnInit {
   userProfileData:any=this.data
   ngOnInit(): void {
    
-   
-     if(this.userProfileData.user=="landlord")
-     this.id=this.userProfileData._id
+    console.log("data is ;;;;; ",this.userProfileData)
+    //  if(this.userProfileData.user=="Landlord" )
+    //  {
+       
+    //    this.id=this.userProfileData._id
+    //  }
+      if(this.userProfileData.role=="Tenant" || this.userProfileData.role=="landlord")
+      this.id=this.userProfileData._id
      else{
       this.id=this.userProfileData.tenantId._id
      }

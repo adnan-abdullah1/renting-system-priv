@@ -51,6 +51,7 @@ export class TenantlistComponent implements OnInit {
 
 
 tenantProfileDialog(row:any){
+  // row.user="Tenant"
   this.dialog.open(UserProfileComponent,{
     data:row
   })
