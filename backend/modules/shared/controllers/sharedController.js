@@ -5,10 +5,10 @@ const BookingModel = require('../../../models/bookings')
 exports.myBookings = async(req, res) => {
     const mineBookings = await BookingModel.find({ tenantId: req.params.id }).populate({
         path: 'landLordId',
-        select: 'firstName lastName address contact email password'
+        select: 'firstName lastName contact email'
     }).populate({
         path: 'roomId',
-        select: 'roomTypes description roomNo pincode district city street state'
+        select: 'roomTypes description roomNo pincode district city street state landmark'
     })
 
     res.status(200).json(mineBookings)
