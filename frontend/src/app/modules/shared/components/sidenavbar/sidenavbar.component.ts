@@ -63,7 +63,7 @@ isAdmin:boolean=false
   {
     
     this.getProfileDetails()
-    this.checkIfAdmin()
+   
     this.dashboardValue()
   }  
     
@@ -114,8 +114,14 @@ isAdmin:boolean=false
 
 dashboardValue(){
   const {role} = JSON.parse(localStorage.getItem('userId') || '{}')
-  if(role== 'admin' || role == 'landlord'){
+  if(role== 'admin' ){
     this.dashboard= true
+    this.isAdmin=true
+    console.log('isadmin',this.isAdmin)
+    console.log('dasboard',this.dashboard)
+  }
+  else if(role=='landlord'){
+    this.dashboard=true
   }
 }
   
@@ -131,15 +137,7 @@ else{
 }
 
 }
-checkIfAdmin(){
-  const {role} = JSON.parse(localStorage.getItem('userId') || '{}')
-  if(role == 'admin')
-  {
 
-    this.isAdmin= true
-    console.log('admin')
-  }
-}
 
 editUserDialog(){
   this.dialog.open(EditUserComponent,{
