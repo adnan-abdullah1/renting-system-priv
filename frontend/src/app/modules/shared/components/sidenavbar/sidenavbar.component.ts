@@ -46,8 +46,8 @@ isAdmin:boolean=false
 
   myBookings(){
     console.log("booking called")
-    //this.router.navigate(['/my-bookings'])
-    this.dialog.open(MyBookingsComponent)
+    this.router.navigate(['/my-bookings'])
+    // this.router.navigate(MyBookingsComponent)
   }
   RentDetails()
   //navigation extra passed bkz other wise navbar was comming twice in admin dashboard

@@ -3,7 +3,7 @@ const BookingModel = require('../../../models/bookings')
 
 
 exports.myBookings = async(req, res) => {
-    const mineBookings = await BookingModel.find({ tenantId: req.params.id, approvalStatus: 'approved' }).populate({
+    const mineBookings = await BookingModel.find({ tenantId: req.params.id }).populate({
         path: 'landLordId',
         select: 'firstName lastName address contact email password'
     }).populate({
