@@ -1,16 +1,22 @@
-<mat-drawer #sidenav class="mt-6" mode="side">
+<mat-drawer #sidenav class="mt-6 col-2" mode="side">
 
     <!-- <img class="image" src=""> -->
-    <img mat-card-avatar [src]="profilePicture" alt="img err">
+    <div class="center">
+        <img mat-card-avatar [src]="profilePicture" alt="img err">
+    </div>
 
-    <mat-form-field appearance="fill">
-        <mat-label>{{firstName + ' ' + lastName}}</mat-label>
-        <mat-select>
-            <mat-option (click)="editUserDialog()">edit</mat-option>
-            <mat-option (click)="changePasswordDialog()">change password </mat-option>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+          
+        <div ngbDropdown class="d-inline-block">
+                    <label  ngbDropdownToggle id="dropdownBasic1" class="ps-2"> {{firstName  + ' ' + lastName}}</label>
+                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                      <button ngbDropdownItem (click)="editUserDialog()" >edit</button>
+    <button ngbDropdownItem (click)="editUserDialog()">change password</button>
+    </div>
+    </div>
 
-        </mat-select>
-    </mat-form-field>
+    </button>
+
     <mat-divider></mat-divider>
     <!-- <div *ngIf="userDetails?.role=='admin' || userDetails?.role=='landlord'" > -->
     <div *ngIf='dashboard'>
@@ -35,7 +41,7 @@
      </button>
 
     </div>
-   
+
     <div *ngIf='isAdmin'>
         <button mat-button class="menu-button">
         <i class="fa fa-cog fa-1x fa-fw " aria-hidden="true"></i>

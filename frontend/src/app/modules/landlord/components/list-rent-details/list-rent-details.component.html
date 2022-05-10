@@ -6,37 +6,37 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="streetname">
         <th mat-header-cell *matHeaderCellDef> Street Name </th>
-        <td mat-cell *matCellDef="let element">{{element.street}} </td>
+        <td mat-cell *matCellDef="let element">{{element?.street ? element?.street :'Not Set'}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="city">
         <th mat-header-cell *matHeaderCellDef> City </th>
-        <td mat-cell *matCellDef="let element"> {{element.city}} </td>
+        <td mat-cell *matCellDef="let element"> {{element?.city ? element?.city :'Not Set'}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="district">
         <th mat-header-cell *matHeaderCellDef> District </th>
-        <td mat-cell *matCellDef="let element"> {{element.district}} </td>
+        <td mat-cell *matCellDef="let element"> {{element?.district ? element?.district :'Not Set'}} </td>
     </ng-container>
 
 
     <ng-container matColumnDef="state">
         <th mat-header-cell *matHeaderCellDef> State </th>
-        <td mat-cell *matCellDef="let element"> {{element.state}} </td>
+        <td mat-cell *matCellDef="let element"> {{element?.state ?  element?.state :'Not Set'}} </td>
     </ng-container>
 
 
 
     <ng-container matColumnDef="pincode">
         <th mat-header-cell *matHeaderCellDef> Pincode </th>
-        <td mat-cell *matCellDef="let element"> {{element.pincode}} </td>
+        <td mat-cell *matCellDef="let element"> {{element?.pincode ?  element?.pincode :'Not Set'}} </td>
     </ng-container>
 
     <ng-container matColumnDef="roomtype">
         <th mat-header-cell *matHeaderCellDef> Room-Type </th>
-        <td mat-cell *matCellDef="let element"> {{element.roomTypes}} </td>
+        <td mat-cell *matCellDef="let element"> {{element?.roomTypes ? element?.roomTypes :'Not Set'}} </td>
     </ng-container>
 
 

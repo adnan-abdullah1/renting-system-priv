@@ -34,19 +34,19 @@
             <mat-divider></mat-divider>
             <mat-card-subtitle class="mt-3 d-flex justify-content-between">
                 <mat-card-subtitle>State</mat-card-subtitle>
-                <mat-card-subtitle>{{roomDetails.state}}</mat-card-subtitle>
+                <mat-card-subtitle>{{roomDetails?.state ? roomDetails?.state: 'Not Set' }}</mat-card-subtitle>
             </mat-card-subtitle>
             <mat-card-subtitle class="d-flex justify-content-between" >
                 <mat-card-subtitle>District</mat-card-subtitle>
-                <mat-card-subtitle>{{roomDetails.district}}</mat-card-subtitle>
+                <mat-card-subtitle>{{roomDetails.district ? roomDetails.district :'Not set'}}</mat-card-subtitle>
             </mat-card-subtitle>
             <mat-card-subtitle  class="d-flex justify-content-between">
                 <mat-card-subtitle>City</mat-card-subtitle>
-                <mat-card-subtitle>{{roomDetails.city}}</mat-card-subtitle>
+                <mat-card-subtitle>{{roomDetails.city ?roomDetails.city: 'Not set'}}</mat-card-subtitle>
             </mat-card-subtitle>
             <mat-card-subtitle class="d-flex justify-content-between" >
                 <mat-card-subtitle>Landmark</mat-card-subtitle>
-                <mat-card-subtitle>{{roomDetails.landmark}}</mat-card-subtitle>
+                <mat-card-subtitle>{{roomDetails.landmark ?  roomDetails.landmark : 'Not set'}}</mat-card-subtitle>
             </mat-card-subtitle>
             <mat-card-subtitle  class="d-flex justify-content-between">
                 <mat-card-subtitle>Price</mat-card-subtitle>
@@ -81,7 +81,7 @@
                     <mat-divider></mat-divider>
                     <mat-card-content class="pt-3">
                      
-                        <p>{{roomDetails.description}}</p>
+                        <p>{{roomDetails?.description ? roomDetails?.descriptio :'Not Set'}}</p>
                     </mat-card-content>
                
             </mat-card>
