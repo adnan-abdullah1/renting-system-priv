@@ -64,6 +64,7 @@ isAdmin:boolean=false
     
     this.getProfileDetails()
     this.checkIfAdmin()
+    this.dashboardValue()
   }  
     
    

@@ -12,13 +12,14 @@
         </mat-select>
     </mat-form-field>
     <mat-divider></mat-divider>
-    <div *ngIf="userDetails?.role=='admin' || userDetails?.role=='landlord'" >
+    <!-- <div *ngIf="userDetails?.role=='admin' || userDetails?.role=='landlord'" > -->
+    <div *ngIf='dashboard'>
         <button mat-button class="menu-button">
        <i class="fa fa-tachometer fa-1x fa-fw" aria-hidden="true"></i>
        <span (click)="redirectDashboard()">DASHBOARD</span>
       </button>
     </div>
- 
+
 
     <div>
         <button mat-button class="menu-button">
