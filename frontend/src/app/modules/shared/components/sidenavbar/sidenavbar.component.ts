@@ -44,6 +44,9 @@ isAdmin:boolean=false
       console.log("login cred!!!!!! ",this.userDetails)
   }
 
+  addRent(){
+    this.router.navigate(['/addrent'])
+  }
   myBookings(){
     console.log("booking called")
     this.router.navigate(['/my-bookings'])

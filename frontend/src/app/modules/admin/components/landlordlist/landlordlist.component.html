@@ -54,10 +54,10 @@
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef> Action </th>
              <td mat-cell *matCellDef="let row">
-                 <i class="fa fa-eye-slash" (click)="landlordProfile(row)"></i>
+                 <i class="fa fa-eye-slash text-info" (click)="landlordProfile(row)"></i>
                  
-                <i class="fa fa-edit" (click)="editLandLordDialog(row)" ></i>
-                <i class="fa fa-trash" (click)="deleteLandLord(row)" ></i>
+                <i class="fa fa-edit text-primary" (click)="editLandLordDialog(row)" ></i>
+                <i class="fa fa-trash text-danger" (click)="deleteLandLord(row)" ></i>
             
              </td>
         </ng-container>

@@ -19,6 +19,13 @@
 
     <mat-divider></mat-divider>
     <!-- <div *ngIf="userDetails?.role=='admin' || userDetails?.role=='landlord'" > -->
+        
+    <div>
+        <button mat-button class="menu-button">
+            <i class="fa fa-home fa-1x fa-fw" aria-hidden="true"></i>
+     <span>HOME</span>
+     </button>
+
     <div *ngIf='dashboard'>
         <button mat-button class="menu-button">
        <i class="fa fa-tachometer fa-1x fa-fw" aria-hidden="true"></i>
@@ -27,10 +34,11 @@
     </div>
 
 
-    <div>
+    </div>
+    <div *ngIf='dashboard'>
         <button mat-button class="menu-button">
-            <i class="fa fa-home fa-1x fa-fw" aria-hidden="true"></i>
-     <span>HOME</span>
+            <i class="fa fa-building-o fa-1x fa-fw" aria-hidden="true"></i>
+     <span (click)="addRent()">Add Rent</span>
      </button>
 
     </div>
