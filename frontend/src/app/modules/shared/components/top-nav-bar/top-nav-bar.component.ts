@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SharedserviceService } from '../../services/sharedservice.service';
 import { Router } from '@angular/router';
 import { SidenavService } from '../../services/sidenav.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -22,6 +23,11 @@ export class TopNavBarComponent implements OnInit {
     this.notification()
   }
    
+  logOut(){
+    localStorage.clear();
+    // Swal.fire('local storage cleared')
+    this.router.navigate(['/login'])
+  }
   notification(){
     this. SharedServiceService.notification().subscribe((res) => {
       

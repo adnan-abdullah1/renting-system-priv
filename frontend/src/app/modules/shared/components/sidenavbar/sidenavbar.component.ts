@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild , Input} from '@angular/core';
 // ,AfterViewChecked,ElementRef
 import { MatSidenav } from '@angular/material/sidenav';
 import { SidenavService } from '../../services/sidenav.service';
@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 //import { ThisReceiver } from '@angular/compiler';
 import { DataService } from 'src/app/data.service';
-import { ListRentDetailsComponent } from 'src/app/modules/landlord/components/list-rent-details/list-rent-details.component';
+// import { ListRentDetailsComponent } from 'src/app/modules/landlord/components/list-rent-details/list-rent-details.component';
 import { MatDialog } from '@angular/material/dialog';
 import { DomSanitizer } from '@angular/platform-browser';
 import {SharedserviceService } from '../../services/sharedservice.service';
@@ -14,7 +14,9 @@ import {SharedserviceService } from '../../services/sharedservice.service';
 
 import { ChangePasswordComponent } from './change-password/change-password.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
-import { MyBookingsComponent } from '../my-bookings/my-bookings.component';
+// import { MyBookingsComponent } from '../my-bookings/my-bookings.component';
+
+
 
 
 @Component({
@@ -23,13 +25,14 @@ import { MyBookingsComponent } from '../my-bookings/my-bookings.component';
   styleUrls: ['./sidenavbar.component.scss']
 })
 export class SidenavbarComponent implements OnInit {
+
 userDetails:any={};
 profilePicture:any;
 firstName:any;
 lastName:any;
 dashboard:boolean=false
 isAdmin:boolean=false
- 
+dataLoaded:boolean=false
  //query param passed in order avoid two nav bars in admin dashboard
   navigationExtra={
   queryParams:{
@@ -44,8 +47,9 @@ isAdmin:boolean=false
       console.log("login cred!!!!!! ",this.userDetails)
   }
 
-  addRent(){
-    this.router.navigate(['/addrent'])
+  // take me to rent details
+  rentList(){
+    this.router.navigate(['/rent-details-list'],this.navigationExtra)
   }
   myBookings(){
     console.log("booking called")
@@ -64,18 +68,12 @@ isAdmin:boolean=false
   
   ngOnInit():void 
   {
-    
     this.getProfileDetails()
-   
     this.dashboardValue()
   }  
-    
-   
-  ngAfterViewInit(): void {
-    this.sidenavService.setSidenav(this.sidenav);
-    
-
   
+  ngAfterViewInit(): void {
+    this.sidenavService.setSidenav(this.sidenav);  
   }
   ngAfterViewChecked():void
   {
@@ -90,9 +88,11 @@ isAdmin:boolean=false
   }
 
   getProfileDetails(){
-    this.sharedService.getProfileDetails().subscribe((res:any) => {
+   this.sharedService.getProfileDetails().subscribe((res:any) => {
       console.log('response of profile',res)
-        res.forEach((obj:any)=>{
+      
+      res.forEach((obj:any)=>{
+       
           this.firstName=obj.firstName;
           this.lastName=obj.lastName;
          
@@ -101,11 +101,7 @@ isAdmin:boolean=false
           else
           this.profilePicture='assets/profile.jpg' 
         })
-        
-        
-        
-        
-    
+        this.ngOnInit();
   },(error:any)=> {
     console.log(error)
    
