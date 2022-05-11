@@ -115,4 +115,8 @@ export class AdminService {
 
   }
 
+  roomTypesChart(){
+    return this.http.get(`${this.serverURL}api/admin/room-types`)
+  }
+
 }

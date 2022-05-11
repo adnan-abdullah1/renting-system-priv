@@ -296,3 +296,22 @@ exports.editAllTenant = (req, res) => {
         }
     })
 }
+
+
+
+exports.pieGraph = (req,res)=>{
+    rentDetails.aggregate([
+        { $group: {
+             _id:  "$roomTypes" ,
+             count:{$sum:1}    
+            }  },
+        { $sort: { _id: 1 } }
+
+    ],(err,doc)=>{
+        if(err){
+            res.json(err)
+        }else{
+            res.status(200).json(doc)
+        }
+    })
+}

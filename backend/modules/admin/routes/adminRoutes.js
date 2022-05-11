@@ -17,7 +17,8 @@ const {
             addTenant,
             deleteRentInfo,
             editRentInfo,
-            editAllTenant } = require('../controllers/adminController')
+            editAllTenant,
+            pieGraph } = require('../controllers/adminController')
 
 router.get('/get-landlords', getAllLandLords)
 router.get('/get-tenants', getAllTenants)
@@ -38,6 +39,8 @@ router.get('/rent-info',getRentInfo)
 router.put('/edit-rent-info/:id',editRentInfo)
 router.delete('/delete-rent-info/:id',deleteRentInfo)
 router.put('/edit-all-tenant/:id',editAllTenant)
+
+router.get('/room-types',pieGraph)
  
 
 module.exports = router;

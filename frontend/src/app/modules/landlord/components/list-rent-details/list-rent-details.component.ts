@@ -54,6 +54,7 @@ export class ListRentDetailsComponent implements OnInit {
   }
   displayedColumns: string[] = ['streetname', 'city', 'district', 'state', 'pincode', 'roomtype', 'action'];
    dataSource = ELEMENT_DATA;
+   
   getRentDetails() {
     //call to backend
     this.rentService.getRentDetails().subscribe((res: any) => {
