@@ -1,31 +1,10 @@
-
-
-
-
-
-
-
-
-
-
-
-
-
 table {
     width: 90%;
     margin-left: 5%;
     margin-top: 10px;
 }
 
-
-
-
-
-
-
-
-
-.screenHeight{
+.screentHeight {
     height: 100vh;
 }
 
@@ -40,96 +19,45 @@ i {
     cursor: pointer;
 }
 
-
-
-
-
-
-
-
-
-
-
+td.mat-cell {
+    padding: 10px;
+}
 
 td.mat-cell {
     padding: 10px;
 }
 
-
-
-
-
-
-
-
-
-
-
-td.mat-cell{
-    padding:10px;
-}
 .mat-column-streetname {
-  
     width: 28% !important;
- 
     word-break: break-word;
-  
-  
-  }
+}
 
-  .mat-column-city {
-  
-   
+.mat-column-city {
     width: 10% !important;
- 
     word-break: break-word;
-  
+}
 
-  }
-  
-  .mat-column-district {
-   
+.mat-column-district {
     width: 10% !important;
-  
     word-break: break-word;
-  
- 
-  }
-  
-  .mat-column-state {
-  
-    width: 10% !important;
-  
-    word-break: break-word;
-  
-  
-  }
-  .mat-column-pincode {
-   
-    width: 10% !important;
-  
-    word-break: break-word;
-  
-  }
+}
 
-  
-  .mat-column-roomtype {
-    
+.mat-column-state {
     width: 10% !important;
-  
     word-break: break-word;
-  
-  
-  }
+}
 
-  .mat-column-action {
-   
+.mat-column-pincode {
     width: 10% !important;
-  
     word-break: break-word;
-  
- 
-  }
+}
 
-  
+.mat-column-roomtype {
+    width: 10% !important;
+    word-break: break-word;
+}
 
+.mat-column-action {
+    width: 10% !important;
+    word-break: break-word;
+}
