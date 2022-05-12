@@ -1,22 +1,25 @@
 
-<mat-drawer #sidenav class="mt-6 col-2" mode="side">
+<mat-drawer #sidenav class="mt-6  col-xl-2 col-lg-3 col-md-3 col-sm-6 col-12  " mode="side">
 
-    <!-- <img class="image" src=""> -->
-    <div class="center">
+    <!-- <img class="image" src=""> --> 
+    <div class="center mt-3">
         <img mat-card-avatar [src]="profilePicture" alt="img err">
     </div>
-
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+     
+    <div class="dropDownContainer">
+        <button mat-icon-button aria-label="Example icon-button with share icon" class="button-dropDown">
           
-        <div ngbDropdown class="d-inline-block">
-                    <label  ngbDropdownToggle id="dropdownBasic1" class="ps-2"> {{firstName  + ' ' + lastName}}</label>
-                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-                      <button ngbDropdownItem (click)="editUserDialog()" >edit</button>
-    <button ngbDropdownItem (click)="editUserDialog()">change password</button>
+            <div ngbDropdown class="d-inline-block">
+                        <label  ngbDropdownToggle id="dropdownBasic1" class="ps-2"> {{firstName  + ' ' + lastName}}</label>
+                        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                          <button ngbDropdownItem (click)="editUserDialog()" >edit</button>
+        <button ngbDropdownItem (click)="changePasswordDialog()">change password</button>
+        </div>
+        </div>
+    
+        </button>
     </div>
-    </div>
-
-    </button>
+  
 
     <mat-divider></mat-divider>
     <!-- <div *ngIf="userDetails?.role=='admin' || userDetails?.role=='landlord'" > -->

@@ -6,7 +6,7 @@
 
 .mt-6 {
     margin-top: 63px;
-    height: 2000px;
+    height: 2000px; 
 }
 
 .mat-list {
@@ -25,4 +25,14 @@ img {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+.button-dropDown{
+    width: 100%;
+}
+
+.dropDownContainer{
+ 
+        width: 100%;
+        display: flex;
+        justify-content: center;
 }
