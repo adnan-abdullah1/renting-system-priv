@@ -130,6 +130,8 @@ import { AuthInterceptor } from './modules/auth/guards/auth.interceptor';
     useClass:AuthInterceptor,
     multi:true
   }],
+
+ 
   bootstrap: [AppComponent]
 })
 export class AppModule { }

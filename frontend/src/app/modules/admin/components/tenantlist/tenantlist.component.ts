@@ -10,7 +10,7 @@ export interface listrent {
 
   Name: string;
   LandLordId:Number,
-  address: string;
+  // address: string;
   phoneNo: string;
   email: string;
   roomNo:number;
@@ -35,7 +35,7 @@ export class TenantlistComponent implements OnInit {
   }
 
 
-  displayedColumns:String[]=['Name','LandLordId','address','phoneNo','email','roomNo','action']
+  displayedColumns:String[]=['Name','LandLordId','phoneNo','email','roomNo','action']
   dataSource=ELEMENT_DATA;
   
   

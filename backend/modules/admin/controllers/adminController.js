@@ -73,6 +73,9 @@ exports.getTenantInfo = async(req, res) => {
     ).populate({
         path: 'roomId',
         select: 'roomNo'
+    }).populate({
+        path: 'landLordId',
+        select: 'firstName lastName'
     })
 
     res.status(200).json(tenantInfo)
@@ -299,18 +302,19 @@ exports.editAllTenant = (req, res) => {
 
 
 
-exports.pieGraph = (req,res)=>{
-    rentDetails.aggregate([
-        { $group: {
-             _id:  "$roomTypes" ,
-             count:{$sum:1}    
-            }  },
+exports.pieGraph = (req, res) => {
+    rentDetails.aggregate([{
+            $group: {
+                _id: "$roomTypes",
+                count: { $sum: 1 }
+            }
+        },
         { $sort: { _id: 1 } }
 
-    ],(err,doc)=>{
-        if(err){
+    ], (err, doc) => {
+        if (err) {
             res.json(err)
-        }else{
+        } else {
             res.status(200).json(doc)
         }
     })

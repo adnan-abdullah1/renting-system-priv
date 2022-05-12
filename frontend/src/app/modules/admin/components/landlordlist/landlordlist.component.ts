@@ -9,12 +9,12 @@ import { UserProfileComponent } from 'src/app/modules/shared/components/user-pro
 export interface listrent {
 
   landlordName: string;
-  address: string;
+  // address: string;
   phoneNo: string;
   email: string;
   totalRooms: string;
   occupied: string;
-  available: string;
+  // available: string;
   action:string;
 
 }
@@ -45,7 +45,7 @@ export class LandlordlistComponent implements OnInit {
 
  
   
-  displayedColumns:String[]=['landlordName','address', 'phoneNo','email','totalRooms','occupied','available','action']
+  displayedColumns:String[]=['landlordName', 'phoneNo','email','totalRooms','occupied','action']
   dataSource=ELEMENT_DATA;
   getLandlordlist(){
     this.adminService.getLandlordlist().subscribe((res: any) => {

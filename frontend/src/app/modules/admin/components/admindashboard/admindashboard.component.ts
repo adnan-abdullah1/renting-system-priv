@@ -77,7 +77,7 @@ export class AdmindashboardComponent implements OnInit {
       this.totalAvailableRooms = res
     })
   }
-
+// below service call is for displaying pie chart
   roomTypesChart() {
     this.adminService.roomTypesChart().subscribe((res: any) => {
       console.log('Chart', res)

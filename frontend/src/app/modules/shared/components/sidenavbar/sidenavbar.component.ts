@@ -102,7 +102,7 @@ dataLoaded:boolean=false
           else
           this.profilePicture='assets/profile.jpg' 
         })
-        // this.ngOnInit();
+
   },(error:any)=> {
     console.log(error)
    
@@ -146,7 +146,6 @@ editUserDialog(){
 
 }
 }
-
 
 
 
