@@ -1,6 +1,6 @@
 <app-top-nav-bar *ngIf="setNavBar"></app-top-nav-bar>
 
-<div class="screenHeight">
+<div [class.screenHeight]="setNavBar">
 
     <mat-card>
         <button mat-raised-button (click)="addLandlordDialog()"> Add landlord </button>
