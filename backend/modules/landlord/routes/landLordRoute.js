@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const verifyToken = require('../../../middleware/VerifiedToken')
+
 
 const {
     addRentDetails,
@@ -18,18 +20,18 @@ const {
 
 
 } = require('../controllers/LandLordController')
-router.get('/send-notification/:id', notifiLandlord)
-router.post('/add-rent-details', addRentDetails)
-router.delete('/delete-rent-details/:id', deleteRentDetails)
-router.get('/get-all-rent-details/:id', getallRentDetails)
-router.put('/edit-rent-details/:id', editRentDetails)
-router.put('/approve-booking/:id',approveBooking)
-router.get('/get-booking-details/:id',getBookingDetails)
-router.get('/get-tenant-booking-details/:id',getTenantBookingDetails )
-router.get('/get-total-rooms/:id',getTotalRooms)
-router.get('/get-all-approved-rooms/:id',getAllApprovedRoooms)
-router.get('/get-all-pending-rooms/:id',getAllPendingRooms)
-router.get('/landLord-monthly-booking/:id',graph)
-router.delete('/reject-booking/:id',rejectBooking)
+router.get('/send-notification/:id',verifyToken, notifiLandlord)
+router.post('/add-rent-details', verifyToken,addRentDetails)
+router.delete('/delete-rent-details/:id',verifyToken, deleteRentDetails)
+router.get('/get-all-rent-details/:id',verifyToken, getallRentDetails)
+router.put('/edit-rent-details/:id', verifyToken,editRentDetails)
+router.put('/approve-booking/:id',verifyToken,approveBooking)
+router.get('/get-booking-details/:id',verifyToken,getBookingDetails)
+router.get('/get-tenant-booking-details/:id',verifyToken,getTenantBookingDetails )
+router.get('/get-total-rooms/:id',verifyToken,getTotalRooms)
+router.get('/get-all-approved-rooms/:id',verifyToken,getAllApprovedRoooms)
+router.get('/get-all-pending-rooms/:id',verifyToken,getAllPendingRooms)
+router.get('/landLord-monthly-booking/:id',verifyToken,graph)
+router.delete('/reject-booking/:id',verifyToken,rejectBooking)
 
 module.exports = router

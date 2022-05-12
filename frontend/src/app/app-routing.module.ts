@@ -18,6 +18,8 @@ import { RentlistComponent } from './modules/admin/components/rentlist/rentlist.
 import { AdmindashboardComponent } from './modules/admin/components/admindashboard/admindashboard.component';
 import { ListTenantComponent } from './modules/admin/components/tenantlist/list-tenant/list-tenant.component';
 import {MyBookingsComponent} from './modules/shared/components/my-bookings/my-bookings.component';
+import { AuthGuard } from './modules/auth/guards/auth.guard';
+
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -35,7 +37,7 @@ const routes: Routes = [
   {path:'landlordlist',component:LandlordlistComponent}, 
   {path:'tenantlist',component:TenantlistComponent},
   {path:'rentlist',component:RentlistComponent},
-  {path:'admindashboard',component:AdmindashboardComponent},
+  {path:'admindashboard',component:AdmindashboardComponent, canActivate:[AuthGuard]},
   {path:'list-all-tenants',component:ListTenantComponent},
   {path:'my-bookings',component:MyBookingsComponent}
 ];

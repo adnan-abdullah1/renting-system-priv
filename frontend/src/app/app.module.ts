@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -57,7 +57,7 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { EditUserComponent } from './modules/shared/components/sidenavbar/edit-user/edit-user.component';
 import { ReactiveFormsModule} from '@angular/forms';
 import { MyBookingsComponent } from './modules/shared/components/my-bookings/my-bookings.component';
-
+import { AuthInterceptor } from './modules/auth/guards/auth.interceptor';
 
 
 @NgModule({
@@ -92,9 +92,7 @@ import { MyBookingsComponent } from './modules/shared/components/my-bookings/my-
    ViewRoomDetailsAdminComponent,
    EditUserComponent,
    MyBookingsComponent
-    
-    
-
+  
 
   ],
   imports: [
@@ -127,7 +125,11 @@ import { MyBookingsComponent } from './modules/shared/components/my-bookings/my-
     ReactiveFormsModule
     
   ],
-  providers: [],
+  providers:[{
+    provide:HTTP_INTERCEPTORS,
+    useClass:AuthInterceptor,
+    multi:true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

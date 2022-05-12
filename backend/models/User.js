@@ -36,6 +36,9 @@ const userSchema = new Schema({
     occupiedRooms:{
         type:Number,
         default:0,
+    },
+    token:{
+        type:String
     }
     
 

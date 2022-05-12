@@ -75,6 +75,7 @@ dataLoaded:boolean=false
   ngAfterViewInit(): void {
     this.sidenavService.setSidenav(this.sidenav);  
   }
+
   ngAfterViewChecked():void
   {
     this.userDetails=(this.data.getUserData());
@@ -101,7 +102,7 @@ dataLoaded:boolean=false
           else
           this.profilePicture='assets/profile.jpg' 
         })
-        this.ngOnInit();
+        // this.ngOnInit();
   },(error:any)=> {
     console.log(error)
    

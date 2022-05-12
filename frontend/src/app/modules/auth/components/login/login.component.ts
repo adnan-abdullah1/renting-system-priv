@@ -21,7 +21,8 @@ export class LoginComponent implements OnInit {
       console.log(res)
       this.userDetails=res.user
       localStorage.setItem('userId', JSON.stringify(this.userDetails))
-      
+      localStorage.setItem('token',this.userDetails.token)
+
         this.data.setUserData(this.userDetails)
 
      if(this.userDetails?.role == 'admin')
