@@ -51,3 +51,14 @@ h3{
     color:Gray;
 }
 
+@media only screen and (max-width: 1100px) {
+    .ibox {
+        height:60%;
+    }
+  }
+
+  @media only screen and (max-width: 1000px) {
+    .ibox1 {
+        height:85%;
+    }
+  }
