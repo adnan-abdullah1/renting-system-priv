@@ -45,6 +45,7 @@ exports.signUp = async(req, res) => {
 
 
 exports.login = async(req, res) => {
+    console.log('body',req.body)
     const { email, password } = req.body;
     console.log(req.body)
     const user = await User.findOne({ email })
@@ -54,7 +55,7 @@ exports.login = async(req, res) => {
     if (!(user.password == password)) {
         return res.status(409).json({ message: 'Incorrect Password' })
     }
-    const token = jwt.sign({ user_id: user._id }, process.env.TOKEN_KEY, { expiresIn: "2h" }, );
+    const token = jwt.sign({ user_id: user._id }, process.env.TOKEN_KEY, { expiresIn: process.env.TOKEN_EXPIRY }, );
     // save user token
     user.token = token;
     console.log(user)

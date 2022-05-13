@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
         }
         
         
-        this.router.navigate(['/rent-details-list'],navigationExtra)
+        this.router.navigate(['/dashboard'])
         
       }
     }
