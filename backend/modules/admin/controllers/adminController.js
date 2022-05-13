@@ -41,9 +41,9 @@ exports.getAvailableRooms = (req, res) => {
                 if (err) {
                     res.status(409).json(error)
                 } else {
-                    //totalRooms means total rooms of particular landlord
+                  
                     const totalRooms = doc.length
-                        // console.log('doc2length',totalRooms)
+                     
                     const availableRooms = totalRooms - pendingAndApproveRooms
                     res.status(200).json(availableRooms)
                 }
@@ -141,10 +141,7 @@ exports.deleteRentInfo = (req, res) => {
 }
 
 exports.editRentInfo = (req, res) => {
-    // const body = req.body
-    //  const {landLordId} = body
-    //  console.log('landlord------->',landLordId)
-    // res.status(200).json(body)
+    
     rentDetails.findByIdAndUpdate(req.params.id, req.body, (err, doc) => {
         if (err) {
             res.json(err)
@@ -249,8 +246,9 @@ exports.editTenat = async(req, res) => {
     res.status(200).json({ info: "updated" })
 }
 
-exports.removeTenant = async(req, res) => {
 
+
+exports.removeTenant = async(req, res) => {
     bookings.find({ tenantId: req.params.id }, (err, doc) => {
         if (err) {
             return res.json(err)
@@ -261,16 +259,12 @@ exports.removeTenant = async(req, res) => {
                     if (err) {
                         return res.json(err)
                     } else {
-                        console.log('deleted landlord')
+                        console.log('Deleted Tenant')
                     }
                 })
             })
-
-
         }
     })
-
-
     bookings.deleteMany({ tenantId: req.params.id }, (err, doc) => {
         if (err) {
             return res.json(err)
@@ -281,12 +275,9 @@ exports.removeTenant = async(req, res) => {
                 } else {
                     return res.status(200).json('user deleted')
                 }
-
             })
         }
     })
-
-
 }
 
 

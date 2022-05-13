@@ -47,9 +47,41 @@ dataLoaded:boolean=false
       console.log("login cred!!!!!! ",this.userDetails)
   }
 
-  // take me to rent details
+ 
   rentList(){
-    this.router.navigate(['/rent-details-list'],this.navigationExtra)
+     
+     const roleDetails = JSON.parse(localStorage.getItem('userId') || '{}')
+     console.log('rentlistdetails',roleDetails)
+    if(roleDetails?.role=='Tenant')
+    {
+      const navigationExtra={
+        queryParams:{
+          option:'Tenant'
+          
+          
+        } 
+      
+      }
+      
+      this.router.navigate(['/rent-details-list'],navigationExtra)
+      
+    }
+    if(roleDetails.role=='landlord')
+    {
+      {
+        const navigationExtra={
+          queryParams:{
+            option:'landlord'
+          
+          }
+        }
+        
+        
+        this.router.navigate(['/rent-details-list'],navigationExtra)
+        
+      }
+    }
+    
   }
   myBookings(){
     console.log("booking called")
